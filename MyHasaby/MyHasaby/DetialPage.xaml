@@ -4,8 +4,25 @@
              x:Class="MyHasaby.DetialPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label x:Name="txtname"/>
-            <Label x:Name="txtid"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" ></ColumnDefinition>
+                    <ColumnDefinition Width="1.5*" ></ColumnDefinition>
+                    <ColumnDefinition Width="1.5*" ></ColumnDefinition>
+                    <ColumnDefinition Width="4*" ></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            
+            <Label x:Name="txtname" FontSize="Medium" Grid.Row="0" Grid.Column="0"/>
+            <Label x:Name="txtid" IsVisible="false"/>
+                <Entry x:Name="TexDane" Placeholder="ضع المبلغ" Grid.Row="0" Grid.Column="3"/>
+                <Button x:Name="BtnDane" Text="له" TextColor="Green" CornerRadius="25" FontSize="Large" Grid.Row="1" Grid.Column="2"/>
+                <Button x:Name="BtnMdane" Text="علية" TextColor="Red" FontSize="Large" CornerRadius="25"  Grid.Row="1" Grid.Column="3"/>
+                
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
