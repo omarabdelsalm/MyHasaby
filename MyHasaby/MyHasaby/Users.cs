@@ -7,10 +7,11 @@ namespace MyHasaby
 {
    public class Users
     {
+       
         [Indexed]
-        public int Id { get; set; }
+        public int PersonId { get; set; }
         public int Dane { get; set; }
         public int Mdan { get; set; }
-
+       
     }
 }

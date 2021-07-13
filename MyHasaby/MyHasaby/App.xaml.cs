@@ -8,8 +8,8 @@ namespace MyHasaby
     public partial class App : Application
     {
         static Database database;
-
-        public static Database Database
+        static Uesr database1;
+        public static Database User
         {
             get
             {
@@ -18,6 +18,17 @@ namespace MyHasaby
                     database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3"));
                 }
                 return database;
+            }
+        }
+        public static Uesr User1
+        {
+            get
+            {
+                if (database1 == null)
+                {
+                    database1 = new Uesr(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3"));
+                }
+                return database1;
             }
         }
         public App()

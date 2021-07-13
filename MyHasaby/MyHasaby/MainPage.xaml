@@ -39,20 +39,25 @@
                             <Grid Padding="10">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="*" />
+                                    <!--<RowDefinition Height="*" />-->
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-                                
-                                <Label Grid.Column="1"
+
+                                <Label 
+                                    Grid.Column="1"
                            Text="{Binding Name}"
-                           FontAttributes="Bold" />
-                                <Label Grid.Row="1"
-                           Grid.Column="1"
+                           FontAttributes="Bold" 
+                            TextColor="Red"        
+                              HorizontalOptions="CenterAndExpand"/>
+                                <Label 
+                           Grid.Column="2"
                            Text="{Binding Phone}"
-                           VerticalOptions="End" />
+                           VerticalOptions="End" 
+                             TextColor="green"         
+                            HorizontalOptions="CenterAndExpand"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
