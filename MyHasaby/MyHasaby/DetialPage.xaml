@@ -25,7 +25,7 @@
             </Grid>
             <StackLayout>
                 <ListView x:Name="_listView" ItemsSource="{Binding Users}"
-                     HasUnevenRows="true" >
+                     HasUnevenRows="true" IsPullToRefreshEnabled="True">
                     <!--ItemSelected="OnListViewItemSelected"  
                      ItemTapped="OnListViewItemTapped"-->
 
@@ -46,6 +46,7 @@
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="*" />
+                                        
                                     </Grid.ColumnDefinitions>
 
                                     <Label  x:Name="txtdane"
@@ -54,6 +55,7 @@
                            FontAttributes="Bold" 
                             TextColor="Red"        
                               HorizontalOptions="CenterAndExpand"/>
+                                  
                                     <Label  x:Name="txtmdan"
                            Grid.Column="2"
                            Text="{Binding Mdan}"
@@ -71,6 +73,26 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+            </StackLayout>
+            <StackLayout>
+                <Grid Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <!--<RowDefinition Height="*" />-->
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="EgmalyDaenText" Grid.Column="1" TextColor="Red"        
+                              HorizontalOptions="CenterAndExpand"  />
+                    <Label x:Name="EgmalyModanText" Grid.Column="2"  
+                             TextColor="green"         
+                            HorizontalOptions="CenterAndExpand"/>
+                    
+                </Grid>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -1,6 +1,8 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +12,8 @@ namespace MyHasaby
 {
     public partial class MainPage : ContentPage
     {
+        string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
+
         public MainPage()
         {
             InitializeComponent();
@@ -25,10 +29,18 @@ namespace MyHasaby
                     Name = nameEntry.Text,
                     Phone = Convert.ToInt32(ageEntry.Text)
                 });
-
-                nameEntry.Text = ageEntry.Text = string.Empty;
-                //collectionView.ItemsSource = await App.Database.GetPeopleAsync();
+               
+               
                 _ListView.ItemsSource = await App.User.GetPeopleAsync();
+                DisplayAlert("تم", "تم اضافة العميل بنجاح", "Ok");
+                Person person = new Person();
+                var db = new SQLiteConnection(_dbpath);
+                var maxPK = db.Table<Person>().OrderByDescending(c => c.ID).FirstOrDefault();
+                int id = (maxPK == null ? 1 : maxPK.ID);
+                string name = nameEntry.Text;
+                await Navigation.PushAsync(new AddData(id, name));
+                nameEntry.Text = ageEntry.Text = string.Empty;
+
             }
         }
         private void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)

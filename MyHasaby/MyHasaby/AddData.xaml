@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyHasaby.AddData">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid  >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" ></ColumnDefinition>
+                    <ColumnDefinition Width="1.5*" ></ColumnDefinition>
+                    <ColumnDefinition Width="3*" ></ColumnDefinition>
+                    <ColumnDefinition Width="4*" ></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label x:Name="txtname" FontSize="Default" TextColor="Brown" Grid.Row="0" Grid.Column="0"/>
+                <Label x:Name="txtid" Grid.Row="0" Grid.Column="1"/>
+                <Entry x:Name="TexDane" Placeholder="ضع المبلغ" Grid.Row="0" Grid.Column="3"/>
+                <Button x:Name="BtnDane" Text="له"  TextColor="Green" CornerRadius="25" FontSize="Default" Grid.Row="1" Grid.Column="2"/>
+                <Button x:Name="BtnMdane" Text="علية" TextColor="Red" FontSize="Default" CornerRadius="25"  Grid.Row="1" Grid.Column="3"/>
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

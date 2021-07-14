@@ -15,6 +15,11 @@ namespace MyHasaby
     public partial class DetialPage : ContentPage
     {
         string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
+        public int egmaijdaen;
+        public int egmaijdaen1;
+        public int egmaijdaen2;
+        internal object listView;
+
         public DetialPage(int id,String name)
         {
             InitializeComponent();
@@ -24,7 +29,25 @@ namespace MyHasaby
             BtnMdane.Clicked += BtnMdane_Clicked;//علية
             var db = new SQLiteConnection(_dbpath);
             var PersonId1 = int.Parse(txtid.Text);
+          
             //_listView.ItemsSource = db.Table<Users>().OrderBy(x => x.PersonId).ToList();
+            _listView.ItemsSource = db.Table<Users>().Where(i => i.PersonId == PersonId1);//.FirstOrDefaultAsync();
+            _listView.RefreshCommand = new Command(() => {
+                //Do your stuff.    
+                RefreshData();
+                _listView.IsRefreshing = false;
+            });
+            AddEgmalyHasabAsync();
+        }
+        public void RefreshData()
+        {
+            var db = new SQLiteConnection(_dbpath);
+            int PersonId1;     // = Convert.ToInt32(txtid.Text);
+            if (Int32.TryParse(txtid.Text, out PersonId1))
+            {
+              PersonId1= Convert.ToInt32(txtid.Text);
+            }
+            //_listView.ItemsSource = null;
             _listView.ItemsSource = db.Table<Users>().Where(i => i.PersonId == PersonId1);//.FirstOrDefaultAsync();
         }
 
@@ -66,6 +89,31 @@ namespace MyHasaby
            
             var PersonId1 = int.Parse(txtid.Text);
             _listView.ItemsSource = db.Table<Users>().Where(i => i.PersonId == PersonId1);
+        }
+        private void AddEgmalyHasabAsync()
+        {
+            string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
+
+           var db = new SQLiteConnection(_dbpath);
+            var PersonId1 = int.Parse(txtid.Text);
+            var table = db.Table<Users>().Where(i => i.PersonId == PersonId1);//db.Table<Users>();
+            foreach (var s in table)
+            {
+                var data = s.Dane;
+                egmaijdaen += data;
+                EgmalyDaenText.Text = egmaijdaen.ToString();
+                var ModanData = s.Mdan;
+                egmaijdaen1 += ModanData;
+                EgmalyModanText.Text = egmaijdaen1.ToString();
+
+                // egmaijdaen2 = Convert.ToInt32(EgmalyDaenText.Text)+ Convert.ToInt32(EgmalyModanText.Text);
+                //var ModanData1 = s.Egmaly;
+                //egmaijdaen2 += ModanData1;
+               
+            }
+
+
+
         }
 
     }
