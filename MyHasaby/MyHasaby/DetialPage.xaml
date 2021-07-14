@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyHasaby.DetialPage">
     <ContentPage.Content>
-        <StackLayout >
+        
+            <StackLayout >
+           
             <Grid  >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>
@@ -74,9 +76,10 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
-            <StackLayout>
-                <Grid Padding="10">
+            <StackLayout Padding="15" Margin="15">
+                <Grid >
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <!--<RowDefinition Height="*" />-->
                     </Grid.RowDefinitions>
@@ -86,14 +89,24 @@
                         <ColumnDefinition Width="*" />
 
                     </Grid.ColumnDefinitions>
-                    <Label x:Name="EgmalyDaenText" Grid.Column="1" TextColor="Red"        
-                              HorizontalOptions="CenterAndExpand"  />
+
+                    <Label Text ="لك" TextColor="Brown"  Grid.Column="1"  Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+                    <Label Text ="الباقي" TextColor="Brown" Grid.Column="0" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+                    <Label Text ="عليك" TextColor="Brown" Grid.Column="2" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+                  
+                        <Label x:Name="EgmalyDaenText" Grid.Column="1" TextColor="Red"        
+                              HorizontalOptions="CenterAndExpand" Grid.Row="1" />
                     <Label x:Name="EgmalyModanText" Grid.Column="2"  
                              TextColor="green"         
-                            HorizontalOptions="CenterAndExpand"/>
-                    
-                </Grid>
+                            HorizontalOptions="CenterAndExpand" Grid.Row="1"/>
+                    <Label x:Name="EgmalyEModanText" Grid.Column="0"  
+                             TextColor="Purple"         
+                            HorizontalOptions="CenterAndExpand" Grid.Row="1"/>
+            
+            </Grid>
             </StackLayout>
+           
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

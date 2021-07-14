@@ -105,11 +105,9 @@ namespace MyHasaby
                 var ModanData = s.Mdan;
                 egmaijdaen1 += ModanData;
                 EgmalyModanText.Text = egmaijdaen1.ToString();
-
-                // egmaijdaen2 = Convert.ToInt32(EgmalyDaenText.Text)+ Convert.ToInt32(EgmalyModanText.Text);
-                //var ModanData1 = s.Egmaly;
-                //egmaijdaen2 += ModanData1;
-               
+               var egmaiy = int.Parse(EgmalyModanText.Text )- int.Parse(EgmalyDaenText.Text);
+                EgmalyEModanText.Text = egmaiy.ToString();
+                
             }
 
 

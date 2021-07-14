@@ -25,20 +25,7 @@ namespace MyHasaby
             BtnDane.Clicked += BtnDane_Clicked;//له
             BtnMdane.Clicked += BtnMdane_Clicked;//علية
         }
-        //public  AddData(int id, string name)
-        //{
-            
-        //    txtname.Text =name;
-        //    txtid.Text = id.ToString();
-        //    BtnDane.Clicked += BtnDane_Clicked;//له
-        //    BtnMdane.Clicked += BtnMdane_Clicked;//علية
-        //    //var db = new SQLiteConnection(_dbpath);
-        //    //var PersonId1 = int.Parse(txtid.Text);
-
-        //    ////detial.ListView.ItemsSource = db.Table<Users>().OrderBy(x => x.PersonId).ToList();
-        //    //(detial)_listView.ItemsSource = db.Table<Users>().Where(i => i.PersonId == PersonId1);//.FirstOrDefaultAsync();
-           
-        //}
+       
         
     private async void BtnMdane_Clicked(object sender, EventArgs e)
         {
