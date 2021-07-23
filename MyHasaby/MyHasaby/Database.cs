@@ -23,7 +23,18 @@ namespace MyHasaby
 
         public Task<int> SavePersonAsync(Person person)
         {
-            return _database.InsertAsync(person);
+            if (person.ID != 0)
+            {
+                return _database.UpdateAsync(person);
+            }
+            else
+            {
+                return _database.InsertAsync(person);
+            }
+        }
+        public async Task<int> DeleteItemAsync(Person person)
+        {
+            return await _database.DeleteAsync(person);
         }
     }
 }

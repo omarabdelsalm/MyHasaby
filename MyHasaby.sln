@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyHasaby.Android", "MyHasab
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyHasaby.iOS", "MyHasaby\MyHasaby.iOS\MyHasaby.iOS.csproj", "{02B622D3-ACBD-4154-BE48-E50DE17B042B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyHasaby", "MyHasaby\MyHasaby\MyHasaby.csproj", "{2898DBCB-67E3-4815-834C-ABD99112A4AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyHasaby", "MyHasaby\MyHasaby\MyHasaby.csproj", "{2898DBCB-67E3-4815-834C-ABD99112A4AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

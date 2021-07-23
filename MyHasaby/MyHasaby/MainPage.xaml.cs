@@ -1,4 +1,8 @@
-﻿using SQLite;
+﻿using Android.Content;
+
+
+using Java.Nio.Channels;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,12 +12,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
+
 namespace MyHasaby
 {
     public partial class MainPage : ContentPage
     {
         string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
 
+      
         public MainPage()
         {
             InitializeComponent();
@@ -27,7 +33,7 @@ namespace MyHasaby
                 await App.User.SavePersonAsync(new Person
                 {
                     Name = nameEntry.Text,
-                    Phone = Convert.ToInt32(ageEntry.Text)
+                    Phone = int.Parse(ageEntry.Text)
                 });
                
                
@@ -69,6 +75,36 @@ namespace MyHasaby
             _ListView.ItemsSource = await App.User.GetPeopleAsync();
         }
 
-        
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+
+            try
+            {
+                var db = new SQLiteConnection(_dbpath);
+                string docFolder = Path.Combine(System.Environment.GetFolderPath
+                     (System.Environment.SpecialFolder.MyDocuments), "logs");
+                string libFolder = Path.Combine(docFolder, "/storage/emulated/0/Android/data/MyApp/files/logs");
+                if (!Directory.Exists(libFolder))
+                {
+                    Directory.CreateDirectory(libFolder);
+                }
+
+
+                string destinationDatabasePath = Path.Combine(libFolder, "temp.db3");//"/storage/emulated/0/Android/data/MyApp/files/logs";//
+
+                db.Backup( destinationDatabasePath, "main");
+               
+                DisplayAlert("تم بحمد الله", "ok", "OK");
+
+                
+            }
+            catch
+                {
+                DisplayAlert("محاولة مرةاخرى","no","om");
+                    
+                }
+            }
+
+       
     }
 }

@@ -24,7 +24,9 @@ namespace MyHasaby
 
         public Task<int> SavePersonAsync(Users users)
         {
+			
             return _database.InsertAsync(users);
+			
         }
         
         public Task<Users> GetItemAsync(int personId1)
@@ -33,6 +35,9 @@ namespace MyHasaby
             return _database.Table<Users>().Where(i => i.PersonId == personId1).FirstOrDefaultAsync();
         }
 
-
+        public async Task<int> DeleteItemAsync(Users users)
+        {
+            return await _database.DeleteAsync(users);
+        }
     }
 }
