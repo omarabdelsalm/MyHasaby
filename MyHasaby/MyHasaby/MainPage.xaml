@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyHasaby.MainPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="+" Clicked="ToolbarItem_Clicked"/>
+        <ToolbarItem Text="Backup" Clicked="ToolbarItem_Clicked"/>
+        
     </ContentPage.ToolbarItems>
     <StackLayout Margin="20,35,20,20">
         <Entry x:Name="nameEntry"
@@ -12,6 +13,7 @@
                Placeholder="Enter Phone" />
         <Button Text="Add to Database"
                 Clicked="OnButtonClicked" />
+        <Button Text="restore" Clicked="Button_Clicked" BackgroundColor="CadetBlue"/>
         <!--<CollectionView x:Name="collectionView" SelectionMode="Single">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
@@ -65,6 +67,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            
         </StackLayout>
     </StackLayout>
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 using Foundation;
@@ -23,7 +24,11 @@ namespace MyHasaby.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            string dbName = "SM4U.sqlite";
+            string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            string fullpath = Path.Combine(folderPath, dbName);
             LoadApplication(new App());
+            
 
             return base.FinishedLaunching(app, options);
         }

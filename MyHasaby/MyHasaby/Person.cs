@@ -8,8 +8,9 @@ namespace MyHasaby
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
+        [MaxLength(250),Unique]
         public string Name { get; set; }
-        public int Phone { get; set; }
+        public long Phone { get; set; }
 
     }
 }

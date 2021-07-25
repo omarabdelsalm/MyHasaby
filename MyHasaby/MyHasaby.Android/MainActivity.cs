@@ -6,6 +6,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using System.IO;
+using Xamarin.Forms;
 
 namespace MyHasaby.Droid
 {
@@ -14,13 +16,20 @@ namespace MyHasaby.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
+            string dbName = "SM4U.sqlite";
+            string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            string fullpath = Path.Combine(folderPath, dbName);
+            //LoadApplication(new App());
 
             base.OnCreate(savedInstanceState);
-
+            
+            Forms.Init(this, savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

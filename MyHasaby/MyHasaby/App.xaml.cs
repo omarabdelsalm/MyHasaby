@@ -31,15 +31,18 @@ namespace MyHasaby
                 return database1;
             }
         }
-        public App()
+        //public static string DataBasePath;
+        public  App()
         {
             InitializeComponent();
+            //DataBasePath = path;
 
             MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()
         {
+
         }
 
         protected override void OnSleep()
