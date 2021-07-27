@@ -27,7 +27,7 @@ namespace MyHasaby.iOS
             string dbName = "SM4U.sqlite";
             string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string fullpath = Path.Combine(folderPath, dbName);
-            LoadApplication(new App());
+            LoadApplication(new App(fullpath));
             
 
             return base.FinishedLaunching(app, options);

@@ -31,11 +31,11 @@ namespace MyHasaby
                 return database1;
             }
         }
-        //public static string DataBasePath;
-        public  App()
+        public static string DataBasePath;
+        public  App(string path)
         {
             InitializeComponent();
-            //DataBasePath = path;
+            DataBasePath = path;
 
             MainPage = new NavigationPage(new MainPage());
         }
