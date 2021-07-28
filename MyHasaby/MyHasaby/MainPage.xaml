@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
              x:Class="MyHasaby.MainPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Backup" Clicked="ToolbarItem_Clicked"/>
@@ -14,6 +15,7 @@
         <Button Text="Add to Database"
                 Clicked="OnButtonClicked" />
         <Button Text="restore" Clicked="Button_Clicked" BackgroundColor="CadetBlue"/>
+        <Button Text="Drive" Clicked="Button_Clicked_1" />
         <!--<CollectionView x:Name="collectionView" SelectionMode="Single">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
