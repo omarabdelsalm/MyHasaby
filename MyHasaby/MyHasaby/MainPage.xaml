@@ -55,13 +55,13 @@
                                 <Label 
                                     Grid.Column="1"
                            Text="{Binding Name}"
-                           FontAttributes="Bold" 
+                           
                             TextColor="Red"        
                               HorizontalOptions="CenterAndExpand"/>
                                 <Label 
                            Grid.Column="2"
                            Text="{Binding Phone}"
-                           VerticalOptions="End" 
+                           VerticalOptions="StartAndExpand" 
                              TextColor="green"         
                             HorizontalOptions="CenterAndExpand"/>
                             </Grid>

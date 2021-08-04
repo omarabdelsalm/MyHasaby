@@ -4,13 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             xmlns:local1="clr-namespace:MyHasaby"
-              BindingContext="{local1:MainViewModel}"
+            
              x:Class="MyHasaby.DrivePage">
     
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="Test Google Drive" Command="{Binding OnGoogleDrive}"/>
+            <Button Text="Test Google Drive" Clicked="Button_Clicked"/> 
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
