@@ -93,7 +93,7 @@ namespace MyHasaby
                 }
 
 
-                string destinationDatabasePath = Path.Combine(libFolder, $"temp{DateTime.Now.ToString("dd-MM-yy")}.db3");//"/storage/emulated/0/Android/data/MyApp/files/logs";//
+                string destinationDatabasePath = Path.Combine(libFolder, "temp.db3");
 
                 db.Backup(destinationDatabasePath, "main");
 

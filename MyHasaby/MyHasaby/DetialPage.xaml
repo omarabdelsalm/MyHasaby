@@ -54,7 +54,7 @@
                                     <Label  x:Name="txtdane"
                                     Grid.Column="1"
                            Text="{Binding Dane}"
-                           FontAttributes="Bold" 
+                          
                             TextColor="Red"        
                               HorizontalOptions="CenterAndExpand"/>
                                   

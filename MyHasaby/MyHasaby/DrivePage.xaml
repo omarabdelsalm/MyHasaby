@@ -9,7 +9,7 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="Test Google Drive" Clicked="Button_Clicked"/> 
+            <Button Text="Test Google Drive" Command="{Binding OnGoogleDrive}" /> 
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

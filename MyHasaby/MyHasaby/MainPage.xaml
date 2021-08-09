@@ -4,7 +4,7 @@
              
              x:Class="MyHasaby.MainPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Backup" Clicked="ToolbarItem_Clicked"/>
+        <ToolbarItem Text="نسخة احتياطية" Clicked="ToolbarItem_Clicked"/>
         
     </ContentPage.ToolbarItems>
     <StackLayout Margin="20,35,20,20">
@@ -12,10 +12,10 @@
                Placeholder="Enter name" />
         <Entry x:Name="ageEntry"
                Placeholder="Enter Phone" />
-        <Button Text="Add to Database"
+        <Button Text="اضافة الى السجل"
                 Clicked="OnButtonClicked" />
-        <Button Text="restore" Clicked="Button_Clicked" BackgroundColor="CadetBlue"/>
-        <Button Text="Drive" Clicked="Button_Clicked_1" />
+        <Button Text="استعادة النسخة الاحتياطية" Clicked="Button_Clicked" BackgroundColor="CadetBlue"/>
+        <Button Text="جوجل درايف" Clicked="Button_Clicked_1" />
         <!--<CollectionView x:Name="collectionView" SelectionMode="Single">
             <CollectionView.ItemTemplate>
                 <DataTemplate>

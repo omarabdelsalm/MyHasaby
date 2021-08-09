@@ -46,9 +46,11 @@ namespace MyHasaby
             if (Int32.TryParse(txtid.Text, out PersonId1))
             {
               PersonId1= Convert.ToInt32(txtid.Text);
+
             }
-            //_listView.ItemsSource = null;
-            _listView.ItemsSource = db.Table<Users>().Where(i => i.PersonId == PersonId1);//.FirstOrDefaultAsync();
+             _listView.ItemsSource = null;
+             _listView.ItemsSource = db.Table<Users>().Where(i => i.PersonId == PersonId1);//.FirstOrDefaultAsync();
+           
         }
 
         private async void BtnMdane_Clicked(object sender, EventArgs e)
@@ -96,7 +98,7 @@ namespace MyHasaby
 
            var db = new SQLiteConnection(_dbpath);
             var PersonId1 = int.Parse(txtid.Text);
-            var table = db.Table<Users>().Where(i => i.PersonId == PersonId1);//db.Table<Users>();
+            var table = db.Table<Users>().Where(i => i.PersonId == PersonId1);
             foreach (var s in table)
             {
                 var data = s.Dane;

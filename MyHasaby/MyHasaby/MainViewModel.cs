@@ -18,11 +18,11 @@ namespace MyHasaby
     {
        
         private string scope = "https://www.googleapis.com/auth/drive.file";
-        private string clientId = "315539561799-3gjn0admv6pf668blkpn1q0b0amshkvm.apps.googleusercontent.com";
-        private string redirectUrl = "xamarin.test.driverest:/oauth2redirect";
+        private string clientId = "315539561799-eqbsrcstqlp6omf7sqom9oe6ck8c84a6.apps.googleusercontent.com";
+        private string redirectUrl = "https://drive.google.com/drive/u/0/";
 
         public event PropertyChangedEventHandler PropertyChanged;
-
+        string presenter = null;
         public ICommand OnGoogleDrive { get; set; }
 
         [Obsolete]
@@ -83,10 +83,20 @@ namespace MyHasaby
 
             this.OnGoogleDrive = new Command(() =>
             {
-                var presenter = new OAuthLoginPresenter();
-                if(presenter !=null)
-               presenter.Login(auth); 
                
+                try {
+                    var presenter = new OAuthLoginPresenter();
+                    if (presenter != null)
+                        presenter.Login(auth);
+                }
+                catch (Exception ex)
+                {
+                    //return;
+
+                }
+
+
+
             });
         }
 
