@@ -93,7 +93,7 @@ namespace MyHasaby
                 }
 
 
-                string destinationDatabasePath = Path.Combine(libFolder, "temp.db3");
+                string destinationDatabasePath = Path.Combine(libFolder, $"temp{DateTime.Now.ToString("dd-yy-mm")}.db3");
 
                 db.Backup(destinationDatabasePath, "main");
 
@@ -110,7 +110,7 @@ namespace MyHasaby
         }
         private async Task Restor()
         {
-         
+
             try
             {
                 var connection = new SQLiteConnection(_dbpath);
@@ -125,7 +125,11 @@ namespace MyHasaby
                     (System.Environment.SpecialFolder.MyDocuments), "logs");
                 string libFolder = "/storage/emulated/0/Android/datacom.alshobky.myhasaby/files/logs/temp.db3";
                 string szRestorePath = Path.Combine(docFolder, libFolder);
-                szRestorePath = Path.Combine(libFolder, "temp.db3");
+                var file = await FilePicker.PickAsync();
+                if (file == null) return;
+                string filetemp = file.FileName;
+                var libFolder1 = file.FullPath;
+                szRestorePath = Path.Combine(libFolder, filetemp);
 
                 var statusWrite = await Permissions.RequestAsync<Permissions.StorageWrite>();
                 var statusRead = await Permissions.RequestAsync<Permissions.StorageRead>();
@@ -151,7 +155,7 @@ namespace MyHasaby
                         // Make an insanity check backup.
                         connection.Backup(connection.DatabasePath.Insert(connection.DatabasePath.Length, "OLD"));
                         // Close the existing DB.
-                         connection.Close();
+                        connection.Close();
 
                         // Check to make sure we have the backup DB before deleting the active DB
                         if (File.Exists($"{szLiveDBPath}OLD"))
@@ -173,10 +177,10 @@ namespace MyHasaby
 
                             // File delete the temporary backup  file now.
                             File.Delete($"{szLiveDBPath}OLD");
-                            DisplayAlert("OK","تم استعادة النسخة الاحتياطية","OK");
+                            DisplayAlert("OK", "تم استعادة النسخة الاحتياطية", "OK");
                             return;
                             //Quit the application.
-                           // System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
+                            // System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
                         }
                     }
                     catch (Exception ex)
@@ -192,7 +196,6 @@ namespace MyHasaby
             {
                 await DisplayAlert("Error", ex.Message, "Oops");
             }
-
 
         }
 
