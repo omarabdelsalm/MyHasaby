@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyHasaby.Views;
+using System;
 using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -37,7 +38,7 @@ namespace MyHasaby
             InitializeComponent();
             DataBasePath = path;
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new MainsPage());
         }
 
         protected override void OnStart()
