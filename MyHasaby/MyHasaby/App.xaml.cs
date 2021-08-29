@@ -38,7 +38,8 @@ namespace MyHasaby
             InitializeComponent();
             DataBasePath = path;
 
-            MainPage = new NavigationPage(new MainsPage());
+            // MainPage = new NavigationPage(new MainsPage());
+            MainPage = new ShellPage();
         }
 
         protected override void OnStart()

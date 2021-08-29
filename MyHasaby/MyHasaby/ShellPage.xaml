@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:MyHasaby.Views"
+             xmlns:local="clr-namespace:MyHasaby"
+             Padding="6" 
+       
+             x:Class="MyHasaby.ShellPage">
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid BackgroundColor="Black"
+                  HeightRequest="200">
+                <Image Aspect="AspectFill"
+                       Source="logo_size.jpg"
+                       Opacity="0.6" />
+                <Label Text="مدير التطبيق"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       FontSize="20"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+    <FlyoutItem Title="العملاء"
+                Icon="home.png" >
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+    </FlyoutItem>
+    
+    <FlyoutItem Title="الضبط"
+                Icon="setting.png">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate views:MainsPage}" />
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="جوجل درايف"
+                Icon="drive.png">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:DrivePage}" />
+        </Tab>
+    </FlyoutItem>
+    
+</Shell>
