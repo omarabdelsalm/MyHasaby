@@ -141,7 +141,7 @@ namespace MyHasaby
                             await Application.Current.MainPage.DisplayAlert("OK", "تم استعادة النسخة الاحتياطية", "OK");
                             return;
                             //Quit the application.
-                            // System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
+                            System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
                         }
                     }
                     catch (Exception ex)

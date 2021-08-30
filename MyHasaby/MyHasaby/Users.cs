@@ -17,6 +17,6 @@ namespace MyHasaby
         public int Mdan { get; set; }
         public DateTime CreateAt { get; set; }
 
-
+        public string Nots { get; set; }
     }
 }

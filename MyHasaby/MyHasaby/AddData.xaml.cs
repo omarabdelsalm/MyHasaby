@@ -34,8 +34,9 @@ namespace MyHasaby
                 await App.User1.SavePersonAsync(new Users
                 {
                     Dane = Convert.ToInt32(TexDane.Text),
-                    PersonId = Convert.ToInt32(txtid.Text)
-                });
+                    PersonId = Convert.ToInt32(txtid.Text),
+                    Nots= Molhazt.Text
+                }) ;
                 await DisplayAlert("تم اضافة المبلغ بنجاح", "adding", "ok");
                 await Navigation.PopAsync();
                 TexDane.Text = txtid.Text = string.Empty;
@@ -50,7 +51,9 @@ namespace MyHasaby
                 await App.User1.SavePersonAsync(new Users
                 {
                     Mdan = Convert.ToInt32(TexDane.Text),
-                    PersonId = Convert.ToInt32(txtid.Text)
+                    PersonId = Convert.ToInt32(txtid.Text),
+                    Nots = Molhazt.Text
+
                 });
                 await DisplayAlert("تم اضافة المبلغ بنجاح", "adding", "ok");
                 await Navigation.PopAsync();

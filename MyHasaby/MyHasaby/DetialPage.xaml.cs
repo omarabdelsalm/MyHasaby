@@ -35,20 +35,21 @@ namespace MyHasaby
             _listView.RefreshCommand = new Command(() => {
                 //Do your stuff.    
                 RefreshData();
-                _listView.IsRefreshing = false;
+                //_listView.IsRefreshing = false;
             });
             AddEgmalyHasabAsync();
         }
         public void RefreshData()
         {
             var db = new SQLiteConnection(_dbpath);
+            Users use = new Users();
             int PersonId1;     // = Convert.ToInt32(txtid.Text);
-            if (Int32.TryParse(txtid.Text, out PersonId1))
+            if (Int32.TryParse(Id.ToString(), out PersonId1))
             {
-              PersonId1= Convert.ToInt32(txtid.Text);
-
+                // PersonId1= Convert.ToInt32(txtid.Text);
+                PersonId1 = use.PersonId;
             }
-             _listView.ItemsSource = null;
+             //_listView.ItemsSource = null;
              _listView.ItemsSource = db.Table<Users>().Where(i => i.PersonId == PersonId1);//.FirstOrDefaultAsync();
            
         }
@@ -60,7 +61,9 @@ namespace MyHasaby
                 await App.User1.SavePersonAsync(new Users
                 {
                     Dane = Convert.ToInt32(TexDane.Text),
-                    PersonId = Convert.ToInt32(txtid.Text)
+                    PersonId = Convert.ToInt32(txtid.Text),
+                    Nots = Molhazt.Text
+
                 });
                await DisplayAlert("تم اضافة المبلغ بنجاح", "adding", "ok");
                 TexDane.Text = txtid.Text = string.Empty;
@@ -75,10 +78,11 @@ namespace MyHasaby
                 await App.User1.SavePersonAsync(new Users
                 {
                     Mdan = Convert.ToInt32(TexDane.Text),
-                    PersonId = Convert.ToInt32(txtid.Text)
+                    PersonId = Convert.ToInt32(txtid.Text),
+                    Nots = Molhazt.Text
+
                 });
                 await DisplayAlert("تم اضافة المبلغ بنجاح", "adding", "ok");
-               
                 TexDane.Text = txtid.Text = string.Empty;
             }
         }
@@ -87,10 +91,17 @@ namespace MyHasaby
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            var db = new SQLiteConnection(_dbpath);
-           
-            var PersonId1 = int.Parse(txtid.Text);
-            _listView.ItemsSource = db.Table<Users>().Where(i => i.PersonId == PersonId1);
+            //    var db = new SQLiteConnection(_dbpath);
+
+            //    var PersonId1 = int.Parse(txtid.Text);
+            //    _listView.ItemsSource = db.Table<Users>().Where(i => i.PersonId == PersonId1);
+            //
+            _listView.RefreshCommand = new Command(() => {
+                //Do your stuff.    
+                RefreshData();
+                //_listView.IsRefreshing = false;
+            });
+
         }
         private void AddEgmalyHasabAsync()
         {
