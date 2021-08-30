@@ -4,14 +4,15 @@
              
              x:Class="MyHasaby.MainPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="نسخة احتياطية" Clicked="ToolbarItem_Clicked"/>
+        <!--<ToolbarItem Text="نسخة احتياطية" Clicked="ToolbarItem_Clicked"/>-->
         
     </ContentPage.ToolbarItems>
     <StackLayout Margin="20,35,20,20">
         <Entry x:Name="nameEntry"
                Placeholder="Enter name" />
         <Entry x:Name="ageEntry"
-               Placeholder="Enter Phone" />
+               Placeholder="Enter Phone" 
+               Keyboard="Numeric" />
         <Button Text="اضافة الى السجل"
                 Clicked="OnButtonClicked" />
         <Button Text="استعادة النسخة الاحتياطية" Clicked="Button_Clicked" BackgroundColor="CadetBlue"/>

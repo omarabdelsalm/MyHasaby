@@ -75,39 +75,39 @@ namespace MyHasaby
             _ListView.ItemsSource = await App.User.GetPeopleAsync();
         }
 
-        private async void ToolbarItem_Clicked(object sender, EventArgs e)
-        {
+        //private async void ToolbarItem_Clicked(object sender, EventArgs e)
+        //{
 
-            try
-            {
-                var statusWrite = await Permissions.RequestAsync<Permissions.StorageWrite>();
-                var statusRead = await Permissions.RequestAsync<Permissions.StorageRead>();
-                var db = new SQLiteConnection(_dbpath);
-                string docFolder = Path.Combine(System.Environment.GetFolderPath
-                     (System.Environment.SpecialFolder.MyDocuments), "logs");
-                string szRestorePath = "/storage/emulated/0/Android/datacom.alshobky.myhasaby/files/logs/temp.db3";
-                string libFolder = Path.Combine(docFolder, szRestorePath);
-                if (!Directory.Exists(libFolder))
-                {
-                    Directory.CreateDirectory(libFolder);
-                }
-
-
-                string destinationDatabasePath = Path.Combine(libFolder, $"temp{DateTime.Now.ToString("dd-yy-mm")}.db3");
-
-                db.Backup(destinationDatabasePath, "main");
+        //    try
+        //    {
+        //        var statusWrite = await Permissions.RequestAsync<Permissions.StorageWrite>();
+        //        var statusRead = await Permissions.RequestAsync<Permissions.StorageRead>();
+        //        var db = new SQLiteConnection(_dbpath);
+        //        string docFolder = Path.Combine(System.Environment.GetFolderPath
+        //             (System.Environment.SpecialFolder.MyDocuments), "logs");
+        //        string szRestorePath = "/storage/emulated/0/Android/datacom.alshobky.myhasaby/files/logs/temp.db3";
+        //        string libFolder = Path.Combine(docFolder, szRestorePath);
+        //        if (!Directory.Exists(libFolder))
+        //        {
+        //            Directory.CreateDirectory(libFolder);
+        //        }
 
 
-                DisplayAlert("OK", "تم بحمد الله", "OK");
+        //        string destinationDatabasePath = Path.Combine(libFolder, $"temp{DateTime.Now.ToString("dd-yy-mm")}.db3");
+
+        //        db.Backup(destinationDatabasePath, "main");
 
 
-            }
-            catch (Exception ex)
-            {
-                DisplayAlert("محاولة مرةاخرى", "no", "om");
+        //        DisplayAlert("OK", "تم بحمد الله", "OK");
 
-            }
-        }
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        DisplayAlert("محاولة مرةاخرى", "no", "om");
+
+        //    }
+        //}
         private async Task Restor()
         {
 
