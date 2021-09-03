@@ -25,8 +25,8 @@
                 <Entry x:Name="TexDane" Placeholder="ضع المبلغ" Keyboard="Numeric" Grid.Row="0" Grid.Column="3"/>
                 <Entry x:Name="Molhazt" Placeholder="ملاحظات" Grid.Row="1"/>
 
-                <Button x:Name="BtnDane" Text="له"  TextColor="Green" CornerRadius="25" FontSize="Default" Grid.Row="2" Grid.Column="2"/>
-                <Button x:Name="BtnMdane" Text="علية" TextColor="Red" FontSize="Default" CornerRadius="25"  Grid.Row="2" Grid.Column="3"/>
+                <Button x:Name="BtnDane" Text="مدفوعات"  TextColor="Green" CornerRadius="25" FontSize="Default" Grid.Row="2" Grid.Column="2"/>
+                <Button x:Name="BtnMdane" Text="مديونيات" TextColor="Red" FontSize="Default" CornerRadius="25"  Grid.Row="2" Grid.Column="3"/>
                 
             </Grid>
             <StackLayout>
@@ -49,38 +49,44 @@
                                         <!--<RowDefinition Height="*" />-->
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="*" />
-                                        
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
 
                                     <Label  x:Name="txtdane"
-                                    Grid.Column="1"
-                           Text="{Binding Dane}"
+                                                    Grid.Column="3"
+                                           Text="{Binding Dane}"
                           
-                            TextColor="Red"        
-                              HorizontalOptions="CenterAndExpand"/>
+                                            TextColor="Red"        
+                                              HorizontalOptions="Center"/>  
                                     <Label  x:Name="Not"
-                                    Grid.Column="2"
-                           Text="{Binding Nots}"
+                                                        FontSize="Small"
+                                                Grid.Column="1"
+                                       Text="{Binding Nots}"
                           
-                            TextColor="Red"        
-                              HorizontalOptions="CenterAndExpand"/>
+                                        TextColor="Black"        
+                                          HorizontalOptions="StartAndExpand"/>
+
 
                                     <Label  x:Name="txtmdan"
-                           Grid.Column="1"
-                           Text="{Binding Mdan}"
-                           VerticalOptions="End" 
-                             TextColor="green"         
-                            HorizontalOptions="CenterAndExpand"/>
+                                               Grid.Column="2"
+                                               Text="{Binding Mdan}"
+                         
+                                                 TextColor="green"         
+                                                HorizontalOptions="Center"/>
                                     <Label  x:Name="txtID"
-                           Grid.Column="0"
-                           Text="{Binding CreateAt}"
-                           VerticalOptions="End" 
-                             TextColor="Blue"         
-                            HorizontalOptions="CenterAndExpand"/>
+                                               Grid.Column="0"
+                                               Text="{Binding CreateAt,StringFormat='{0:dd-MM-yyyy}'}"
+                                               FontSize="Small"
+                           
+                                                 TextColor="#204502"         
+                                                HorizontalOptions="StartAndExpand"/>    
+
                                 </Grid>
+                                
+                                
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -94,15 +100,15 @@
                         <!--<RowDefinition Height="*" />-->
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
 
                     </Grid.ColumnDefinitions>
 
-                    <Label Text ="عليك" TextColor="Brown"  Grid.Column="1"  Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
-                    <Label Text ="الباقي" TextColor="Brown" Grid.Column="0" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
-                    <Label Text ="لك" TextColor="Brown" Grid.Column="2" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+                    <Label Text ="اجمالي الديون" TextColor="Black"  Grid.Column="1"  Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+                    <Label Text ="الباقي" TextColor="Black" Grid.Column="0" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+                    <Label Text ="اجمالى المدفوع" TextColor="Black" Grid.Column="2" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
                   
                         <Label x:Name="EgmalyDaenText" Grid.Column="1" TextColor="Red"        
                               HorizontalOptions="CenterAndExpand" Grid.Row="1" />

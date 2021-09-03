@@ -19,10 +19,15 @@ namespace MyHasaby
         public int egmaijdaen1;
         public int egmaijdaen2;
         internal object listView;
-
+        public string name2;
+        public int id2;
+        public int item1;
+        public int item2;
         public DetialPage(int id,String name)
         {
             InitializeComponent();
+            var name2 = name;
+            var id2 = id;
             txtname.Text = name;
             txtid.Text = id.ToString();
             BtnDane.Clicked += BtnDane_Clicked;//له
@@ -30,29 +35,11 @@ namespace MyHasaby
             var db = new SQLiteConnection(_dbpath);
             var PersonId1 = int.Parse(txtid.Text);
           
-            //_listView.ItemsSource = db.Table<Users>().OrderBy(x => x.PersonId).ToList();
             _listView.ItemsSource = db.Table<Users>().Where(i => i.PersonId == PersonId1);//.FirstOrDefaultAsync();
-            _listView.RefreshCommand = new Command(() => {
-                //Do your stuff.    
-                RefreshData();
-                //_listView.IsRefreshing = false;
-            });
+            
             AddEgmalyHasabAsync();
         }
-        public void RefreshData()
-        {
-            var db = new SQLiteConnection(_dbpath);
-            Users use = new Users();
-            int PersonId1;     // = Convert.ToInt32(txtid.Text);
-            if (Int32.TryParse(Id.ToString(), out PersonId1))
-            {
-                // PersonId1= Convert.ToInt32(txtid.Text);
-                PersonId1 = use.PersonId;
-            }
-             //_listView.ItemsSource = null;
-             _listView.ItemsSource = db.Table<Users>().Where(i => i.PersonId == PersonId1);//.FirstOrDefaultAsync();
-           
-        }
+        
 
         private async void BtnMdane_Clicked(object sender, EventArgs e)
         {
@@ -66,7 +53,30 @@ namespace MyHasaby
 
                 });
                await DisplayAlert("تم اضافة المبلغ بنجاح", "adding", "ok");
+
+                var db = new SQLiteConnection(_dbpath);
+
+                var PersonId1 = int.Parse(txtid.Text);
+                var table = db.Table<Users>().Where(i => i.PersonId == PersonId1);
+                foreach (var s in table)
+                {
+                    var data = s.Dane;
+                    egmaijdaen += data;
+                    var ModanData = s.Mdan;
+                    egmaijdaen1 += ModanData;
+                }
+
+                await App.User1.SaveEgmalyAsync(new EgmalyDanMden
+                {
+                    Name = txtname.Text,
+                    PersonId = Convert.ToInt32(txtid.Text),
+                    EgDane = egmaijdaen,
+
+                    EgMdan = egmaijdaen1
+
+                });
                 TexDane.Text = txtid.Text = string.Empty;
+                await Navigation.PopAsync();
             }
         }
 
@@ -83,7 +93,30 @@ namespace MyHasaby
 
                 });
                 await DisplayAlert("تم اضافة المبلغ بنجاح", "adding", "ok");
+
+                var db = new SQLiteConnection(_dbpath);
+                
+                var PersonId1 = int.Parse(txtid.Text);
+                var table = db.Table<Users>().Where(i => i.PersonId == PersonId1);
+                foreach (var s in table)
+                {
+                    var data = s.Dane;
+                    egmaijdaen += data;
+                    var ModanData = s.Mdan;
+                    egmaijdaen1 += ModanData;
+                }
+
+                await App.User1.SaveEgmalyAsync(new EgmalyDanMden
+                {
+                    Name = txtname.Text,
+                    PersonId = Convert.ToInt32(txtid.Text),
+                    EgDane = egmaijdaen,
+
+                    EgMdan = egmaijdaen1
+
+                });
                 TexDane.Text = txtid.Text = string.Empty;
+                await Navigation.PopAsync();
             }
         }
 
@@ -91,19 +124,13 @@ namespace MyHasaby
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            //    var db = new SQLiteConnection(_dbpath);
+            var db = new SQLiteConnection(_dbpath);
+            var PersonId1 = int.Parse(txtid.Text);
+            _listView.ItemsSource = db.Table<Users>().Where(i => i.PersonId == PersonId1);//.FirstOrDefaultAsync();
 
-            //    var PersonId1 = int.Parse(txtid.Text);
-            //    _listView.ItemsSource = db.Table<Users>().Where(i => i.PersonId == PersonId1);
-            //
-            _listView.RefreshCommand = new Command(() => {
-                //Do your stuff.    
-                RefreshData();
-                //_listView.IsRefreshing = false;
-            });
 
         }
-        private void AddEgmalyHasabAsync()
+        private async void AddEgmalyHasabAsync()
         {
             string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
 
@@ -120,11 +147,9 @@ namespace MyHasaby
                 EgmalyModanText.Text = egmaijdaen1.ToString();
                var egmaiy = int.Parse(EgmalyModanText.Text )- int.Parse(EgmalyDaenText.Text);
                 EgmalyEModanText.Text = egmaiy.ToString();
-                
+               
             }
-
-
-
+            
         }
 
     }

@@ -38,7 +38,7 @@ namespace MyHasaby
             InitializeComponent();
             DataBasePath = path;
 
-            // MainPage = new NavigationPage(new MainsPage());
+            //MainPage = new NavigationPage(new DisblayAllPage());
             MainPage = new ShellPage();
         }
 

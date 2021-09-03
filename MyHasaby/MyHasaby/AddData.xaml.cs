@@ -16,10 +16,13 @@ namespace MyHasaby
     public partial class AddData : ContentPage
     {
         string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
-        
+        public int egmaijdaen;
+        public int egmaijdaen1;
+        public int egmaijdaen2;
+        public string name2;
         public  AddData(int id, string name) {
             InitializeComponent();
-
+            name2 = name;
             txtname.Text = name;
             txtid.Text = id.ToString();
             BtnDane.Clicked += BtnDane_Clicked;//له
@@ -38,6 +41,28 @@ namespace MyHasaby
                     Nots= Molhazt.Text
                 }) ;
                 await DisplayAlert("تم اضافة المبلغ بنجاح", "adding", "ok");
+                string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
+
+                var db = new SQLiteConnection(_dbpath);
+                var PersonId1 = int.Parse(txtid.Text);
+                var table = db.Table<Users>().Where(i => i.PersonId == PersonId1);
+                foreach (var s in table)
+                {
+                    var data = s.Dane;
+                    egmaijdaen += data;
+                    var ModanData = s.Mdan;
+                    egmaijdaen1 += ModanData;
+                }
+
+                await App.User1.SaveEgmalyAsync(new EgmalyDanMden
+                {
+                    Name = name2,
+                    PersonId = PersonId1,
+                    EgDane = egmaijdaen,
+
+                    EgMdan = egmaijdaen1
+
+                });
                 await Navigation.PopAsync();
                 TexDane.Text = txtid.Text = string.Empty;
             }
@@ -56,6 +81,29 @@ namespace MyHasaby
 
                 });
                 await DisplayAlert("تم اضافة المبلغ بنجاح", "adding", "ok");
+                string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
+
+                var db = new SQLiteConnection(_dbpath);
+                var PersonId1 = int.Parse(txtid.Text);
+                var table = db.Table<Users>().Where(i => i.PersonId == PersonId1);
+                foreach (var s in table)
+                {
+                    var data = s.Dane;
+                    egmaijdaen += data;
+                    var ModanData = s.Mdan;
+
+                    egmaijdaen1 += ModanData;
+                }
+
+                await App.User1.SaveEgmalyAsync(new EgmalyDanMden
+                {
+                    Name = name2,
+                    PersonId = PersonId1,
+                    EgDane = egmaijdaen,
+
+                    EgMdan = egmaijdaen1
+
+                });
                 await Navigation.PopAsync();
 
                 TexDane.Text = txtid.Text = string.Empty;

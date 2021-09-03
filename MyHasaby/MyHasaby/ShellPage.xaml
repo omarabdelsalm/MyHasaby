@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:MyHasaby.Views"
              xmlns:local="clr-namespace:MyHasaby"
-             Padding="6" 
+             Padding="20" 
        
              x:Class="MyHasaby.ShellPage">
     <Shell.FlyoutHeaderTemplate>
@@ -16,9 +16,9 @@
                 <Label Text="مدير التطبيق"
                        TextColor="White"
                        FontAttributes="Bold"
-                       FontSize="20"
+                       FontSize="25"
                        HorizontalTextAlignment="Center"
-                       VerticalTextAlignment="Center" />
+                       VerticalTextAlignment="Start" />
             </Grid>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
@@ -26,6 +26,12 @@
                 Icon="home.png" >
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="المعاملات"
+                Icon="omrlog.png">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate views:DisblayAllPage}" />
         </Tab>
     </FlyoutItem>
     
@@ -41,7 +47,7 @@
             <ShellContent ContentTemplate="{DataTemplate local:DrivePage}" />
         </Tab>
     </FlyoutItem>
-    <MenuItem Text="نسخة احتياطية" IconImageSource="backup.png" Command="{Binding BackCommand}"/>
+    <MenuItem Text="حفظ نسخة احتياطية" IconImageSource="backup.png" Command="{Binding BackCommand}"/>
     <MenuItem Text="استعادة النسخة الاحتياطية" IconImageSource="restore.jpg" Command="{Binding ReCommand}"/>
 
 
