@@ -22,13 +22,39 @@ namespace MyHasaby.Views
             InitializeComponent();
 
 
-            var db = new SQLiteConnection(_dbpath);
-            _listView.ItemsSource = db.Table<EgmalyDanMden>().OrderBy(x => x.PersonId).ToList();
+          
             
            
 
         }
-        
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var db = new SQLiteConnection(_dbpath);
+            db.CreateTable<Person>();
+
+            List<EgmalyDanMden> egmalyDanMdens = new List<EgmalyDanMden>();
+            var result = db.Table<Users>().ToList();
+
+            foreach (var item in result.GroupBy(x => x.PersonId).ToList())
+            {
+                var Dane = result.Where(x => x.PersonId == item.Key).Select(x => x.Dane).Sum();
+                var mdane = result.Where(x => x.PersonId == item.Key).Select(x => x.Mdan).Sum();
+                var personnaleid = item.Key;
+                var name = db.Table<Person>().ToList().FirstOrDefault(x => x.ID == item.Key).Name;
+                egmalyDanMdens.Add(new EgmalyDanMden
+                {
+                    EgDane = Dane,
+                    EgMdan = mdane,
+                    PersonId = personnaleid,
+                    Name = name
+                });
+            }
+
+
+            _listView.ItemsSource = egmalyDanMdens;
+        }
 
     }
 }

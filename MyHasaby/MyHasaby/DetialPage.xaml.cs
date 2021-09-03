@@ -57,22 +57,21 @@ namespace MyHasaby
                 var db = new SQLiteConnection(_dbpath);
 
                 var PersonId1 = int.Parse(txtid.Text);
-                var table = db.Table<Users>().Where(i => i.PersonId == PersonId1);
-                foreach (var s in table)
-                {
-                    var data = s.Dane;
-                    egmaijdaen += data;
-                    var ModanData = s.Mdan;
-                    egmaijdaen1 += ModanData;
-                }
+                //var table = db.Table<Users>().Where(i => i.PersonId == PersonId1);
+                //foreach (var s in table)
+                //{
+                //    var data = s.Dane;
+                //    egmaijdaen += data;
+                //    var ModanData = s.Mdan;
+                //    egmaijdaen1 += ModanData;
+                //}
 
                 await App.User1.SaveEgmalyAsync(new EgmalyDanMden
                 {
                     Name = txtname.Text,
                     PersonId = Convert.ToInt32(txtid.Text),
-                    EgDane = egmaijdaen,
-
-                    EgMdan = egmaijdaen1
+                    EgDane = db.Table<Users>().Where(i => i.PersonId == PersonId1).Select(x => x.Dane).Sum(),
+                    EgMdan = db.Table<Users>().Where(i => i.PersonId == PersonId1).Select(x => x.Mdan).Sum()
 
                 });
                 TexDane.Text = txtid.Text = string.Empty;
@@ -97,23 +96,21 @@ namespace MyHasaby
                 var db = new SQLiteConnection(_dbpath);
                 
                 var PersonId1 = int.Parse(txtid.Text);
-                var table = db.Table<Users>().Where(i => i.PersonId == PersonId1);
-                foreach (var s in table)
-                {
-                    var data = s.Dane;
-                    egmaijdaen += data;
-                    var ModanData = s.Mdan;
-                    egmaijdaen1 += ModanData;
-                }
+                //var table = db.Table<Users>().Where(i => i.PersonId == PersonId1).Select(x=>x.Dane).Sum();
+                //foreach (var s in table)
+                //{
+                //    var data = s.Dane;
+                //    egmaijdaen += data;
+                //    var ModanData = s.Mdan;
+                //    egmaijdaen1 += ModanData;
+                //}
 
                 await App.User1.SaveEgmalyAsync(new EgmalyDanMden
                 {
                     Name = txtname.Text,
                     PersonId = Convert.ToInt32(txtid.Text),
-                    EgDane = egmaijdaen,
-
-                    EgMdan = egmaijdaen1
-
+                    EgDane = db.Table<Users>().Where(i => i.PersonId == PersonId1).Select(x => x.Dane).Sum(),
+                    EgMdan = db.Table<Users>().Where(i => i.PersonId == PersonId1).Select(x => x.Mdan).Sum()
                 });
                 TexDane.Text = txtid.Text = string.Empty;
                 await Navigation.PopAsync();

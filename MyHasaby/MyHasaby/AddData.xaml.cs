@@ -85,23 +85,23 @@ namespace MyHasaby
 
                 var db = new SQLiteConnection(_dbpath);
                 var PersonId1 = int.Parse(txtid.Text);
-                var table = db.Table<Users>().Where(i => i.PersonId == PersonId1);
-                foreach (var s in table)
-                {
-                    var data = s.Dane;
-                    egmaijdaen += data;
-                    var ModanData = s.Mdan;
+                //var table = db.Table<Users>().Where(i => i.PersonId == PersonId1);
+                //foreach (var s in table)
+                //{
+                //    var data = s.Dane;
+                //    egmaijdaen += data;
+                //    var ModanData = s.Mdan;
 
-                    egmaijdaen1 += ModanData;
-                }
-
+                //    egmaijdaen1 += ModanData;
+                //}
+                
                 await App.User1.SaveEgmalyAsync(new EgmalyDanMden
                 {
                     Name = name2,
                     PersonId = PersonId1,
-                    EgDane = egmaijdaen,
+                    EgDane = db.Table<Users>().Where(i => i.PersonId == PersonId1).Select(x => x.Dane).Sum(),
 
-                    EgMdan = egmaijdaen1
+                    EgMdan = db.Table<Users>().Where(i => i.PersonId == PersonId1).Select(x => x.Mdan).Sum()
 
                 });
                 await Navigation.PopAsync();
