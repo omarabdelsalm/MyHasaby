@@ -4,6 +4,7 @@
              x:Class="MyHasaby.Views.DisblayAllPage">
     <ContentPage.Content>
         <StackLayout>
+        <StackLayout>
         <Label Text="test"></Label>
         <!--<ListView  x:Name="_listView" >
             <ListView.ItemTemplate>
@@ -41,6 +42,37 @@
 
 
             </ListView>
+        </StackLayout>
+        <StackLayout Padding="15" Margin="15">
+                <Label x:Name="lbt"/>
+                <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <!--<RowDefinition Height="*" />-->
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+
+                </Grid.ColumnDefinitions>
+
+                <Label Text ="اجمالي الديون" TextColor="Black"  Grid.Column="1"  Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+                <Label Text ="الباقي" TextColor="Black" Grid.Column="0" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+                <Label Text ="اجمالى المدفوع" TextColor="Black" Grid.Column="2" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+
+                <Label x:Name="EgmalyDaenText" Grid.Column="1" TextColor="Red"        
+                              HorizontalOptions="CenterAndExpand" Grid.Row="1" />
+                <Label x:Name="EgmalyModanText" Grid.Column="2"  
+                             TextColor="green"         
+                            HorizontalOptions="CenterAndExpand" Grid.Row="1"/>
+                <Label x:Name="EgmalyEModanText" Grid.Column="0"  
+                             TextColor="Purple"         
+                            HorizontalOptions="CenterAndExpand" Grid.Row="1"/>
+
+            </Grid>
+        </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

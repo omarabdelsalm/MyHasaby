@@ -5,6 +5,7 @@ using SQLite;
 
 namespace MyHasaby
 {
+   
     public class EgmalyDanMden
     {
         [PrimaryKey,AutoIncrement]
@@ -16,7 +17,7 @@ namespace MyHasaby
         public int EgMdan { get; set; }
         public override string ToString()
         {
-            return "    "+ this.Name + ":-" + "عليه" +  this.EgMdan +  " له" + this.EgDane;
+            return  this.Name + " " + " سداد " +  this.EgMdan +" " + "ديون"  + this.EgDane;
         }
     }
 }

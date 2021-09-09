@@ -15,17 +15,11 @@ namespace MyHasaby.Views
     public partial class DisblayAllPage : ContentPage
     {
         string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
-        //public ObservableCollection<EgmalyDanMden> List { get; set; } = new ObservableCollection<EgmalyDanMden>();
-
+        
         public DisblayAllPage()
         {
             InitializeComponent();
-
-
-          
-            
-           
-
+    
         }
 
         protected override void OnAppearing()
@@ -54,7 +48,23 @@ namespace MyHasaby.Views
 
 
             _listView.ItemsSource = egmalyDanMdens;
+
+            var result1 = db.Table<Users>();
+
+            var all = (from emp in result1.AsEnumerable() select emp.Dane).Sum();
+
+            lbt.Text = all.ToString();
+            EgmalyDaenText.Text = all.ToString();
+
+            var all2 = (from emp in result1 select emp.Mdan).Sum();
+            EgmalyModanText.Text = (all2).ToString();
+            var egmaiy = int.Parse(EgmalyModanText.Text) - int.Parse(EgmalyDaenText.Text);
+            EgmalyEModanText.Text = egmaiy.ToString();
+
+
+
         }
+
 
     }
 }
