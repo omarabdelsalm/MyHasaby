@@ -75,7 +75,7 @@ namespace MyHasaby
         private async void BtnDane_Clicked(object sender, EventArgs e)
         {
             
-            if (!string.IsNullOrWhiteSpace(TexDane.Text))// && !string.IsNullOrWhiteSpace(ageEntry.Text))
+            if (!string.IsNullOrWhiteSpace(TexDane.Text) && !string.IsNullOrWhiteSpace(Molhazt.Text))
             {
                 await App.User1.SavePersonAsync(new Users
                 {

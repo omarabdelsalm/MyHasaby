@@ -1,0 +1,45 @@
+﻿using SQLite;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace MyHasaby
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class DeleatPage : ContentPage
+    {
+        string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
+
+        public DeleatPage()
+        {
+            InitializeComponent();
+        }
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            //collectionView.ItemsSource = await App.Database.GetPeopleAsync();
+            _ListView.ItemsSource = await App.User.GetPeopleAsync();
+        }
+        Person omar;
+        private void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            omar = e.SelectedItem as Person;
+
+
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            var db = new SQLiteConnection(_dbpath);
+            db.Table<Person>().Delete(X => X.ID == omar.ID);
+            db.Table<Users>().Delete(X => X.PersonId == omar.ID);
+
+        }
+    }
+}

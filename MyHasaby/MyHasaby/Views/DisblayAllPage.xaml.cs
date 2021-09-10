@@ -53,7 +53,7 @@ namespace MyHasaby.Views
 
             var all = (from emp in result1.AsEnumerable() select emp.Dane).Sum();
 
-            lbt.Text = all.ToString();
+            
             EgmalyDaenText.Text = all.ToString();
 
             var all2 = (from emp in result1 select emp.Mdan).Sum();

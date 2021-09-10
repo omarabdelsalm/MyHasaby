@@ -33,7 +33,7 @@ namespace MyHasaby
                 await App.User.SavePersonAsync(new Person
                 {
                     Name = nameEntry.Text,
-                    Phone = long.Parse(ageEntry.Text)
+                    Phone = ageEntry.Text
                 });
                
                
@@ -50,9 +50,11 @@ namespace MyHasaby
 
             }
         }
+        Person omar;
         private void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            _ = e.SelectedItem as Person;
+            omar = e.SelectedItem as Person;
+           
 
         }
 
@@ -211,6 +213,12 @@ namespace MyHasaby
         private async void Button_Clicked_1(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new DrivePage());
+        }
+
+        private async void ToolbarItem_Clicked_1(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DeleatPage());
+
         }
     }
 }

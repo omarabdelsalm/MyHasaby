@@ -48,7 +48,7 @@
         </Tab>
     </FlyoutItem>
     <MenuItem Text="حفظ نسخة احتياطية" IconImageSource="backup.png" Command="{Binding BackCommand}"/>
-    <MenuItem Text="استعادة النسخة الاحتياطية" IconImageSource="restore.jpg" Command="{Binding ReCommand}"/>
+    <MenuItem Text="استعادة النسخة الاحتياطية" IconImageSource="reload.png" Command="{Binding ReCommand}"/>
 
 
 </Shell>

@@ -1,41 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyHasaby.Views.DisblayAllPage">
+             x:Class="MyHasaby.Views.DisblayAllPage"
+             Title="تقرير المعاملات"
+             >
     <ContentPage.Content>
         <StackLayout>
         <StackLayout>
-        <Label Text="test"></Label>
-        <!--<ListView  x:Name="_listView" >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        --><!--<StackLayout>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
-                                    
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                  
-                                </Grid.ColumnDefinitions>
-                                
-                            </Grid>
-                            <Label Text="{Binding Name}" Grid.Column="0"/>
-                            <Label Text="{Binding EgDane}" Grid.Column="0"/>
-
-                            <Label Text="{Binding EgMdan}" Grid.Column="0"/>
-
-                           
-
-                        </StackLayout>--><!--
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>-->
+       
+        
             <ListView x:Name="_listView">
 
 

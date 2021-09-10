@@ -8858,22 +8858,28 @@ namespace MyHasaby.Droid
 			public const int omrlog = 2131165329;
 			
 			// aapt resource value: 0x7F070092
-			public const int restore = 2131165330;
+			public const int reload = 2131165330;
 			
 			// aapt resource value: 0x7F070093
-			public const int setting = 2131165331;
+			public const int restore = 2131165331;
 			
 			// aapt resource value: 0x7F070094
-			public const int telephone = 2131165332;
+			public const int rubbish = 2131165332;
 			
 			// aapt resource value: 0x7F070095
-			public const int template = 2131165333;
+			public const int setting = 2131165333;
 			
 			// aapt resource value: 0x7F070096
-			public const int tooltip_frame_dark = 2131165334;
+			public const int telephone = 2131165334;
 			
 			// aapt resource value: 0x7F070097
-			public const int tooltip_frame_light = 2131165335;
+			public const int template = 2131165335;
+			
+			// aapt resource value: 0x7F070098
+			public const int tooltip_frame_dark = 2131165336;
+			
+			// aapt resource value: 0x7F070099
+			public const int tooltip_frame_light = 2131165337;
 			
 			static Drawable()
 			{

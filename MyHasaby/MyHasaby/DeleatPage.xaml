@@ -1,44 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            
-             x:Class="MyHasaby.MainPage">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem  Clicked="ToolbarItem_Clicked" IconImageSource="add.jpg"/>
-        <ToolbarItem   Clicked="ToolbarItem_Clicked_1"  IconImageSource="rubbish.png"/>
-
-    </ContentPage.ToolbarItems>
-    <StackLayout Margin="20,35,20,20" >
-        <StackLayout Margin="20,35,20,20" x:Name="omar2" IsVisible="false">
-        <Entry x:Name="nameEntry"
-               Placeholder="Enter name" />
-        <Entry x:Name="ageEntry"
-               Placeholder="Enter Phone" 
-               Keyboard="Numeric" />
-        <Button Text="اضافة الى السجل"
-                Clicked="OnButtonClicked" />
-            
-        <!--<Button Text="استعادة النسخة الاحتياطية" Clicked="Button_Clicked" BackgroundColor="CadetBlue"/>-->
-        <!--<Button Text="جوجل درايف" Clicked="Button_Clicked_1" />-->
-        </StackLayout>
-        <!--<CollectionView x:Name="collectionView" SelectionMode="Single">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout>
-                        <Label Text="{Binding Name}"
-                               FontSize="Medium" />
-                        <Label Text="{Binding Phone}"
-                               TextColor="Silver"
-                               FontSize="Small" />
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>-->
+             x:Class="MyHasaby.DeleatPage">
+    <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="_ListView"  ItemsSource="{Binding Person}"
           HasUnevenRows="true"
           ItemSelected="OnListViewItemSelected"  
-          ItemTapped="OnListViewItemTapped">
+         >
 
 
                 <ListView.ItemTemplate>
@@ -74,8 +43,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
+            <Button Text="حذف" FontSize="Large" CornerRadius="75" BackgroundColor="Red" Clicked="Button_Clicked" Grid.Column="0"/>
         </StackLayout>
-    </StackLayout>
-
+    </ContentPage.Content>
 </ContentPage>
