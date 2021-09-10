@@ -63,6 +63,7 @@ namespace MyHasaby
                     EgMdan = egmaijdaen1
 
                 });
+                
                 await Navigation.PopAsync();
                 TexDane.Text = txtid.Text = string.Empty;
             }

@@ -39,6 +39,7 @@ namespace MyHasaby
                
                 _ListView.ItemsSource = await App.User.GetPeopleAsync();
                 DisplayAlert("تم", "تم اضافة العميل بنجاح", "Ok");
+                omar2.IsVisible = false;
                 Person person = new Person();
                 var db = new SQLiteConnection(_dbpath);
                 var maxPK = db.Table<Person>().OrderByDescending(c => c.ID).FirstOrDefault();
@@ -75,9 +76,10 @@ namespace MyHasaby
             _ListView.ItemsSource = await App.User.GetPeopleAsync();
         }
 
-        //private async void ToolbarItem_Clicked(object sender, EventArgs e)
-        //{
-
+        private async void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            omar2.IsVisible = true;
+            // كود نسخة احتياطية
         //    try
         //    {
         //        var statusWrite = await Permissions.RequestAsync<Permissions.StorageWrite>();
@@ -107,7 +109,7 @@ namespace MyHasaby
         //        DisplayAlert("محاولة مرةاخرى", "no", "om");
 
         //    }
-        //}
+       }
         private async Task Restor()
         {
 

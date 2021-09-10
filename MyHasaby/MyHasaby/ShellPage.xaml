@@ -22,13 +22,13 @@
             </Grid>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
-    <FlyoutItem Title="العملاء"
+    <FlyoutItem Title="تقرير العملاء"
                 Icon="home.png" >
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="المعاملات"
+    <FlyoutItem Title="تقرير المعاملات"
                 Icon="omrlog.png">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate views:DisblayAllPage}" />
