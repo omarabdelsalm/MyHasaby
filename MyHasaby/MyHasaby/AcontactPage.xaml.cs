@@ -34,7 +34,7 @@ namespace MyHasaby
             // omar 9323 moha 1977 ali 1984 bkr 1987
             if (EntAcount.Text== acontact.ActivSumble)
             {
-                await Navigation.PushAsync(new MainPage());
+                 App.Current.MainPage = new ShellPage();//Navigation.PushAsync(new ShellPage());
 
             }
             else

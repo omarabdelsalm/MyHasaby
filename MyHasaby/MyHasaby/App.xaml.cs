@@ -44,8 +44,10 @@ namespace MyHasaby
 
             //MainPage = new NavigationPage(new DisblayAllPage());
             List<Person> perlist = new List<Person>();
-            int all = (from per in perlist.AsEnumerable() select per.ID).Count();
-            if (all == 5) 
+            //int all = (from per in perlist.AsEnumerable()
+            //           select  per.ID ).Count();
+            int all = (from emp in perlist select emp.ID).Count();
+            if (all <= 5) 
             { MainPage = new ShellPage(); }
             else
             {
