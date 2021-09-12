@@ -15,11 +15,18 @@ namespace MyHasaby
         {
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<Users>().Wait(); //EgmalyDanMden
-            _database.CreateTableAsync<EgmalyDanMden>().Wait(); //EgmalyDanMden
+            _database.CreateTableAsync<EgmalyDanMden>().Wait(); //EgmalyDanMden  Acontact
+
+            _database.CreateTableAsync<Acontact>().Wait();
 
         }
 
-        
+        public Task<int> SavePerson5Async(Acontact acontact)
+        {
+
+            return _database.InsertAsync(acontact);
+
+        }
 
         public Task<List<Users>> GetPeopleAsync()
         {

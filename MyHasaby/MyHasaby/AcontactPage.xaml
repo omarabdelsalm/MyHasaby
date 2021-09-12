@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyHasaby.AcontactPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="من فضل ادخل رمز التفعيل"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <Label Text="للتواصل عبر الايميل" Grid.Row="0" Grid.Column="0"/>
+            <Label Text="93231975za@gmail.com" Grid.Row="0" Grid.Column="1"/>
+            <Label Text="للتواصل عبر الهاتف" Grid.Row="1" Grid.Column="0"/>
+            <Label Text="01069160569" Grid.Row="1" Grid.Column="1"/>
+            <Entry x:Name="EntAcount" Placeholder="dbng 2104 cvgf 1021 nmjh" />
+            <Button Text="اضغط للتعيل" Clicked="Button_Clicked" CornerRadius="50" BackgroundColor="#445666"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

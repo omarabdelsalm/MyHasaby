@@ -6,9 +6,25 @@ namespace MyHasaby
 {
     public class Person :ViewModelBase
     {
+        private int id;
         [PrimaryKey, AutoIncrement]
         
-        public int ID { get; set; }
+        public int ID
+        {
+            set
+            {
+                if (id != value)
+                {
+                    id = value;
+                    OnpropertyChanged("ID");
+                }
+            }
+            get
+            {
+                return id;
+            }
+        
+        }
       
         private string name;
         public string Name
