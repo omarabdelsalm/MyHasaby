@@ -35,7 +35,7 @@
         </Tab>
     </FlyoutItem>
     
-    <FlyoutItem Title="الضبط"
+    <FlyoutItem Title="مساعدة"
                 Icon="setting.png">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate views:MainsPage}" />

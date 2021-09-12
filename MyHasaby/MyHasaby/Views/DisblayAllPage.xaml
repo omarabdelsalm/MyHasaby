@@ -31,9 +31,9 @@
 
                 </Grid.ColumnDefinitions>
 
-                <Label Text ="اجمالي الديون" TextColor="Black"  Grid.Column="1"  Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
-                <Label Text ="الباقي" TextColor="Black" Grid.Column="0" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
-                <Label Text ="اجمالى المدفوع" TextColor="Black" Grid.Column="2" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+                <Label Text ="اجمالي الديون" TextColor="red"  Grid.Column="1"  Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+                <Label Text ="الباقي" TextColor="Purple" Grid.Column="0" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+                <Label Text ="اجمالى المدفوع" TextColor="Green" Grid.Column="2" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
 
                 <Label x:Name="EgmalyDaenText" Grid.Column="1" TextColor="Red"        
                               HorizontalOptions="CenterAndExpand" Grid.Row="1" />

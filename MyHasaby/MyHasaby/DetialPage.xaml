@@ -22,7 +22,7 @@
                 </Grid.ColumnDefinitions>
             
             <Label x:Name="txtname" FontSize="Default" TextColor="Brown" Grid.Row="0" Grid.Column="0"/>
-                <Label x:Name="txtid" Grid.Row="0" Grid.Column="1"/>
+                <Label x:Name="txtid" Grid.Row="0" Grid.Column="1" IsVisible="false"/>
                 <Entry x:Name="TexDane" Placeholder="ضع المبلغ" Keyboard="Numeric" Grid.Row="0" Grid.Column="3"/>
                 <Entry x:Name="Molhazt" Placeholder="ملاحظات" Grid.Row="1"/>
 
@@ -107,19 +107,25 @@
 
                     </Grid.ColumnDefinitions>
 
-                    <Label Text ="اجمالي الديون" TextColor="Black"  Grid.Column="1"  Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
-                    <Label Text ="الباقي" TextColor="Black" Grid.Column="0" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
-                    <Label Text ="اجمالى المدفوع" TextColor="Black" Grid.Column="2" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
-                  
-                        <Label x:Name="EgmalyDaenText" Grid.Column="1" TextColor="Red"        
+                    <Label Text ="اجمالي الديون" TextColor="Red"  Grid.Column="2"  Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+                    <Label Text ="الباقي" TextColor="Purple" Grid.Column="0" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+                    <Label Text ="اجمالى المدفوع" TextColor="Green" Grid.Column="1" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+                        <Label x:Name="EgmalyDaenText" Grid.Column="2" TextColor="Red"        
                               HorizontalOptions="CenterAndExpand" Grid.Row="1" />
-                    <Label x:Name="EgmalyModanText" Grid.Column="2"  
+                        
+                  
+                        <Label x:Name="EgmalyModanText" Grid.Column="1"  
                              TextColor="green"         
                             HorizontalOptions="CenterAndExpand" Grid.Row="1"/>
-                    <Label x:Name="EgmalyEModanText" Grid.Column="0"  
-                             TextColor="Purple"         
-                            HorizontalOptions="CenterAndExpand" Grid.Row="1"/>
-            
+                  
+
+                   
+                        <Label x:Name="EgmalyEModanText"  
+                             TextColor="Purple"  Grid.Column="0" Grid.Row="1"       
+                            HorizontalOptions="CenterAndExpand" />
+
+                   
+                    
             </Grid>
             </StackLayout>
            

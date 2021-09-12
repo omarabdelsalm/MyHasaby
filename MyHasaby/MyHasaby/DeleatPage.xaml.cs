@@ -23,7 +23,7 @@ namespace MyHasaby
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            //collectionView.ItemsSource = await App.Database.GetPeopleAsync();
+            
             _ListView.ItemsSource = await App.User.GetPeopleAsync();
         }
         Person omar;
@@ -34,12 +34,13 @@ namespace MyHasaby
 
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
             var db = new SQLiteConnection(_dbpath);
             db.Table<Person>().Delete(X => X.ID == omar.ID);
             db.Table<Users>().Delete(X => X.PersonId == omar.ID);
-
+            _ListView.ItemsSource = await App.User.GetPeopleAsync();
+            await Navigation.PushAsync(new MainPage());
         }
     }
 }

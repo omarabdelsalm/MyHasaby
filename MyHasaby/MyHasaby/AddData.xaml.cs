@@ -40,7 +40,7 @@ namespace MyHasaby
                     PersonId = Convert.ToInt32(txtid.Text),
                     Nots= Molhazt.Text
                 }) ;
-                await DisplayAlert("تم اضافة المبلغ بنجاح", "adding", "ok");
+                await DisplayAlert("Add", "تم اضافة المبلغ بنجاح", "Ok");
                 string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
 
                 var db = new SQLiteConnection(_dbpath);
@@ -81,7 +81,7 @@ namespace MyHasaby
                     Nots = Molhazt.Text
 
                 });
-                await DisplayAlert("تم اضافة المبلغ بنجاح", "adding", "ok");
+                await DisplayAlert("Add", "تم اضافة المبلغ بنجاح", "ok");
                 string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
 
                 var db = new SQLiteConnection(_dbpath);
