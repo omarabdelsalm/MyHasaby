@@ -37,28 +37,36 @@ namespace MyHasaby
             }
         }
         public static string DataBasePath;
-        public  App(string path)
+        string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
+
+        public App(string path)
         {
             InitializeComponent();
             DataBasePath = path;
+            var db = new SQLiteConnection(_dbpath);
 
-            //MainPage = new NavigationPage(new DisblayAllPage());
-            List<Person> perlist = new List<Person>();
-            //int all = (from per in perlist.AsEnumerable()
-            //           select  per.ID ).Count();
-            var all = (from emp in perlist select emp.ID);
-            var all2 = all.Count();
-            if (all2 <= 5)
-            {
-                MainPage = new NavigationPage(new AcontactPage());
-            }//MainPage = new ShellPage(); 
-            else
-            {
-                MainPage = new ShellPage();
-                //MainPage = new NavigationPage(new AcontactPage());
-                // System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
-            }
-            //MainPage = new ShellPage();
+            //var result = db.Table<Users>().ToList();
+
+            //foreach (var item in result.GroupBy(x => x.PersonId).ToList())
+            //{
+            //    var Dane = result.Where(x => x.PersonId == item.Key).Select(x => x.PersonId).Count();
+            var result1 = db.Table<Users>();
+
+            var all = (from emp in result1.AsEnumerable() select emp.Dane).Count();
+
+            if (all >= 5)
+
+                {
+                    //MainPage = new NavigationPage(new AcontactPage());
+                    App.Current.MainPage = new AcontactPage();
+                }//MainPage = new ShellPage(); 
+                else
+                {
+                    MainPage = new ShellPage();
+                    
+                }
+                //MainPage = new ShellPage();
+            
         }
 
         protected override void OnStart()
