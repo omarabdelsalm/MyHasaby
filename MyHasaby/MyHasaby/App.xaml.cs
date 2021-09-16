@@ -44,29 +44,35 @@ namespace MyHasaby
             InitializeComponent();
             DataBasePath = path;
             var db = new SQLiteConnection(_dbpath);
-
-            //var result = db.Table<Users>().ToList();
-
-            //foreach (var item in result.GroupBy(x => x.PersonId).ToList())
-            //{
-            //    var Dane = result.Where(x => x.PersonId == item.Key).Select(x => x.PersonId).Count();
-            var result1 = db.Table<Users>();
-
-            var all = (from emp in result1.AsEnumerable() select emp.Dane).Count();
-
-            if (all >= 5)
-
-                {
-                    //MainPage = new NavigationPage(new AcontactPage());
-                    App.Current.MainPage = new AcontactPage();
-                }//MainPage = new ShellPage(); 
-                else
+           
+             //var result1 = db.Table<Person>();
+           
+              App.User.SavePersonAsync(new Person
+              {
+                   ID=1,
+                  Name = "omar",
+                  Phone = "012048750"
+              });
+            var result1 = db.Table<Person>().ToList();
+            if (result1!= null) {
+                 
+                if ((from emp in result1 select emp.ID).Count() < 5)
                 {
                     MainPage = new ShellPage();
-                    
+
                 }
-                //MainPage = new ShellPage();
-            
+                else
+
+                {
+
+                    App.Current.MainPage = new AcontactPage();
+                }
+
+
+
+            }
+
+
         }
 
         protected override void OnStart()

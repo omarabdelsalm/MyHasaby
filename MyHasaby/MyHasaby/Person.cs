@@ -4,8 +4,10 @@ using System.Text;
 using SQLite;
 namespace MyHasaby
 {
-    public class Person :ViewModelBase
+    public class Person : ViewModelBase
     {
+      
+       
         private int id;
         [PrimaryKey, AutoIncrement]
         

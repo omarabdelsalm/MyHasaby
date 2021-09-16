@@ -6,7 +6,8 @@ namespace MyHasaby
 {
    public class Acontact
     {
-        public int ID { get; set; }
-        public string ActivSumble { get; set; } = "omar 9323 moha 1977 ali 1984 bkr 1987";
+
+        public string ActivSumble { get; set; } ="om" ;//"omar 1975 moha 1977 ali 1984 bkr 1987";
+        public string Regest { get; set; }
     }
 }
