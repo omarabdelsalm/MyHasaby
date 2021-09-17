@@ -15,7 +15,7 @@ namespace MyHasaby
     {
 
         //string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
-        Acontact acontact;
+        Acontact acontact = new Acontact();
         public AcontactPage()
         {
             InitializeComponent();
@@ -23,37 +23,35 @@ namespace MyHasaby
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            try{
-                //if (EntAcount.Text == "omar 1975 moha 1977 ali 1984 bkr 1987")
-                //{
-                //if (acontact!=null)
-                //{
-                //    await App.useAcount.SaveAcontactAsync(new Acontact
-                //    {
-
-
-                //        Regest = EntAcount.Text
-
-                //    });
-                //}
-                    
-                    await DisplayAlert("تم", "تم اضافة الرمز", "Ok");
-                    App.Current.MainPage = new ShellPage();
-
-                //}
-                //else
-                //{
-                //    await DisplayAlert("عذراً", "عليك تفعيل التطبيق", "Ok");
-                //    System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
-                //}
-
-            }
-            catch
+            Acontact acontact = new Acontact();
+            if (EntAcount.Text=="omar")
             {
-                await DisplayAlert("عذراً", "error التطبيق", "Ok");
-                return;
+                await App.acountUes.SaveAcontactAsync(new Acontact
+                {
+                          ID=1,
+                            ActivSumble = "omar",
+                           Regest = EntAcount.Text
 
+                }); ;
+                await DisplayAlert("تم", "تم اضافة الرمز", "Ok");
             }
+            
+            
+            App.Current.MainPage = new ShellPage();
+
+            //    else
+            //{
+            //    await DisplayAlert("عذراً", "عليك تفعيل التطبيق", "Ok");
+            //    System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
+            //}
+
+            //}
+            //    catch
+            //    {
+            //        await DisplayAlert("عذراً", " عليك تفعيل التطبيق", "Ok");
+            //        return;
+
+            //    }
 
 
 

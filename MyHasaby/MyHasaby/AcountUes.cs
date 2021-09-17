@@ -21,8 +21,12 @@ namespace MyHasaby
 
         public Task<int> SaveAcontactAsync(Acontact acontact)
         {
-
-            return _database.InsertAsync(acontact);
+            if (acontact.ID != 0)
+            {
+                return _database.UpdateAsync(acontact);
+            }
+            else
+                return _database.InsertAsync(acontact);
 
         }
     }

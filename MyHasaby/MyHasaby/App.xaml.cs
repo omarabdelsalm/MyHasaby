@@ -14,6 +14,19 @@ namespace MyHasaby
        
         static Database database;
         static Uesr database1;
+        static AcountUes useAcount;
+
+        public static AcountUes acountUes
+        {
+            get
+            {
+                if (useAcount == null)
+                {
+                    useAcount = new AcountUes(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3"));
+                }
+                return useAcount;
+            }
+        }
         public static Database User
         {
             get
@@ -44,9 +57,9 @@ namespace MyHasaby
             InitializeComponent();
             DataBasePath = path;
             var db = new SQLiteConnection(_dbpath);
-           
-             //var result1 = db.Table<Person>();
-           
+
+            //var result1 = db.Table<Person>();
+            Acontact acontact = new Acontact();
               App.User.SavePersonAsync(new Person
               {
                    ID=1,
@@ -56,9 +69,14 @@ namespace MyHasaby
             var result1 = db.Table<Person>().ToList();
             if (result1!= null) {
                  
-                if ((from emp in result1 select emp.ID).Count() < 5)
+                if ((from emp in result1 select emp.ID).Count() < 5)// || acontact.ActivSumble==acontact.Regest)
                 {
                     MainPage = new ShellPage();
+
+                }
+                else if (acontact.ActivSumble == acontact.Regest)
+                {
+                    App.Current.MainPage= new ShellPage(); ;
 
                 }
                 else
