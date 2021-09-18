@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using System.Linq;
 using Xamarin.Forms.Xaml;
 using System.Collections.Generic;
+using Xamarin.Essentials;
 
 namespace MyHasaby
 {
@@ -90,9 +91,53 @@ namespace MyHasaby
 
             }
 
+            Device.StartTimer(new TimeSpan(0, 0, 60*60*24), () =>
+            {
+                // do something every 60 seconds
+                Device.BeginInvokeOnMainThread(async() =>
+                {
+                    // interact with UI elements
+                    
+                    try
+                    {
+                        string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
+
+                        var statusWrite = await Permissions.RequestAsync<Permissions.StorageWrite>();
+                        var statusRead = await Permissions.RequestAsync<Permissions.StorageRead>();
+                       // var db = new SQLiteConnection(_dbpath);
+                        string docFolder = Path.Combine(System.Environment.GetFolderPath
+                             (System.Environment.SpecialFolder.MyDocuments), "logs");
+                        string szRestorePath = "/storage/emulated/0/Android/datacom.alshobky.myhasaby/files/logs/temp.db3";
+                        string libFolder = Path.Combine(docFolder, szRestorePath);
+                        if (!Directory.Exists(libFolder))
+                        {
+                            Directory.CreateDirectory(libFolder);
+                        }
+
+
+                        string destinationDatabasePath = Path.Combine(libFolder, $"temp{DateTime.Now.ToString("dd-yy-mm")}.db3");
+
+                        db.Backup(destinationDatabasePath, "main");
+
+
+
+                        await Application.Current.MainPage.DisplayAlert("حفط نسخة احتياطية", "مسار الحفظ Android/datacom.alshobky.myhasaby/files/logs/temp.db3", "OK");
+                        return;
+                    }
+                    catch (Exception ex)
+                    {
+                        await Application.Current.MainPage.DisplayAlert("محاولة مرةاخرى", "no", "om");
+
+                    }
+
+                });
+                return true; // runs again, or false to stop
+            });
+
 
         }
 
+        
         protected override void OnStart()
         {
 
