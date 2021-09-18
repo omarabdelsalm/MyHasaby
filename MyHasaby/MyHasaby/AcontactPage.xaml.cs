@@ -35,23 +35,17 @@ namespace MyHasaby
                 }); ;
                 await DisplayAlert("تم", "تم اضافة الرمز", "Ok");
             }
+            else
+            {
+                await DisplayAlert("عذراً", "اسف الرمز خطا حاول مرة اخري", "Ok");
+                EntAcount.Text = "";
+                return;
+            }
             
             
             App.Current.MainPage = new ShellPage();
 
-            //    else
-            //{
-            //    await DisplayAlert("عذراً", "عليك تفعيل التطبيق", "Ok");
-            //    System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
-            //}
-
-            //}
-            //    catch
-            //    {
-            //        await DisplayAlert("عذراً", " عليك تفعيل التطبيق", "Ok");
-            //        return;
-
-            //    }
+            
 
 
 
