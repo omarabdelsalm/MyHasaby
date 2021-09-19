@@ -48,7 +48,7 @@ namespace MyHasaby
 
 
 
-                await Application.Current.MainPage.DisplayAlert("OK", "تم بحمد الله", "OK");
+                await Application.Current.MainPage.DisplayAlert("حفط نسخة احتياطية", "مسار الحفظ Android/datacom.alshobky.myhasaby/files/logs/temp.db3", "OK");
 
 
             }

@@ -23,11 +23,19 @@ namespace MyHasaby
         public MainPage()
         {
             InitializeComponent();
+            // عمل ادخال افتراضي لجدول person
+            //App.User.SavePersonAsync(new Person
+            //{
+            //    ID=1,
+            //    Name = "omar",
+            //    Phone = "012048750"
+            //});
             //collectionView.SelectionChanged += CollectionView_SelectionChanged;
         }
 
         async void OnButtonClicked(object sender, EventArgs e)
         {
+            
             if (!string.IsNullOrWhiteSpace(nameEntry.Text) && !string.IsNullOrWhiteSpace(ageEntry.Text))
             {
                 await App.User.SavePersonAsync(new Person

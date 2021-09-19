@@ -24,13 +24,13 @@ namespace MyHasaby
         private async void Button_Clicked(object sender, EventArgs e)
         {
             Acontact acontact = new Acontact();
-            if (EntAcount.Text=="omar")
+            if (EntAcount.Text== "omar 1975 moha 1977 ali 1984 bkr 1987")
             {
                 await App.acountUes.SaveAcontactAsync(new Acontact
                 {
-                          ID=1,
-                            ActivSumble = "omar",
-                           Regest = EntAcount.Text
+                            ID=1,
+                            ActivSumble = "omar 1975 moha 1977 ali 1984 bkr 1987",
+                             Regest = EntAcount.Text
 
                 }); ;
                 await DisplayAlert("تم", "تم اضافة الرمز", "Ok");

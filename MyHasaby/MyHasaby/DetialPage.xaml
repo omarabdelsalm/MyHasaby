@@ -16,15 +16,15 @@
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5*" ></ColumnDefinition>
-                    <ColumnDefinition Width="1.5*" ></ColumnDefinition>
-                    <ColumnDefinition Width="3*" ></ColumnDefinition>
-                    <ColumnDefinition Width="4*" ></ColumnDefinition>
+                    <ColumnDefinition Width="1*" ></ColumnDefinition>
+                    <ColumnDefinition Width="5*" ></ColumnDefinition>
+                    <ColumnDefinition Width="5*" ></ColumnDefinition>
                 </Grid.ColumnDefinitions>
             
             <Label x:Name="txtname" FontSize="Default" TextColor="Brown" Grid.Row="0" Grid.Column="0"/>
                 <Label x:Name="txtid" Grid.Row="0" Grid.Column="1" IsVisible="false"/>
                 <Entry x:Name="TexDane" Placeholder="ضع المبلغ" Keyboard="Numeric" Grid.Row="0" Grid.Column="3"/>
-                <Entry x:Name="Molhazt" Placeholder="ملاحظات" Grid.Row="1"/>
+                <Entry x:Name="Molhazt" Placeholder="ملاحظات" Grid.Row="2"/>
 
                 <Button x:Name="BtnDane" Text="مدفوعات"  TextColor="Green" CornerRadius="25" FontSize="Default" Grid.Row="2" Grid.Column="2"/>
                 <Button x:Name="BtnMdane" Text="مديونيات" TextColor="Red" FontSize="Default" CornerRadius="25"  Grid.Row="2" Grid.Column="3"/>

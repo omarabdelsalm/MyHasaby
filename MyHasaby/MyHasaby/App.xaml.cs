@@ -59,25 +59,26 @@ namespace MyHasaby
             DataBasePath = path;
             var db = new SQLiteConnection(_dbpath);
 
-            //var result1 = db.Table<Person>();
-            Acontact acontact = new Acontact();
-              App.User.SavePersonAsync(new Person
-              {
-                   ID=1,
-                  Name = "omar",
-                  Phone = "012048750"
-              });
-            var result1 = db.Table<Person>().ToList();
-            if (result1!= null) {
-                 
-                if ((from emp in result1 select emp.ID).Count() < 5)// || acontact.ActivSumble==acontact.Regest)
+           
+            Device.BeginInvokeOnMainThread( () =>
+            {
+                Person person = new Person();
+                if (person.ID == 0) {  App.Current.MainPage = new ShellPage(); }
+                Acontact acontact = new Acontact();
+
+                var result1 = db.Table<Person>();//.ToList();
+
+
+                var all = (from emp in result1 select emp.ID).Count(); //(from emp in result1 select emp.ID).Count();
+                if (all <= 5)// || acontact.ActivSumble==acontact.Regest)
                 {
-                    MainPage = new ShellPage();
+
+                    App.Current.MainPage = new ShellPage();
 
                 }
-                else if (acontact.ActivSumble == acontact.Regest)
+                else if (acontact.Regest == "omar 1975 moha 1977 ali 1984 bkr 1987")//acontact.ActivSumble == acontact.Regest)
                 {
-                    App.Current.MainPage= new ShellPage(); ;
+                    App.Current.MainPage = new ShellPage();
 
                 }
                 else
@@ -87,11 +88,16 @@ namespace MyHasaby
                     App.Current.MainPage = new AcontactPage();
                 }
 
+            });
 
 
-            }
 
-            Device.StartTimer(new TimeSpan(0, 0, 60*60*24), () =>
+            
+
+
+           
+
+            Device.StartTimer(new TimeSpan(0, 0, 60*60*12), () =>
             {
                 // do something every 60 seconds
                 Device.BeginInvokeOnMainThread(async() =>
@@ -140,7 +146,7 @@ namespace MyHasaby
         
         protected override void OnStart()
         {
-
+           
         }
 
         protected override void OnSleep()
