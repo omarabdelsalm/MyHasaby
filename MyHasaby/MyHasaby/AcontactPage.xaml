@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="White"
              x:Class="MyHasaby.AcontactPage">
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout>
+            <StackLayout Padding="10" Margin="5">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
@@ -15,18 +16,18 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                 </Grid>
-                <Label Text="للتواصل عبر الايميل" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="StartAndExpand"/>
-                <Label Text="93231975za@gmail.com" Grid.Row="0" Grid.Column="1" VerticalOptions="StartAndExpand" HorizontalOptions="Center"/>
-                <Label Text="للتواصل عبر الهاتف" Grid.Row="1" Grid.Column="0" VerticalOptions="StartAndExpand" HorizontalOptions="Center"/>
-                <Label Text="01069160569" Grid.Row="1" Grid.Column="1" VerticalOptions="StartAndExpand" HorizontalOptions="Center"/>
+                <Label Text="للتواصل عبر الايميل" FontSize="Medium" TextColor="RosyBrown" Grid.Row="0" Grid.Column="0"  VerticalOptions="StartAndExpand" HorizontalOptions="EndAndExpand"/>
+                <Label Text="93231975za@gmail.com" Grid.Row="0" Grid.Column="1" TextColor="SeaGreen" VerticalOptions="StartAndExpand"  HorizontalOptions="StartAndExpand"/>
+                <Label Text="للتواصل عبر الهاتف" Grid.Row="1" FontSize="Medium" TextColor="RosyBrown" Grid.Column="0" VerticalOptions="StartAndExpand" />
+                <Label Text="01069160569" Grid.Row="1" Grid.Column="1" VerticalOptions="StartAndExpand" TextColor="SeaGreen"/>
             </StackLayout>
           
                 <StackLayout>
-                    <Label Text="من فضل ادخل رمز التفعيل"
-                VerticalOptions="CenterAndExpand" 
+                    <Label Text="من فضلك ادخل رمز التفعيل"
+                VerticalOptions="CenterAndExpand" FontSize="Subtitle" TextColor="Black"
                 HorizontalOptions="CenterAndExpand" />
-                    <Entry x:Name="EntAcount" />
-                    <Button Text="اضغط للتعيل" Clicked="Button_Clicked" CornerRadius="50" BackgroundColor="#445666"/>
+                    <Entry x:Name="EntAcount" Placeholder="ادخل هنا الرمز" Margin="8"/>
+                    <Button Text="اضغط للتفعيل" TextColor="White" Margin="10" FontSize="Medium" Clicked="Button_Clicked" CornerRadius="50" BackgroundColor="#445666"/>
                 </StackLayout>
          
             
