@@ -2,14 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyHasaby.Views.DisblayAllPage"
+             
              Title="تقرير المعاملات"
              >
     <ContentPage.Content>
         <StackLayout>
-        <StackLayout>
-       
-        
-            <ListView x:Name="_listView">
+        <StackLayout >
+
+
+                <ListView x:Name="_listView" FlowDirection="RightToLeft">
 
 
 
@@ -17,7 +18,7 @@
             </ListView>
         </StackLayout>
         <StackLayout Padding="15" Margin="15">
-                <Label x:Name="lbt"/>
+               
                 <Grid >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />

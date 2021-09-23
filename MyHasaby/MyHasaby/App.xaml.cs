@@ -51,42 +51,60 @@ namespace MyHasaby
             }
         }
         public static string DataBasePath;
-        string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
 
         public App(string path)
         {
             InitializeComponent();
             DataBasePath = path;
+            // using (var db = new SQLiteConnection(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3"), true))
+            string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
+
             var db = new SQLiteConnection(_dbpath);
 
-           
+            if (Settings.FirstRun)
+            {
+                // Perform an action such as a "Pop-Up".
+
+                //App.Current.MainPage.DisplayAlert("رجاء", "كتابة عميل علي الاقل حتى يعمل التطبيق معك", "");
+                Person person = new Person();
+                if (person.ID == 0) { Settings.FirstRun = true; }
+                    App.Current.MainPage = new ShellPage();
+                Settings.FirstRun = false;
+            }
             Device.BeginInvokeOnMainThread( () =>
+
             {
                 Person person = new Person();
-                if (person.ID == 0) {  App.Current.MainPage = new ShellPage(); }
-                Acontact acontact = new Acontact();
-
-                var result1 = db.Table<Person>();//.ToList();
-
-
-                var all = (from emp in result1 select emp.ID).Count(); //(from emp in result1 select emp.ID).Count();
-                if (all <= 5)// || acontact.ActivSumble==acontact.Regest)
+                if (person != null)
                 {
+                    //if (person.ID <= 0) { App.Current.MainPage = new ShellPage(); }
+                    Acontact acontact = new Acontact();
 
-                    App.Current.MainPage = new ShellPage();
+                    var result1 = db.Table<Person>();//.ToList();
+
+
+                    var all = (from emp in result1 select emp.ID).Count(); //(from emp in result1 select emp.ID).Count();
+                    if (all <= 5)// || acontact.ActivSumble==acontact.Regest)
+                    {
+
+                        App.Current.MainPage = new ShellPage();
+
+                    }
+                    else if (acontact.Regest == "omar 1975 moha 1977 ali 1984 bkr 1987")//acontact.ActivSumble == acontact.Regest)
+                    {
+                        App.Current.MainPage = new ShellPage();
+
+                    }
+                    else
+
+                    {
+
+                        App.Current.MainPage = new AcontactPage();
+                    }
 
                 }
-                else if (acontact.Regest == "omar 1975 moha 1977 ali 1984 bkr 1987")//acontact.ActivSumble == acontact.Regest)
-                {
-                    App.Current.MainPage = new ShellPage();
-
-                }
-                else
-
-                {
-
-                    App.Current.MainPage = new AcontactPage();
-                }
+                
+                
 
             });
 
@@ -106,8 +124,8 @@ namespace MyHasaby
                     
                     try
                     {
-                        string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
-
+                       // string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
+                       // var db=new SQLiteConnection();
                         var statusWrite = await Permissions.RequestAsync<Permissions.StorageWrite>();
                         var statusRead = await Permissions.RequestAsync<Permissions.StorageRead>();
                        // var db = new SQLiteConnection(_dbpath);

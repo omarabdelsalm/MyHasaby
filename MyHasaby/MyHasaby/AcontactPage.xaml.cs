@@ -91,5 +91,16 @@ namespace MyHasaby
                 phoneDialer.MakePhoneCall("01069160569", "bkr alshobky");
 
         }
+        private async void Send(object sender, EventArgs e)
+        {
+            try
+            {
+                Chat.Open("+2001207459516", "اود شراء التفعيل ");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Erro", ex.Message, "OK");
+            }
+        }
     }
 }
