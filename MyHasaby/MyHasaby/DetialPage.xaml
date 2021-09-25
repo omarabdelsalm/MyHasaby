@@ -93,6 +93,10 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
+            <StackLayout>
+                <Button Clicked="Button_Clicked" Text="pdf" TextColor="Red" FontSize="Default" HorizontalOptions="Start" VerticalOptions="Start" CornerRadius="50" BackgroundColor="#258215"   Grid.Row="2" Grid.Column="3"/>
+
+            </StackLayout>
             <StackLayout Padding="15" Margin="15">
                 <Grid >
                     <Grid.RowDefinitions>

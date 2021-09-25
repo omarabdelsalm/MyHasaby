@@ -6,7 +6,7 @@ using SQLite;
 
 namespace MyHasaby
 {
-    public class Users
+    public class Users: ViewModelBase
     {
         public Users(){
             //string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");

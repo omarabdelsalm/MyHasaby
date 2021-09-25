@@ -5,47 +5,37 @@ using SQLite;
 
 namespace MyHasaby
 {
-   public class Acontact: ViewModelBase
+    public class Acontact:ViewModelBase
     {
-        [PrimaryKey, AutoIncrement]
-        private int id { get; set; } = 1;
-        public int ID
-        {
-            set
-            {
-                if (id != value)
-                {
-                    id = value;
-                    OnpropertyChanged("ID");
-                }
-            }
-            get
-            {
-                return id;
-            }
+        
+        private int id;
+        [PrimaryKey]
+        public int ID { get; set; }
+        //                get
+        //                {
+        //                    return id;
+        //                }
+        //                  set
+        //                    {
+        //                        if (id != value)
+        //                        {
+        //                            id = value;
+        //                            OnpropertyChanged("ID");
+        //                         }
+        //                  }
+                
 
-        }
-        private string activSumble { get; set; }
-        public string ActivSumble
-        {
-            set
-            {
-                if (activSumble != value)
-                {
-                    activSumble = value;
-                    OnpropertyChanged("ActivSumble");
-                }
-            }
-            get
-            {
-                return activSumble;
-            }
+        //}
 
 
-        }
         //="omar" ;//"omar 1975 moha 1977 ali 1984 bkr 1987";
-        private string regest { get; set; } 
-        public string Regest {
+        private string regest;
+        public string Regest
+        {
+            get
+            {
+                return regest;
+            }
             set
             {
                 if (regest != value)
@@ -54,10 +44,8 @@ namespace MyHasaby
                     OnpropertyChanged("Regest");
                 }
             }
-            get
-            {
-                return regest;
-            }
+            
         }
+
     }
 }

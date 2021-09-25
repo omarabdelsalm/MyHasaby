@@ -1,4 +1,8 @@
 ﻿using SQLite;
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Parsing;
+using Syncfusion.Pdf.Graphics;
+using Syncfusion.Pdf.Grid;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -134,6 +138,49 @@ namespace MyHasaby
             }
             
         }
+        void DrawTable()
+        {
+            //List of Columns 
+            List<Users> collection = new List<Users>();
 
+            Users customer = new Users();
+            //customer.CreateAt = DateTime.Now.ToString();
+            //customer.Dane= GetValue(Dane);
+            //customer.Mdan = GetValue();
+            collection.Add(customer);
+
+            //Add values to list 
+            List<object> data = new List<object>();
+            for (int i = 0; i < collection.Count; i++)
+            {
+                Object row = new { Date = collection[i].CreateAt, Dane= collection[i].Dane,deyou= collection[i].Mdan };
+                data.Add(row);
+            }
+            //Add list to IEnumerable 
+            IEnumerable<object> tableData = data;
+            //Assign data source
+            PdfDocument doc = new PdfDocument();
+            //Add a page.
+            PdfPage page = doc.Pages.Add();
+            //Create a PdfGrid.
+            PdfGrid pdfGrid = new PdfGrid();
+            pdfGrid.DataSource = tableData;
+            //Draw grid to the page of PDF document.
+            pdfGrid.Draw(page, new Syncfusion.Drawing.PointF(10, 10));
+            //Save the PDF document to stream.
+            MemoryStream stream = new MemoryStream();
+            doc.Save(stream);
+            //Close the document.
+            doc.Close(true);
+            stream.Position = 0;
+            //Save the stream as a file in the device and invoke it for viewing
+            Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            DrawTable();
+
+        }
     }
 }

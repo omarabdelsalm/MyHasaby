@@ -15,42 +15,44 @@ namespace MyHasaby
     public partial class AcontactPage : ContentPage
     {
 
-        //string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
         Acontact acontact = new Acontact();
         public AcontactPage()
         {
             InitializeComponent();
+            var myValue = Preferences.Get("EntAcount", EntAcount.Text);
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+      private  async void Button_Clicked(object sender, EventArgs e)
         {
-            Acontact acontact = new Acontact();
-            if (EntAcount.Text== "omar 1975 moha 1977 ali 1984 bkr 1987")
-            {
-                await App.acountUes.SaveAcontactAsync(new Acontact
+            Preferences.Set("EntAcount", EntAcount.Text);
+           
+
+
+            if (!string.IsNullOrEmpty(EntAcount.Text))
                 {
-                            ID=1,
-                            ActivSumble = "omar 1975 moha 1977 ali 1984 bkr 1987",
-                             Regest = EntAcount.Text
-
-                }); ;
-                await DisplayAlert("تم", "تم اضافة الرمز", "Ok");
-            }
-            else
-            {
-                await DisplayAlert("عذراً", "اسف الرمز خطا حاول مرة اخري", "Ok");
-                EntAcount.Text = "";
-                return;
-            }
-            
-            
-            App.Current.MainPage = new ShellPage();
-
-            
-
-
+                    Acontact acontact = new Acontact()
+                    {
+                        ID=1,
+                        Regest = EntAcount.Text
+                    };
+                    await App.acountUes.SavePersonAsync(acontact);
+                        if (acontact.Regest == "omar")
+                        {
+                            //EntAcount.Text = string.Empty;
+                            await DisplayAlert("تم", "تم اضافة الرمز", "Ok");
+                            App.Current.MainPage = new ShellPage();
+                        }
+               
+  
+                }
 
         }
+
+
+
+
+
+      
 
         private void Smsbtn(object sender, EventArgs e)
         {

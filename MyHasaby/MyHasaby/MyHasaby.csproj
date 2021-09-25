@@ -16,6 +16,7 @@
     <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
     <PackageReference Include="RestSharp" Version="106.12.0" />
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+    <PackageReference Include="Syncfusion.Pdf.Net.Core" Version="19.2.0.62" />
     <PackageReference Include="System.Formats.Asn1" Version="5.0.0" />
     <PackageReference Include="Xam.Plugins.Messaging" Version="5.2.0" />
     <PackageReference Include="Xamarin.Auth" Version="1.7.0" />

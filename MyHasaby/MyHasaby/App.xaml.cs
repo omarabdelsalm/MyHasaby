@@ -51,7 +51,7 @@ namespace MyHasaby
             }
         }
         public static string DataBasePath;
-
+       
         public App(string path)
         {
             InitializeComponent();
@@ -78,19 +78,25 @@ namespace MyHasaby
                 if (person != null)
                 {
                     //if (person.ID <= 0) { App.Current.MainPage = new ShellPage(); }
-                    Acontact acontact = new Acontact();
+                   
 
                     var result1 = db.Table<Person>();//.ToList();
+                    var acontact2 = db.Table<Acontact>(); //new Acontact().Regest;
+                    Acontact acontact = new Acontact();
+                    var anass= App.acountUes.GetItemAsync(1);
+                    
+                    var y = anass.Result.Regest;
+                    var all = (from emp in result1 select emp.ID).Count();
 
-
-                    var all = (from emp in result1 select emp.ID).Count(); //(from emp in result1 select emp.ID).Count();
+                    
+                    var name = "omar";
                     if (all <= 5)// || acontact.ActivSumble==acontact.Regest)
                     {
 
                         App.Current.MainPage = new ShellPage();
 
                     }
-                    else if (acontact.Regest == "omar 1975 moha 1977 ali 1984 bkr 1987")//acontact.ActivSumble == acontact.Regest)
+                    else if (y == name)//acontact.ActivSumble == acontact.Regest)
                     {
                         App.Current.MainPage = new ShellPage();
 
