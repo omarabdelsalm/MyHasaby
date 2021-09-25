@@ -20,9 +20,33 @@ namespace MyHasaby
         [PrimaryKey,AutoIncrement]
         public int ID { get; set; }
         [Indexed]
+       
         public int PersonId { get; set; }
-        public int Dane { get; set; }
-        public int Mdan { get; set; }
+        private int dane;
+        public int Dane {
+            get { return dane; }
+
+            set {
+                if (dane != value) 
+                { 
+                    dane = value;
+                    OnpropertyChanged("Dane");
+                }
+            } }
+        private int mdan;
+
+        public int Mdan {
+            get { return mdan; }
+
+            set
+            {
+                if (mdan != value)
+                {
+                    mdan = value;
+                    OnpropertyChanged("Mdan");
+                }
+            }
+        }
         public DateTime CreateAt { get; set; }
         
        
