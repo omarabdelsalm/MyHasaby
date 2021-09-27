@@ -71,48 +71,74 @@ namespace MyHasaby
                     App.Current.MainPage = new ShellPage();
                 Settings.FirstRun = false;
             }
-            Device.BeginInvokeOnMainThread( () =>
+           // Device.BeginInvokeOnMainThread( () =>
 
-            {
-                Person person = new Person();
-                if (person != null)
-                {
+           // {
+                //try
+                //{
+                    //Person person = new Person();
+                //if (person != null)
+                //{
                     //if (person.ID <= 0) { App.Current.MainPage = new ShellPage(); }
-                   
-
-                    var result1 = db.Table<Person>();//.ToList();
-                    var acontact2 = db.Table<Acontact>(); //new Acontact().Regest;
-                    Acontact acontact = new Acontact();
-                    var anass= App.acountUes.GetItemAsync(1);
                     
-                    var y = anass.Result.Regest;
-                    var all = (from emp in result1 select emp.ID).Count();
 
                     
-                    var name = "omar";
-                    if (all <= 5)// || acontact.ActivSumble==acontact.Regest)
-                    {
+                        var result1 = db.Table<Person>().ToList();
+                        //var acontact2 = db.Table<Acontact>(); //new Acontact().Regest;
+                        Acontact acontact = new Acontact();
+                        var anass2 = App.User.GetPeopleAsync();
+                        var all2 = anass2.Result.Count();
+                        var all = (from emp in result1.AsEnumerable() select emp.ID).Count();
+                        
+                        //var sudia = result1.Count();
+                        
+                        if (all2 >= 5)
+                        {
+                         try {
+                                if (acontact != null)
+                                {
+                                    var result = db.Table<Acontact>();
+                                    //var anass = App.acountUes.GetItemAsync(1);
+                                    
+                                     var name2 = from emp in result.AsEnumerable() select emp.Regest;
+                                     var name = name2;
+                                // var y = anass.Result.Regest;
+                                if (name != null) { 
+                                       App.Current.MainPage = new ShellPage(); 
+                                      }
 
-                        App.Current.MainPage = new ShellPage();
+                                }
+                                else
+                                {
+                                    App.Current.MainPage = new AcontactPage();
 
-                    }
-                    else if (y == name)//acontact.ActivSumble == acontact.Regest)
-                    {
-                        App.Current.MainPage = new ShellPage();
 
-                    }
-                    else
+                                }
+                                 } catch {
+                                  App.Current.MainPage = new AcontactPage();
 
-                    {
 
-                        App.Current.MainPage = new AcontactPage();
-                    }
+                                  }
+                                 }
+                         else{
 
-                }
+                                  App.Current.MainPage = new ShellPage();
+                              }
+                    //}
+
+                
+                    
+                
+                //catch {
+                //        App.Current.MainPage = new ShellPage();
+
+                //    }
+                    
+               
                 
                 
 
-            });
+           // });
 
 
 

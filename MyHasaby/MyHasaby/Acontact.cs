@@ -41,7 +41,7 @@ namespace MyHasaby
                 if (regest != value)
                 {
                     regest = value;
-                    OnpropertyChanged("Regest");
+                    OnPropertyChanged("Regest");
                 }
             }
             

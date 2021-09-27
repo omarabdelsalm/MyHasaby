@@ -30,7 +30,7 @@ namespace MyHasaby
                 if (dane != value) 
                 { 
                     dane = value;
-                    OnpropertyChanged("Dane");
+                    OnPropertyChanged("Dane");
                 }
             } }
         private int mdan;
@@ -43,7 +43,7 @@ namespace MyHasaby
                 if (mdan != value)
                 {
                     mdan = value;
-                    OnpropertyChanged("Mdan");
+                    OnPropertyChanged("Mdan");
                 }
             }
         }

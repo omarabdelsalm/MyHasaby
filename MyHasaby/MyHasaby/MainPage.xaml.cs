@@ -1,5 +1,4 @@
-﻿using Android.Content;
-using Java.Nio.Channels;
+﻿
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using SQLite;
