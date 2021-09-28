@@ -56,11 +56,10 @@ namespace MyHasaby
         {
             InitializeComponent();
             DataBasePath = path;
-            // using (var db = new SQLiteConnection(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3"), true))
             string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
 
             var db = new SQLiteConnection(_dbpath);
-
+           
             if (Settings.FirstRun)
             {
                 // Perform an action such as a "Pop-Up".
@@ -71,75 +70,38 @@ namespace MyHasaby
                     App.Current.MainPage = new ShellPage();
                 Settings.FirstRun = false;
             }
-           // Device.BeginInvokeOnMainThread( () =>
+            Device.BeginInvokeOnMainThread(() =>
 
-           // {
-                //try
-                //{
-                    //Person person = new Person();
-                //if (person != null)
-                //{
-                    //if (person.ID <= 0) { App.Current.MainPage = new ShellPage(); }
-                    
-
-                    
-                        var result1 = db.Table<Person>().ToList();
-                        //var acontact2 = db.Table<Acontact>(); //new Acontact().Regest;
-                        Acontact acontact = new Acontact();
-                        var anass2 = App.User.GetPeopleAsync();
-                        var all2 = anass2.Result.Count();
-                        var all = (from emp in result1.AsEnumerable() select emp.ID).Count();
-                        
-                        //var sudia = result1.Count();
-                        
-                        if (all2 >= 5)
-                        {
-                         try {
-                                if (acontact != null)
-                                {
-                                    var result = db.Table<Acontact>();
-                                    //var anass = App.acountUes.GetItemAsync(1);
-                                    
-                                     var name2 = from emp in result.AsEnumerable() select emp.Regest;
-                                     var name = name2;
-                                // var y = anass.Result.Regest;
-                                if (name != null) { 
-                                       App.Current.MainPage = new ShellPage(); 
-                                      }
-
-                                }
-                                else
-                                {
-                                    App.Current.MainPage = new AcontactPage();
+           {
 
 
-                                }
-                                 } catch {
-                                  App.Current.MainPage = new AcontactPage();
-
-
-                                  }
-                                 }
-                         else{
-
-                                  App.Current.MainPage = new ShellPage();
-                              }
-                    //}
-
-                
-                    
-                
-                //catch {
-                //        App.Current.MainPage = new ShellPage();
-
-                //    }
-                    
+               var result1 = db.Table<Person>().ToList();
                
+               var anass2 = App.User.GetPeopleAsync();
+               var all2 = anass2.Result.Count();
+               var all = (from emp in result1.AsEnumerable() select emp.ID).Count();
+               var ally = App.acountUes.GetAcontactAsync().Result;
+               var alhmed = ally.Count();
+
+               if (all2 <= 1)
+               { MainPage = new ShellPage(); }
+               else if (alhmed!=0) {
+                   
+                   App.Current.MainPage = new ShellPage();
+
+
+                 
+               }
+               else {
+
+                   MainPage = new AcontactPage();
+               }
+           });
+
+                
+                    
                 
                 
-
-           // });
-
 
 
             
@@ -201,6 +163,49 @@ namespace MyHasaby
 
         protected override void OnSleep()
         {
+            Device.StartTimer(new TimeSpan(0, 0, 60 * 60 * 12), () =>
+            {
+                // do something every 60 seconds
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    // interact with UI elements
+
+                    try
+                    {
+                         string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
+                        var db=new SQLiteConnection(_dbpath);
+                        var statusWrite = await Permissions.RequestAsync<Permissions.StorageWrite>();
+                        var statusRead = await Permissions.RequestAsync<Permissions.StorageRead>();
+                        // var db = new SQLiteConnection(_dbpath);
+                        string docFolder = Path.Combine(System.Environment.GetFolderPath
+                             (System.Environment.SpecialFolder.MyDocuments), "logs");
+                        string szRestorePath = "/storage/emulated/0/Android/datacom.alshobky.myhasaby/files/logs/temp.db3";
+                        string libFolder = Path.Combine(docFolder, szRestorePath);
+                        if (!Directory.Exists(libFolder))
+                        {
+                            Directory.CreateDirectory(libFolder);
+                        }
+
+
+                        string destinationDatabasePath = Path.Combine(libFolder, $"temp{DateTime.Now.ToString("dd-yy-mm")}.db3");
+
+                        db.Backup(destinationDatabasePath, "main");
+
+
+
+                        await Application.Current.MainPage.DisplayAlert("حفط نسخة احتياطية", "مسار الحفظ Android/datacom.alshobky.myhasaby/files/logs/temp.db3", "OK");
+                        return;
+                    }
+                    catch (Exception ex)
+                    {
+                        await Application.Current.MainPage.DisplayAlert("محاولة مرةاخرى", "no", "om");
+
+                    }
+
+                });
+                return true; // runs again, or false to stop
+            });
+
         }
 
         protected override void OnResume()

@@ -21,6 +21,7 @@
                 <Button Text="ايميل" Clicked="Emlbtn" BackgroundColor="#55020202"  HeightRequest="50"/>
                 <Button Text="اتصال بالهاتف" Clicked="Callbtn" BackgroundColor="#4455"  HeightRequest="50"/>
                 <Button Text="واتس اب" Clicked="Send" BackgroundColor="GreenYellow"/>
+                <Label x:Name="lab"/>
             </StackLayout>
           
                 <StackLayout>

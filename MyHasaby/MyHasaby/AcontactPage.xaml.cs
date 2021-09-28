@@ -19,42 +19,58 @@ namespace MyHasaby
         public AcontactPage()
         {
             InitializeComponent();
-            var myValue = Preferences.Get("EntAcount", EntAcount.Text);
+            
+            
+            
         }
 
       private  async void Button_Clicked(object sender, EventArgs e)
         {
-            Preferences.Set("EntAcount", EntAcount.Text);
-           
 
 
-            if (!string.IsNullOrEmpty(EntAcount.Text))
+
+            if (EntAcount.Text=="omar75moh77ali84bkr87") {
+                if (!string.IsNullOrEmpty(EntAcount.Text))
                 {
+
+
                     Acontact acontact = new Acontact()
                     {
-                        ID=1,
+
                         Regest = EntAcount.Text
                     };
-                    await App.acountUes.SavePersonAsync(acontact);
-                        if (acontact.Regest == "omar")
-                        {
-                            //EntAcount.Text = string.Empty;
-                            await DisplayAlert("تم", "تم اضافة الرمز", "Ok");
-                            App.Current.MainPage = new ShellPage();
-                        }
+                    await App.acountUes.SaveAcontactAsync(acontact);
+                    //EntAcount.Text = string.Empty;
+                    await DisplayAlert("تم", "تم اضافة الرمز", "Ok");
+                    App.Current.MainPage = new ShellPage();
+                } }
+            else
+            {
+                await DisplayAlert("خطا", "قم باعادة الادخال", "Ok");
+                return;
+            }
                
   
-                }
+                
 
         }
 
+        //protected override async void OnAppearing()
+        //{
+        //    var myValue = Preferences.Get("EntAcount","omar" );
+        //    if (myValue == acontact.Regest)
+        //    {
+        //        App.Current.MainPage = new ShellPage();
+
+        //    }
+
+        //}
 
 
 
 
-      
 
-        private void Smsbtn(object sender, EventArgs e)
+            private void Smsbtn(object sender, EventArgs e)
         {
             // Send Sms
             var smsMessenger = CrossMessaging.Current.SmsMessenger;

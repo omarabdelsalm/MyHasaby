@@ -10,7 +10,7 @@ namespace MyHasaby
         int id;
         string name;
         //private int id;
-        [PrimaryKey]
+        [PrimaryKey,AutoIncrement]
         
         public int ID
         {

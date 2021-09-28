@@ -5,47 +5,19 @@ using SQLite;
 
 namespace MyHasaby
 {
-    public class Acontact:ViewModelBase
+    public class Acontact
     {
         
-        private int id;
-        [PrimaryKey]
+        
+        [PrimaryKey,AutoIncrement]
         public int ID { get; set; }
-        //                get
-        //                {
-        //                    return id;
-        //                }
-        //                  set
-        //                    {
-        //                        if (id != value)
-        //                        {
-        //                            id = value;
-        //                            OnpropertyChanged("ID");
-        //                         }
-        //                  }
-                
-
-        //}
+        
 
 
         //="omar" ;//"omar 1975 moha 1977 ali 1984 bkr 1987";
-        private string regest;
-        public string Regest
-        {
-            get
-            {
-                return regest;
-            }
-            set
-            {
-                if (regest != value)
-                {
-                    regest = value;
-                    OnPropertyChanged("Regest");
-                }
-            }
-            
-        }
+      
+        public string Regest { get; set; }
+        
 
     }
 }

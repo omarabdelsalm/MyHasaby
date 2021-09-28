@@ -10,15 +10,15 @@ namespace MyHasaby
    public class AcountUes
     {
 
-        readonly SQLiteAsyncConnection _database;
+       private readonly SQLiteAsyncConnection _database;
 
         public AcountUes(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<Acontact>().Wait();
+            _database.CreateTableAsync<Acontact>();
         }
 
-        public Task<List<Acontact>> GetPeopleAsync()
+        public Task<List<Acontact>> GetAcontactAsync()
         {
             return _database.Table<Acontact>().ToListAsync();
         }
@@ -27,16 +27,11 @@ namespace MyHasaby
 
             return _database.Table<Acontact>().Where(i => i.ID == personId1).FirstOrDefaultAsync();
         }
-        public Task<int> SavePersonAsync(Acontact person)
+        public Task<int> SaveAcontactAsync(Acontact person)
         {
-            if (person.ID != 0)
-            {
-                return _database.UpdateAsync(person);
-            }
-            else
-            {
+            
                 return _database.InsertAsync(person);
-            }
+           
         }
         
 
