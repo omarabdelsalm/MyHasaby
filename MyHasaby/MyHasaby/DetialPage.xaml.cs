@@ -146,52 +146,18 @@ namespace MyHasaby
             string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
 
             var db = new SQLiteConnection(_dbpath);
-            //List<Users> collection = new List<Users>();
+            
 
-            //Users customer = new Users();
-
-            //customer.Dane = usr.Dane;
-            //customer.Mdan = usr.Mdan;
-            //collection.Add(customer);
-
-            ////Add values to list 
-            //List<object> data = new List<object>();
-            //for (int i = 0; i < collection.Count; i++)
-            //{
-            //    Object row = new { Date = collection[i].CreateAt, Dane= collection[i].Dane,deyou= collection[i].Mdan };
-            //    data.Add(row);
-            //}
-            ////Add list to IEnumerable 
-            //IEnumerable<object> tableData = data;
-            ////Assign data source
-            //PdfDocument doc = new PdfDocument();
-            ////Add a page.
-            //PdfPage page = doc.Pages.Add();
-            ////Create a PdfGrid.
-            //PdfGrid pdfGrid = new PdfGrid();
-            //pdfGrid.DataSource = tableData;
+            
             //Create a new PDF document.
             PdfDocument doc = new PdfDocument();
             //Add a page.
             PdfPage page = doc.Pages.Add();
             //Create a PdfGrid.
             PdfGrid pdfGrid = new PdfGrid();
-            //Add values to list
-            //List<Users> data = new List<Users>();
-            //Object row1 = new { ID = "ديون", Name =usr.Mdan };
-            //Object row2 = new { ID = "مدفوع", Name = usr.Dane };
-            //Object row3 = new { ID = "ملاحظات", Name = usr.Nots };
-            //Object row4 = new { ID = "التاريخ", Name = usr.CreateAt };
             
-            //data.Add((Users)row1);
-            //data.Add((Users)row2);
-            //data.Add((Users)row3);
-            //data.Add((Users)row4);
-            
-            //Add list to IEnumerable
-            //IEnumerable<object> dataTable = data;
             ////Assign data source.
-            pdfGrid.DataSource = db.Table<Users>().OrderBy(x => x.ID).ToList(); ;
+            pdfGrid.DataSource = db.Table<Users>().OrderBy(x => x.PersonId).ToList(); ;
             //Draw grid to the page of PDF document.
             pdfGrid.Draw(page, new PointF(10, 10));
             //Save the PDF document to stream.
@@ -212,5 +178,7 @@ namespace MyHasaby
             DrawTable();
 
         }
+
+        
     }
 }

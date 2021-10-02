@@ -4,7 +4,7 @@
              Title="تسجيل بيانات العميل"
              x:Class="MyHasaby.AddData">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="#e0e0d1">
             <Grid  >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>

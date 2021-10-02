@@ -22,7 +22,27 @@ namespace MyHasaby
         public MainPage()
         {
             InitializeComponent();
-            
+            btncon.Clicked += Btncon_Clicked;
+
+
+        }
+
+        private async void Btncon_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                var contact = await Contacts.PickContactAsync();
+
+                if (contact == null)
+                    return;
+                nameEntry.Text = contact.GivenName;
+                ageEntry.Text = contact.Phones.FirstOrDefault()?.PhoneNumber;
+
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         async void OnButtonClicked(object sender, EventArgs e)
@@ -220,5 +240,37 @@ namespace MyHasaby
             await Navigation.PushAsync(new DeleatPage());
 
         }
+       async void Handle_TextChanged(object sender, Xamarin.Forms.TextChangedEventArgs e)
+        {
+            var _container = BindingContext as Person;
+            var db = new SQLiteConnection(_dbpath);
+            _ListView.BeginRefresh();
+            var pres = db.Table<Person>();
+            if (string.IsNullOrWhiteSpace(e.NewTextValue))
+                _ListView.ItemsSource = from emp in pres select emp;//await App.User.GetPeopleAsync();
+            else
+                _ListView.ItemsSource = from emps in pres
+                                        where emps.Name.Contains(e.NewTextValue)
+                                        select emps;
+                                        
+                                        ;
+
+            _ListView.EndRefresh();
+        }
+
+        //private async void BtnContact(object sender, EventArgs e)
+        //{
+        //    try {
+        //        var contact = await Contacts.PickContactAsync();
+
+        //        if (contact == null)
+        //           return;
+        //        nameEntry.Text = contact.GivenName;
+        //        ageEntry.Text = contact.Phones.FirstOrDefault()?.PhoneNumber;
+
+        //    } catch(Exception) {
+            
+        //    }
+        //}
     }
 }

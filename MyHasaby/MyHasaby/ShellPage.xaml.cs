@@ -64,6 +64,8 @@ namespace MyHasaby
               ShellPage shell = new ShellPage();
               await shell.Restor();
           });
+       
+        
         public ICommand BackCommand { get => backCommand; set => backCommand = value; }
         public ICommand ReCommand { get => reCommand; set => reCommand = value; }
 
@@ -159,6 +161,7 @@ namespace MyHasaby
             }
 
         }
+        
 
     }
 }

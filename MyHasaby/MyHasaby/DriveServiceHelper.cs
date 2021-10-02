@@ -20,8 +20,8 @@ namespace MyHasaby
             File metadata = new File()
             {
                 Parents = new List<string>() { "root" },
-                MimeType = "text/plain",
-                Name = "Untitled file"
+                MimeType = "temp.db3",
+                Name = "database"
             };
 
             var googleFile = await this.driveService.Files.Create(metadata).ExecuteAsync();
@@ -58,7 +58,7 @@ namespace MyHasaby
 
             };
             byte[] byteArray = Encoding.Default.GetBytes(content);
-            await driveService.Files.Update(metadata, fileId, new System.IO.MemoryStream(byteArray), "text/plain").UploadAsync();
+            await driveService.Files.Update(metadata, fileId, new System.IO.MemoryStream(byteArray), "temp.db3").UploadAsync();
         }
 
     }

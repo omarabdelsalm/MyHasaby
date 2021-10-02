@@ -32,19 +32,5 @@ namespace MyHasaby
         
     }
     
-    //public async void Imagimbied(StreamImageSource name)
-    //{
-    //    var RusaltPicker = await FilePicker.PickAsync(new PickOptions
-    //    {
-    //        FileTypes = FilePickerFileType.Images,
-    //        PickerTitle = "Omar"
-
-    //    });
-    //    if (RusaltPicker != null)
-    //    {
-    //        var stream = await RusaltPicker.OpenReadAsync();
-    //        name = (StreamImageSource)ImageSource.FromStream(() => stream);
-    //    }
-        
-    //}
+    
 }
