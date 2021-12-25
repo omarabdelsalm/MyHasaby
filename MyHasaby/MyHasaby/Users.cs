@@ -17,9 +17,22 @@ namespace MyHasaby
             CreateAt = DateTime.UtcNow;
             
         }
-        [PrimaryKey,AutoIncrement]
-        public int ID { get; set; }
+        
+        //public int ID { get; set; }
+        private int id;
+        [PrimaryKey, AutoIncrement]
+        public int ID { 
+            get { return id; }
+            set {
+                if (id != value)
+                {
+                    id = value;
+                    OnPropertyChanged("ID");
+                }
+            }
+        }
         [Indexed]
+
        
         public int PersonId { get; set; }
         private int dane;

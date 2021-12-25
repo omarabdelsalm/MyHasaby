@@ -35,24 +35,5 @@ namespace MyHasaby
         }
         
 
-        //readonly SQLiteAsyncConnection database;
-        //SQLiteAsyncConnection db;
-        //public AcountUes(string dbPath)
-        //{
-
-        //        db = new SQLiteAsyncConnection(dbPath);
-        //        db.CreateTableAsync<Acontact>().Wait();
-
-
-        //}
-
-        //public Task<int> SaveAcontactAsync(Acontact acontact)
-        //{
-
-
-        //        return db.InsertAsync(acontact);
-
-        //}
-
     }
 }

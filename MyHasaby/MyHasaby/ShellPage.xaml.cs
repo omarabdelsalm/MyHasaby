@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using Microsoft.AppCenter.Crashes;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,6 +20,7 @@ namespace MyHasaby
         public ShellPage()
         {
             InitializeComponent();
+
             BindingContext = this;
         }
 
@@ -42,7 +44,7 @@ namespace MyHasaby
                 }
 
 
-                string destinationDatabasePath = Path.Combine(libFolder, $"temp{DateTime.Now.ToString("dd-yy-mm")}.db3");
+                string destinationDatabasePath = Path.Combine(libFolder, $"temp{DateTime.Now.ToString("dd-MM-yyyy")}.db3");
 
                 db.Backup(destinationDatabasePath, "main");
 
@@ -54,7 +56,39 @@ namespace MyHasaby
             }
             catch (Exception ex)
             {
-                await Application.Current.MainPage.DisplayAlert("محاولة مرةاخرى", "no", "om");
+                try{
+                    string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
+
+                    var statusWrite = await Permissions.RequestAsync<Permissions.StorageWrite>();
+                    var statusRead = await Permissions.RequestAsync<Permissions.StorageRead>();
+                    var db = new SQLiteConnection(_dbpath);
+                    string docFolder = Path.Combine(System.Environment.GetFolderPath
+                         (System.Environment.SpecialFolder.MyDocuments), "logs");
+                    string szRestorePath = "/storage/emulated/0/Android/datacom.alshobky.myhasaby/files/logs/temp.db3";
+                    string libFolder = Path.Combine(docFolder, szRestorePath);
+                    if (!Directory.Exists(libFolder))
+                    {
+                        Directory.CreateDirectory(libFolder);
+                    }
+
+
+                    string destinationDatabasePath = Path.Combine(libFolder, $"temp{DateTime.Now.ToString("dd-MM-yyyy")}.db3");
+
+                    db.Backup(destinationDatabasePath, "main");
+
+
+
+                    await Application.Current.MainPage.DisplayAlert("حفط نسخة احتياطية", "مسار الحفظ Android/datacom.alshobky.myhasaby/files/logs/temp.db3", "OK");
+
+
+
+                }
+                catch 
+                {
+                    await Application.Current.MainPage.DisplayAlert("خطأ", "محاولة مرةاخرى", "Ok");
+
+                }
+
 
             }
 
@@ -141,7 +175,7 @@ namespace MyHasaby
                             // File delete the temporary backup  file now.
                             File.Delete($"{szLiveDBPath}OLD");
                             await Application.Current.MainPage.DisplayAlert("OK", "تم استعادة النسخة الاحتياطية", "OK");
-                            return;
+                           
                             //Quit the application.
                             System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
                         }
@@ -155,13 +189,13 @@ namespace MyHasaby
                 else
                     throw new Exception("Give the Application the ability to access to storage");
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                await Application.Current.MainPage.DisplayAlert("Error", ex.Message, "Oops");
+               await Application.Current.MainPage.DisplayAlert("Error", exception.Message, "Oops");
+                Crashes.TrackError(exception);
             }
 
         }
-        
 
     }
 }

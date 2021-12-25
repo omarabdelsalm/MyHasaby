@@ -1,13 +1,11 @@
-﻿using MyHasaby.Views;
-using System;
+﻿using System;
 using SQLite;
 using System.IO;
 using Xamarin.Forms;
 using System.Linq;
-using Xamarin.Forms.Xaml;
-using System.Collections.Generic;
-using Xamarin.Essentials;
-[assembly: ExportFont("NotoNaskhArabic-Regular.ttf")]
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Analytics;
 namespace MyHasaby
 {
     public partial class App : Application
@@ -70,7 +68,7 @@ namespace MyHasaby
                     App.Current.MainPage = new ShellPage();
                 Settings.FirstRun = false;
             }
-            Device.BeginInvokeOnMainThread(() =>
+            Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
 
            {
 
@@ -99,23 +97,16 @@ namespace MyHasaby
            });
 
 
-
-
-            
-
-
-
-
-
-
-
-
         }
 
 
         protected override void OnStart()
         {
-            
+            AppCenter.Start("android=da69d854-852d-4015-ab4b-05708425857a;" +
+                  "uwp={Your UWP App secret here};" +
+                  "ios={Your iOS App secret here}",
+                  typeof(Analytics),
+                   typeof(Crashes));
         }
 
         protected override void OnSleep()

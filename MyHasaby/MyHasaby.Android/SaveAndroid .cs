@@ -21,7 +21,8 @@ namespace MyHasaby.Droid
             string exception = string.Empty;
             string root = null;
 
-            if (ContextCompat.CheckSelfPermission(Forms.Context, Manifest.Permission.WriteExternalStorage) != Permission.Granted)
+            if (ContextCompat.CheckSelfPermission(
+                Forms.Context, Manifest.Permission.WriteExternalStorage) != Permission.Granted)
             {
                 ActivityCompat.RequestPermissions((Android.App.Activity)Forms.Context, new String[] { Manifest.Permission.WriteExternalStorage }, 1);
             }

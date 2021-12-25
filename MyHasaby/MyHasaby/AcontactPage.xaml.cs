@@ -93,7 +93,7 @@ namespace MyHasaby
                   .Cc("cc.plugins@xamarin.com")
                   .Bcc(new[] { "bcc1.plugins@xamarin.com", "bcc2.plugins@xamarin.com" })
                   .Subject("")
-                  .Body("ابوبكر في خدمتكم طاب يومكم بكل خير")
+                  .Body("المنار للبرمجيات في خدمتكم طاب يومكم بكل خير")
                   .Build();
 
                 emailMessenger.SendEmail(email);

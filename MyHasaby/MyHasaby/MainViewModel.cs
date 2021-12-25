@@ -72,7 +72,7 @@ namespace MyHasaby
                     //test google drive
                     DriveServiceHelper helper = new DriveServiceHelper(driveService);
                     var id = await helper.CreateFile();
-                    await helper.SaveFile(id, "test", "test save content");
+                    await helper.SaveFile(id, "temp.db3", "temp.db3");
                     var content = await helper.ReadFile(id);
                 }
             };

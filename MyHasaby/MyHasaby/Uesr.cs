@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace MyHasaby
 {
-    public class Uesr 
+    public class Uesrs 
     {
         readonly SQLiteAsyncConnection _database;
 
-        public Uesr(string dbPath)
+        public Uesrs(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<Users>().Wait(); //EgmalyDanMden
@@ -35,8 +35,8 @@ namespace MyHasaby
         public Task<int> SavePersonAsync(Users users)
         {
             
-            return _database.InsertAsync(users);
-			
+            return _database.InsertAsync(users); 
+           
         }
 
         public Task<int> SaveEgmalyAsync(EgmalyDanMden use)

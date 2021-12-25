@@ -23,7 +23,7 @@ namespace MyHasaby
         {
             InitializeComponent();
             btncon.Clicked += Btncon_Clicked;
-
+            //tesName.Text= DependencyService.Get<IGetDeviceInfo>().GetDeviceID();
 
         }
 
@@ -35,7 +35,7 @@ namespace MyHasaby
 
                 if (contact == null)
                     return;
-                nameEntry.Text = contact.GivenName;
+                nameEntry.Text = contact.GivenName+" "+contact.MiddleName+" "+contact.FamilyName;
                 ageEntry.Text = contact.Phones.FirstOrDefault()?.PhoneNumber;
 
             }
@@ -258,19 +258,6 @@ namespace MyHasaby
             _ListView.EndRefresh();
         }
 
-        //private async void BtnContact(object sender, EventArgs e)
-        //{
-        //    try {
-        //        var contact = await Contacts.PickContactAsync();
-
-        //        if (contact == null)
-        //           return;
-        //        nameEntry.Text = contact.GivenName;
-        //        ageEntry.Text = contact.Phones.FirstOrDefault()?.PhoneNumber;
-
-        //    } catch(Exception) {
-            
-        //    }
-        //}
+       
     }
 }

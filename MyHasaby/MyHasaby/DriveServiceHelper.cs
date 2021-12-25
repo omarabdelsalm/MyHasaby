@@ -20,7 +20,7 @@ namespace MyHasaby
             File metadata = new File()
             {
                 Parents = new List<string>() { "root" },
-                MimeType = "temp.db3",
+                MimeType = "temp/db3",
                 Name = "database"
             };
 
@@ -58,8 +58,9 @@ namespace MyHasaby
 
             };
             byte[] byteArray = Encoding.Default.GetBytes(content);
-            await driveService.Files.Update(metadata, fileId, new System.IO.MemoryStream(byteArray), "temp.db3").UploadAsync();
+            await driveService.Files.Update(metadata, fileId, new System.IO.MemoryStream(byteArray), "temp/db3").UploadAsync();
         }
+        
 
     }
 

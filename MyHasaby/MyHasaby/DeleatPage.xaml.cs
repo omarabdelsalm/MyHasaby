@@ -40,7 +40,8 @@ namespace MyHasaby
             db.Table<Person>().Delete(X => X.ID == omar.ID);
             db.Table<Users>().Delete(X => X.PersonId == omar.ID);
             _ListView.ItemsSource = await App.User.GetPeopleAsync();
-            await Navigation.PushAsync(new MainPage());
+            return;
+            await Navigation.PushAsync(new ShellPage());
         }
     }
 }
