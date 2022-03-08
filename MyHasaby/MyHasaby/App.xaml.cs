@@ -60,10 +60,7 @@ namespace MyHasaby
            
             if (Settings.FirstRun)
             {
-                // Perform an action such as a "Pop-Up".
-
-                //App.Current.MainPage.DisplayAlert("رجاء", "كتابة عميل علي الاقل حتى يعمل التطبيق معك", "");
-                Person person = new Person();
+                  Person person = new Person();
                 if (person.ID == 0) { Settings.FirstRun = true; }
                     App.Current.MainPage = new ShellPage();
                 Settings.FirstRun = false;
