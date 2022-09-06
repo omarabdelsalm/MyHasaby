@@ -43,7 +43,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Text="حذف" FontSize="Large" CornerRadius="75" BackgroundColor="Red" Clicked="Button_Clicked" Grid.Column="0"/>
+            <Button Text="حذف" FontSize="Large" CornerRadius="50" BackgroundColor="Red" Clicked="Button_Clicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

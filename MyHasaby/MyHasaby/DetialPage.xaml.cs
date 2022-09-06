@@ -5,6 +5,9 @@ using Syncfusion.Pdf.Graphics;
 using Syncfusion.Pdf.Grid;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,6 +16,9 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Syncfusion.Drawing;
+
+
+
 
 namespace MyHasaby
 {
@@ -28,6 +34,8 @@ namespace MyHasaby
         public int id2;
         public int item1;
         public int item2;
+        private object obj;
+
         public DetialPage(int id,String name)
         {
             InitializeComponent();
@@ -57,12 +65,13 @@ namespace MyHasaby
                     Nots = Molhazt.Text
 
                 });
-               await DisplayAlert("تم اضافة المبلغ بنجاح", "adding", "ok");
+               await DisplayAlert("نجاح", "تم اضافة المبلغ بنجاح", "ok");
 
                 var db = new SQLiteConnection(_dbpath);
 
                 var PersonId1 = int.Parse(txtid.Text);
-                
+                _listView.ItemsSource = db.Table<Users>().Where(i => i.PersonId == PersonId1);
+
 
                 await App.User1.SaveEgmalyAsync(new EgmalyDanMden
                 {
@@ -72,8 +81,12 @@ namespace MyHasaby
                     EgMdan = db.Table<Users>().Where(i => i.PersonId == PersonId1).Select(x => x.Mdan).Sum()
 
                 });
-                TexDane.Text = txtid.Text = string.Empty;
+                TexDane.Text = string.Empty;
+                txtid.Text = string.Empty;
+                Molhazt.Text = string.Empty;
+
                 await Navigation.PopAsync();
+                
             }
         }
 
@@ -89,11 +102,15 @@ namespace MyHasaby
                     Nots = Molhazt.Text
 
                 });
-                await DisplayAlert("تم اضافة المبلغ بنجاح", "adding", "ok");
-
+                await DisplayAlert("نجاح", "تم اضافة المبلغ بنجاح", "ok");
                 var db = new SQLiteConnection(_dbpath);
-                
                 var PersonId1 = int.Parse(txtid.Text);
+                _listView.ItemsSource = db.Table<Users>().Where(i => i.PersonId == PersonId1);
+
+
+                
+                
+                //var PersonId1 = int.Parse(txtid.Text);
                 
 
                 await App.User1.SaveEgmalyAsync(new EgmalyDanMden
@@ -103,8 +120,11 @@ namespace MyHasaby
                     EgDane = db.Table<Users>().Where(i => i.PersonId == PersonId1).Select(x => x.Dane).Sum(),
                     EgMdan = db.Table<Users>().Where(i => i.PersonId == PersonId1).Select(x => x.Mdan).Sum()
                 });
-                TexDane.Text = txtid.Text = string.Empty;
+                TexDane.Text =string.Empty ;
+                txtid.Text = string.Empty;
+                Molhazt.Text = string.Empty;
                 await Navigation.PopAsync();
+               
             }
         }
 
@@ -118,6 +138,7 @@ namespace MyHasaby
 
 
         }
+        //دالة جمع الحقول
         private async void AddEgmalyHasabAsync()
         {
             string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
@@ -139,6 +160,7 @@ namespace MyHasaby
             }
             
         }
+        // method for pdf and capture
         void DrawTable()
         {
             ////List of Columns 
@@ -146,18 +168,25 @@ namespace MyHasaby
             string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
 
             var db = new SQLiteConnection(_dbpath);
-            
 
-            
+
+
             //Create a new PDF document.
-            PdfDocument doc = new PdfDocument();
+            Syncfusion.Pdf.PdfDocument doc = new Syncfusion.Pdf.PdfDocument();
             //Add a page.
-            PdfPage page = doc.Pages.Add();
+            Syncfusion.Pdf.PdfPage page = doc.Pages.Add();
+
             //Create a PdfGrid.
             PdfGrid pdfGrid = new PdfGrid();
-            
+            var PersonId1 = int.Parse(txtid.Text);
+
+            var use = db.Table<Users>().ToList();
+            var result = from emps in use
+                         where emps.PersonId == PersonId1
+                         select new { emps.Mdan, emps.Dane, emps.CreateAt };
+            Person person = new Person();
             ////Assign data source.
-            pdfGrid.DataSource = db.Table<Users>().OrderBy(x => x.PersonId).ToList(); ;
+            pdfGrid.DataSource = result;
             //Draw grid to the page of PDF document.
             pdfGrid.Draw(page, new PointF(10, 10));
             //Save the PDF document to stream.
@@ -171,14 +200,50 @@ namespace MyHasaby
             stream.Position = 0;
             //Save the stream as a file in the device and invoke it for viewing
             Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
+            DisplayAlert("تم ", "طبع ملف بي دى اف", "ok");
         }
 
         private void Button_Clicked(object sender, EventArgs e)
         {
             DrawTable();
+           // testy();
+
 
         }
 
-        
+     
+        Users omar;
+        private void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            omar = e.SelectedItem as Users;
+            btnDeleat.IsVisible = true;
+            
+        }
+        // دالة الحذف
+        private async void BtnDeleat(object sender, EventArgs e)
+        {
+            
+            var db = new SQLiteConnection(_dbpath);
+            try {
+                await App.User1.DeleteItemAsync(omar);
+                DisplayAlert("حذف","تم حذف العملية بنجاح","'تم");
+
+                
+                var PersonId1 = int.Parse(txtid.Text);
+                _listView.ItemsSource = db.Table<Users>().Where(i => i.PersonId == PersonId1);
+
+                return;
+                await Navigation.PushAsync(new ShellPage());
+
+
+            }
+            catch { return; }
+           
+        }
+
+
+
+
+
     }
 }

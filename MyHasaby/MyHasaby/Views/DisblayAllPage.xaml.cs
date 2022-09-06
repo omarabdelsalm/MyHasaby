@@ -60,7 +60,7 @@ namespace MyHasaby.Views
 
                 var all2 = (from emp in result1 select emp.Mdan).Sum();
                 EgmalyModanText.Text = (all2).ToString();
-                var egmaiy = int.Parse(EgmalyModanText.Text) - int.Parse(EgmalyDaenText.Text);
+                var egmaiy = int.Parse(EgmalyDaenText.Text) - int.Parse(EgmalyModanText.Text);
                 EgmalyEModanText.Text = egmaiy.ToString();
 
 

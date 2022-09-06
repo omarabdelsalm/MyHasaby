@@ -18,14 +18,15 @@ namespace MyHasaby
     public partial class MainPage : ContentPage
     {
         string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
-
+        
+       
         public MainPage()
         {
             InitializeComponent();
             btncon.Clicked += Btncon_Clicked;
-
-
-        }
+             
+           
+          }
 
         private async void Btncon_Clicked(object sender, EventArgs e)
         {
@@ -35,7 +36,7 @@ namespace MyHasaby
 
                 if (contact == null)
                     return;
-                nameEntry.Text = contact.GivenName;
+                nameEntry.Text = contact.GivenName+" "+contact.MiddleName+" "+contact.FamilyName;
                 ageEntry.Text = contact.Phones.FirstOrDefault()?.PhoneNumber;
 
             }
@@ -258,19 +259,6 @@ namespace MyHasaby
             _ListView.EndRefresh();
         }
 
-        //private async void BtnContact(object sender, EventArgs e)
-        //{
-        //    try {
-        //        var contact = await Contacts.PickContactAsync();
-
-        //        if (contact == null)
-        //           return;
-        //        nameEntry.Text = contact.GivenName;
-        //        ageEntry.Text = contact.Phones.FirstOrDefault()?.PhoneNumber;
-
-        //    } catch(Exception) {
-            
-        //    }
-        //}
+       
     }
 }

@@ -22,8 +22,8 @@
                 <Label x:Name="txtid" Grid.Row="0" Grid.Column="1"/>
                 <Entry x:Name="TexDane" Keyboard="Numeric" Placeholder="ضع المبلغ" Grid.Row="0" Grid.Column="3"/>
                 <Entry x:Name="Molhazt" Placeholder="ملاحظات" Grid.Row="1"/>
-                <Button x:Name="BtnDane" Text="مدفوعات"  TextColor="Green" CornerRadius="25" FontSize="Default" Grid.Row="1" Grid.Column="2"/>
-                <Button x:Name="BtnMdane" Text="مديونيات" TextColor="Red" FontSize="Default" CornerRadius="25"  Grid.Row="1" Grid.Column="3"/>
+                <Button x:Name="BtnDane" Text="له"  TextColor="Green" CornerRadius="25" FontSize="Default" Grid.Row="1" Grid.Column="2"/>
+                <Button x:Name="BtnMdane" Text="عليه" TextColor="Red" FontSize="Default" CornerRadius="25"  Grid.Row="1" Grid.Column="3"/>
 
             </Grid>
         </StackLayout>
