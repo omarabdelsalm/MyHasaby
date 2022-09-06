@@ -27,10 +27,10 @@
                 <Button Text="اضافة الى السجل"
                 Clicked="OnButtonClicked" />
            </Frame>
-        
-            
-        
-        </StackLayout>
+
+                <Label  x:Name="test11" />
+
+            </StackLayout>
         
         <StackLayout>
             <SearchBar TextChanged="Handle_TextChanged"></SearchBar>

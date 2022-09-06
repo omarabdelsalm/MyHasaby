@@ -20,8 +20,6 @@ namespace MyHasaby
         {
             InitializeComponent();
             
-            
-            
         }
 
       private  async void Button_Clicked(object sender, EventArgs e)
@@ -40,7 +38,7 @@ namespace MyHasaby
                         Regest = EntAcount.Text
                     };
                     await App.acountUes.SaveAcontactAsync(acontact);
-                    //EntAcount.Text = string.Empty;
+                    
                     await DisplayAlert("تم", "تم اضافة الرمز", "Ok");
                     App.Current.MainPage = new ShellPage();
                 } }
@@ -106,14 +104,15 @@ namespace MyHasaby
             // Make Phone Call
             var phoneDialer = CrossMessaging.Current.PhoneDialer;
             if (phoneDialer.CanMakePhoneCall)
-                phoneDialer.MakePhoneCall("01069160569", "bkr alshobky");
+                phoneDialer.MakePhoneCall("01200018116", "bkr alshobky");
 
         }
+        //whatsapp Masseage
         private async void Send(object sender, EventArgs e)
         {
             try
             {
-                Chat.Open("+2001207459516", "اود شراء التفعيل ");
+                Chat.Open("+2001200018116", "اود شراء التفعيل ");
             }
             catch (Exception ex)
             {

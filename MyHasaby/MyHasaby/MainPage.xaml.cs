@@ -18,14 +18,15 @@ namespace MyHasaby
     public partial class MainPage : ContentPage
     {
         string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
-
+        
+       
         public MainPage()
         {
             InitializeComponent();
             btncon.Clicked += Btncon_Clicked;
-            //tesName.Text= DependencyService.Get<IGetDeviceInfo>().GetDeviceID();
-
-        }
+             
+           
+          }
 
         private async void Btncon_Clicked(object sender, EventArgs e)
         {

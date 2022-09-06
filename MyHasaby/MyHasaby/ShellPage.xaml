@@ -2,6 +2,7 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:MyHasaby.Views"
+             xmlns:Categories="clr-namespace:MyHasaby.Categories"
              xmlns:local="clr-namespace:MyHasaby"
              Padding="20" 
        
@@ -22,6 +23,7 @@
             </Grid>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
+    
     <FlyoutItem Title="تقرير العملاء"
                 Icon="home.png" >
         <Tab>
@@ -41,10 +43,22 @@
             <ShellContent ContentTemplate="{DataTemplate views:MainsPage}" />
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="جوجل درايف"
+    <FlyoutItem Title="اضافة صنف"
+                Icon="iconProduct.jpg">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate Categories:MainCategory}" />
+        </Tab>
+    </FlyoutItem>
+    <!--<FlyoutItem Title="جوجل درايف"
                 Icon="drive.png">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate local:DrivePage}" />
+        </Tab>
+    </FlyoutItem>-->
+    <FlyoutItem Title="تسجيل للتطبيق"
+                Icon="login.png" >
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:CreativePage}" />
         </Tab>
     </FlyoutItem>
     <MenuItem Text="حفظ نسخة احتياطية" IconImageSource="backup.png" Command="{Binding BackCommand}"/>

@@ -57,53 +57,49 @@ namespace MyHasaby
             string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
 
             var db = new SQLiteConnection(_dbpath);
-           
+
             if (Settings.FirstRun)
             {
-                  Person person = new Person();
+                Person person = new Person();
                 if (person.ID == 0) { Settings.FirstRun = true; }
-                    App.Current.MainPage = new ShellPage();
+                App.Current.MainPage = new ShellPage();
                 Settings.FirstRun = false;
             }
             Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
 
-           {
+            {
 
 
-               var result1 = db.Table<Person>().ToList();
-               
-               var anass2 = App.User.GetPeopleAsync();
-               var all2 = anass2.Result.Count();
-               var all = (from emp in result1.AsEnumerable() select emp.ID).Count();
-               var ally = App.acountUes.GetAcontactAsync().Result;
-               var alhmed = ally.Count();
+                var result1 = db.Table<Person>().ToList();
 
-               if (all2 <= 3)
-               { MainPage = new ShellPage(); }
-               else if (alhmed!=0) {
-                   
-                   App.Current.MainPage = new ShellPage();
+                var anass2 = App.User.GetPeopleAsync();
+                var all2 = anass2.Result.Count();
+                var all = (from emp in result1.AsEnumerable() select emp.ID).Count();
+                var ally = App.acountUes.GetAcontactAsync().Result;
+                var alhmed = ally.Count();
 
+                if (all2 <= 3)
+                { MainPage = new ShellPage(); }
+                else if (alhmed != 0)
+                {
 
-                 
-               }
-               else {
-
-                   MainPage = new AcontactPage();
-               }
-           });
+                    App.Current.MainPage = new ShellPage();
 
 
+
+                }
+                else
+                {
+
+                    MainPage = new AcontactPage();
+                }
+            });
         }
 
 
         protected override void OnStart()
         {
-            AppCenter.Start("android=da69d854-852d-4015-ab4b-05708425857a;" +
-                  "uwp={Your UWP App secret here};" +
-                  "ios={Your iOS App secret here}",
-                  typeof(Analytics),
-                   typeof(Crashes));
+            
         }
 
         protected override void OnSleep()
@@ -113,7 +109,7 @@ namespace MyHasaby
 
         protected override void OnResume()
         {
-
+           
         }
     }
 }

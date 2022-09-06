@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.OS;
 using System.IO;
 using Xamarin.Forms;
+using Plugin.CurrentActivity;
 
 namespace MyHasaby.Droid
 {
@@ -22,6 +23,7 @@ namespace MyHasaby.Droid
             string dbName = "SM4U.sqlite";
             string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string fullpath = Path.Combine(folderPath, dbName);
+            
             //LoadApplication(new App());
             this.StartService(new Android.Content.Intent(this, typeof(DemoIntentService)));
             base.OnCreate(savedInstanceState);
@@ -33,7 +35,7 @@ namespace MyHasaby.Droid
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
             global::Xamarin.Auth.Presenters.XamarinAndroid.AuthenticationConfiguration.Init(this, savedInstanceState);
             global::Xamarin.Auth.CustomTabsConfiguration.CustomTabsClosingMessage = null;
-
+            
             LoadApplication(new App(fullpath));
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

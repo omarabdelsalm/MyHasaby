@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
 
 namespace MyHasaby
@@ -16,22 +17,43 @@ namespace MyHasaby
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ShellPage : Shell
     {
-       // string db = new SQLiteConnection(_dbpath);
+        // string db = new SQLiteConnection(_dbpath);
+       
         public ShellPage()
         {
             InitializeComponent();
-
+            
             BindingContext = this;
+            
         }
+        
 
+
+      
         private ICommand backCommand = new Command(async () =>
         {
 
             try
             {
-         string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
+                string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
 
-        var statusWrite = await Permissions.RequestAsync<Permissions.StorageWrite>();
+                var folder = Xamarin.Forms.DependencyService.Get<IAccessFileService>().copy();
+
+
+                string filename = $"temp{DateTime.Now.ToString("dd-MM-yyyy")}.db3";
+                string destinationDatabasePath = Path.Combine(folder.ToString(), filename);
+                var db = new SQLiteConnection(_dbpath);
+                db.Backup(destinationDatabasePath, "main");
+                await Application.Current.MainPage.DisplayAlert("نجاح", "تم عمل نسخة احتياطية", "Ok");
+
+ }
+            catch (Exception ex)
+            {
+                
+
+                string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
+
+                var statusWrite = await Permissions.RequestAsync<Permissions.StorageWrite>();
                 var statusRead = await Permissions.RequestAsync<Permissions.StorageRead>();
                 var db = new SQLiteConnection(_dbpath);
                 string docFolder = Path.Combine(System.Environment.GetFolderPath
@@ -47,101 +69,46 @@ namespace MyHasaby
                 string destinationDatabasePath = Path.Combine(libFolder, $"temp{DateTime.Now.ToString("dd-MM-yyyy")}.db3");
 
                 db.Backup(destinationDatabasePath, "main");
-
-
-
                 await Application.Current.MainPage.DisplayAlert("حفط نسخة احتياطية", "مسار الحفظ Android/datacom.alshobky.myhasaby/files/logs/temp.db3", "OK");
 
-
-            }
-            catch (Exception ex)
-            {
-                try{
-                    string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
-
-                    var statusWrite = await Permissions.RequestAsync<Permissions.StorageWrite>();
-                    var statusRead = await Permissions.RequestAsync<Permissions.StorageRead>();
-                    var db = new SQLiteConnection(_dbpath);
-                    string docFolder = Path.Combine(System.Environment.GetFolderPath
-                         (System.Environment.SpecialFolder.MyDocuments), "logs");
-                    string szRestorePath = "/storage/emulated/0/Android/datacom.alshobky.myhasaby/files/logs/temp.db3";
-                    string libFolder = Path.Combine(docFolder, szRestorePath);
-                    if (!Directory.Exists(libFolder))
-                    {
-                        Directory.CreateDirectory(libFolder);
-                    }
-
-
-                    string destinationDatabasePath = Path.Combine(libFolder, $"temp{DateTime.Now.ToString("dd-MM-yyyy")}.db3");
-
-                    db.Backup(destinationDatabasePath, "main");
-
-
-
-                    await Application.Current.MainPage.DisplayAlert("حفط نسخة احتياطية", "مسار الحفظ Android/datacom.alshobky.myhasaby/files/logs/temp.db3", "OK");
-
-
-
-                }
-                catch 
-                {
-                    await Application.Current.MainPage.DisplayAlert("خطأ", "محاولة مرةاخرى", "Ok");
-
-                }
-
-
-            }
+        }
 
         });
-        private ICommand reCommand = new Command(async() =>
+        private ICommand reCommand = new Command(async () =>
           {
               ShellPage shell = new ShellPage();
               await shell.Restor();
           });
-       
-        
+
+
         public ICommand BackCommand { get => backCommand; set => backCommand = value; }
         public ICommand ReCommand { get => reCommand; set => reCommand = value; }
 
         private async Task Restor()
         {
-
-            try
-            {
+            //try
+            //{
+                //await Application.Current.MainPage.DisplayAlert("Error", exception.Message, "Oops");
+                // Crashes.TrackError(exception);
                 string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
-
-                var connection = new SQLiteConnection(_dbpath);
-                //var connection = new SQLiteConnection(App.DataBasePath);
                 SQLiteAsyncConnection toMerge;
 
-                // Build a string that has the path to where we want the new database file for this procedure.
-                //  string szRestorePath = "/storage/emulated/0/Android/data/com.alshobky.myhasaby/files/logs/temp.db3";
-                // Check that we have access to be playing with these files.
-
-                string docFolder = Path.Combine(System.Environment.GetFolderPath
-                    (System.Environment.SpecialFolder.MyDocuments), "logs");
-                string libFolder = "/storage/emulated/0/Android/datacom.alshobky.myhasaby/files/logs/temp.db3";
-                string szRestorePath = Path.Combine(docFolder, libFolder);
-                var file = await FilePicker.PickAsync();
-                if (file == null) return;
-                string filetemp = file.FileName;
-                var libFolder1 = file.FullPath;
-                szRestorePath = Path.Combine(libFolder, filetemp);
+                 var szRestorePath = Xamarin.Forms.DependencyService.Get<IAccessFileService>().CreateFile1();
+                //string folder= Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.System)+"/Download/" + "/" + "Myhasaby");
+                
+                string filename = $"temp{DateTime.Now.ToString("dd-MM-yyyy")}.db3";
+                //string szRestorePath = Path.Combine(folder.ToString(), filename);
+                //string szRestorePath = Path.Combine(destinationDatabasePath, filename);
+                var connection = new SQLiteConnection(_dbpath);
+                
 
                 var statusWrite = await Permissions.RequestAsync<Permissions.StorageWrite>();
                 var statusRead = await Permissions.RequestAsync<Permissions.StorageRead>();
                 if (statusWrite == Xamarin.Essentials.PermissionStatus.Granted && statusRead == Xamarin.Essentials.PermissionStatus.Granted)
                 {
-                    try
+                   try
                     {
-                        if (!File.Exists(szRestorePath))
-                        {
-                            // Display an alert to let the user know they need to check the file.
-                            await Application.Current.MainPage.DisplayAlert("Error", "Restore database not at path", "Oops");
-
-                            // We're done get out of here.
-                            return;
-                        }
+                    
 
                         // Get our connection to the new database.
                         toMerge = new SQLiteAsyncConnection(szRestorePath);
@@ -173,7 +140,7 @@ namespace MyHasaby
                             connection.EnableWriteAheadLogging();
 
                             // File delete the temporary backup  file now.
-                            File.Delete($"{szLiveDBPath}OLD");
+                           // File.Delete($"{szLiveDBPath}OLD");
                             await Application.Current.MainPage.DisplayAlert("OK", "تم استعادة النسخة الاحتياطية", "OK");
                            
                             //Quit the application.
@@ -186,16 +153,10 @@ namespace MyHasaby
                     }
 
                 }
-                else
-                    throw new Exception("Give the Application the ability to access to storage");
-            }
-            catch (Exception exception)
-            {
-               await Application.Current.MainPage.DisplayAlert("Error", exception.Message, "Oops");
-                Crashes.TrackError(exception);
+
             }
 
+
+             }
         }
-
-    }
-}
+    
