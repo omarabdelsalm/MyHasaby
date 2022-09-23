@@ -1,4 +1,6 @@
 ﻿
+
+
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using SQLite;
@@ -18,14 +20,15 @@ namespace MyHasaby
     public partial class MainPage : ContentPage
     {
         string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
-
+        
+       
         public MainPage()
         {
             InitializeComponent();
             btncon.Clicked += Btncon_Clicked;
-
-
-        }
+             
+           
+          }
 
         private async void Btncon_Clicked(object sender, EventArgs e)
         {
@@ -35,7 +38,7 @@ namespace MyHasaby
 
                 if (contact == null)
                     return;
-                nameEntry.Text = contact.GivenName;
+                nameEntry.Text = contact.GivenName+" "+contact.MiddleName+" "+contact.FamilyName;
                 ageEntry.Text = contact.Phones.FirstOrDefault()?.PhoneNumber;
 
             }
@@ -94,43 +97,13 @@ namespace MyHasaby
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            //collectionView.ItemsSource = await App.Database.GetPeopleAsync();
             _ListView.ItemsSource = await App.User.GetPeopleAsync();
         }
 
         private async void ToolbarItem_Clicked(object sender, EventArgs e)
         {
             omar2.IsVisible = true;
-            // كود نسخة احتياطية
-        //    try
-        //    {
-        //        var statusWrite = await Permissions.RequestAsync<Permissions.StorageWrite>();
-        //        var statusRead = await Permissions.RequestAsync<Permissions.StorageRead>();
-        //        var db = new SQLiteConnection(_dbpath);
-        //        string docFolder = Path.Combine(System.Environment.GetFolderPath
-        //             (System.Environment.SpecialFolder.MyDocuments), "logs");
-        //        string szRestorePath = "/storage/emulated/0/Android/datacom.alshobky.myhasaby/files/logs/temp.db3";
-        //        string libFolder = Path.Combine(docFolder, szRestorePath);
-        //        if (!Directory.Exists(libFolder))
-        //        {
-        //            Directory.CreateDirectory(libFolder);
-        //        }
-
-
-        //        string destinationDatabasePath = Path.Combine(libFolder, $"temp{DateTime.Now.ToString("dd-yy-mm")}.db3");
-
-        //        db.Backup(destinationDatabasePath, "main");
-
-
-        //        DisplayAlert("OK", "تم بحمد الله", "OK");
-
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        DisplayAlert("محاولة مرةاخرى", "no", "om");
-
-        //    }
+            
        }
         private async Task Restor()
         {
@@ -258,19 +231,11 @@ namespace MyHasaby
             _ListView.EndRefresh();
         }
 
-        //private async void BtnContact(object sender, EventArgs e)
-        //{
-        //    try {
-        //        var contact = await Contacts.PickContactAsync();
+        private void Button_Clicked_2(object sender, EventArgs e)
+        {
 
-        //        if (contact == null)
-        //           return;
-        //        nameEntry.Text = contact.GivenName;
-        //        ageEntry.Text = contact.Phones.FirstOrDefault()?.PhoneNumber;
+        }
 
-        //    } catch(Exception) {
-            
-        //    }
-        //}
+        
     }
 }

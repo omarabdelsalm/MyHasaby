@@ -21,7 +21,8 @@ namespace MyHasaby.Droid
             string exception = string.Empty;
             string root = null;
 
-            if (ContextCompat.CheckSelfPermission(Forms.Context, Manifest.Permission.WriteExternalStorage) != Permission.Granted)
+            if (ContextCompat.CheckSelfPermission(
+                Forms.Context, Manifest.Permission.WriteExternalStorage) != Permission.Granted)
             {
                 ActivityCompat.RequestPermissions((Android.App.Activity)Forms.Context, new String[] { Manifest.Permission.WriteExternalStorage }, 1);
             }
@@ -38,7 +39,7 @@ namespace MyHasaby.Droid
 
             Java.IO.File file = new Java.IO.File(myDir, fileName);
 
-            if (file.Exists()) file.Delete();
+            //if (file.Exists()) file.Delete();
 
             try
             {

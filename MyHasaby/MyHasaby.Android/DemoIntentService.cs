@@ -1,10 +1,12 @@
 ﻿   using Android.Content;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 
 namespace MyHasaby
@@ -18,13 +20,14 @@ namespace MyHasaby
         }
 
         // نسخة احتياطية تلقائيا
+
        
         public override Android.App.StartCommandResult OnStartCommand(Intent intent, Android.App.StartCommandFlags flags, int startId)
         {
             // start a task here
             new Task(() =>
             {
-                System.Threading.Thread.Sleep(12*60*60*1000);
+                System.Threading.Thread.Sleep(4*60000);
 
                 // long running code
                 while (true)
@@ -39,8 +42,10 @@ namespace MyHasaby
                         {
                             string filename = $"temp{DateTime.Now.ToString("dd-MM-yyyy")}.db3";
                             Xamarin.Forms.DependencyService.Get<IAccessFileService>().CreateFile(filename);
-
+                            
                         }
+
+
                         catch (Exception ex)
                         {
                             string FileName = $"temp{DateTime.Now.ToString("dd-MM-yyyy")}.db3";

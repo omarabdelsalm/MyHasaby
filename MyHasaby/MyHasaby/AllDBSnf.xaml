@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="الاصناف"
+             BackgroundImageSource="sdf.jpg"
+             Opacity=".6"
+             x:Class="MyHasaby.AllDBSnf">
+    
+         
+    <ScrollView>
+        
+        <StackLayout>
+            <StackLayout Padding="5">
+                <Button Clicked="Button_Clicked" 
+                        Text="اضافة صنف" BackgroundColor="Coral" 
+                        TextColor="Black" FontSize="Large"
+                        CornerRadius="90"/>
+
+            </StackLayout>
+            <SearchBar TextChanged="Handle_TextChanged"></SearchBar>
+            <ListView x:Name="_ListView"  HasUnevenRows="false" SeparatorColor="Black"
+           ItemSelected="OnListViewItemSelected"
+                      >
+                <ListView.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <ViewCell >
+
+
+
+                            <StackLayout Orientation="Horizontal" Spacing="5"  BackgroundColor="Azure" Opacity="0.9">
+                                
+                                <StackLayout Orientation="Horizontal" Margin="5" HorizontalOptions="StartAndExpand">
+                                    <ImageButton Source="iconsedit.png" Clicked="ImageButton_Clicked_1">
+                                       
+                                    </ImageButton>
+                                    <ImageButton Source="rubbish.png" Clicked="ImageButton_Clicked">
+                                        
+                                    </ImageButton>
+                                    <ImageButton Source="product.jpg" Clicked="ImageButton_Clicked2">
+
+                                    </ImageButton>
+
+                                </StackLayout>
+                                <StackLayout HorizontalOptions="StartAndExpand">
+                                    <Label  Text="{Binding Name}" 
+                                            FontAttributes="Bold"
+                                            TextColor="Black" FontSize="18"
+                                    VerticalOptions="StartAndExpand" />
+                                </StackLayout>
+                            </StackLayout> 
+                                 
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

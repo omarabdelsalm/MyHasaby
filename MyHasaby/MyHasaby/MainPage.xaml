@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="العملاء"
+             FlowDirection="RightToLeft"
              x:Class="MyHasaby.MainPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem  Clicked="ToolbarItem_Clicked" IconImageSource="add.jpg"/>
@@ -10,26 +11,27 @@
     </ContentPage.ToolbarItems>
     <ScrollView>
     <StackLayout  BackgroundColor="#e0e0d1">
-        
-        <StackLayout Margin="20,35,20,20" x:Name="omar2" IsVisible="false">
-            <Button Text="جهات الاتصال" x:Name="btncon"  BackgroundColor="Purple" Margin="5" CornerRadius="75"/>
+            
+            <StackLayout Margin="20,35,20,20" x:Name="omar2" IsVisible="false">
+
+                <Button Text="جهات الاتصال" x:Name="btncon" FontSize="Medium"  BackgroundColor="Purple" Margin="5" CornerRadius="75"/>
             <Frame CornerRadius="25">
                 <Entry x:Name="nameEntry"
-               Placeholder="الاسم" BackgroundColor="#9D9797" TextColor="Green" />
+               Placeholder="الاسم" PlaceholderColor="Red" BackgroundColor="#DEDBDB" TextColor="Green" />
             </Frame>
             <Frame CornerRadius="25">
                 <Entry x:Name="ageEntry"
-               Placeholder="الهاتف" 
-               Keyboard="Numeric" BackgroundColor="#9D9797" TextColor="Green"/>
+               Placeholder="الهاتف" PlaceholderColor="Red"
+               Keyboard="Numeric" BackgroundColor="#DEDBDB" TextColor="Green"/>
             </Frame>
             <Frame CornerRadius="25">
                 <Button Text="اضافة الى السجل"
                 Clicked="OnButtonClicked" />
            </Frame>
-        
-            
-        
-        </StackLayout>
+
+               
+               
+            </StackLayout>
         
         <StackLayout>
             <SearchBar TextChanged="Handle_TextChanged"></SearchBar>

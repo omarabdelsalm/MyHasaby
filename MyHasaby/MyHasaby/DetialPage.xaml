@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Title="بيانات العميل"
+             Title="سجل بيانات العميل"
              
              x:Class="MyHasaby.DetialPage">
-    <ContentPage.Content>
-
-        <StackLayout BackgroundColor="#e0e0d1">
+    <ContentPage.Content >
+                <StackLayout BackgroundColor="#e0e0d1" >
            
-            <Grid  >
+                <Grid  >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
-
                     <RowDefinition Height="Auto"></RowDefinition>
+
+                    
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5*" ></ColumnDefinition>
@@ -24,18 +24,18 @@
             
             <Label x:Name="txtname" FontSize="Default" TextColor="Brown" Grid.Row="0" Grid.Column="1"/>
                 <Label x:Name="txtid" Grid.Row="0" Grid.Column="1" IsVisible="false"/>
-                <Entry x:Name="TexDane" Placeholder="ضع المبلغ" Keyboard="Numeric" Grid.Row="0" Grid.Column="3"/>
-                <Entry x:Name="Molhazt" Placeholder="ملاحظات" Grid.Row="2" Grid.Column="1"/>
-                <Button x:Name="BtnDane" Text="مدفوعات"  TextColor="Green" CornerRadius="25" FontSize="Default" Grid.Row="2" Grid.Column="2"/>
-                <Button x:Name="BtnMdane" Text="مديونيات" TextColor="Red" FontSize="Default" CornerRadius="25"  Grid.Row="2" Grid.Column="3"/>
-                
-            </Grid>
-            <StackLayout>
-                <ListView x:Name="_listView" ItemsSource="{Binding Users}"
-                     HasUnevenRows="true" IsPullToRefreshEnabled="True">
-                    <!--ItemSelected="OnListViewItemSelected"  
-                     ItemTapped="OnListViewItemTapped"-->
+                <Entry x:Name="TexDane" Placeholder="ضع المبلغ" PlaceholderColor="Red" Keyboard="Numeric" Grid.Row="0" Grid.Column="3"/>
+                <Entry x:Name="Molhazt" Placeholder="تفاصيل" PlaceholderColor="Red" Grid.Row="2" Grid.Column="1"/>
+                <Button x:Name="BtnDane" Text="له" FontSize="Medium" TextColor="Green" CornerRadius="25"  Grid.Row="2" Grid.Column="2"/>
+                <Button x:Name="BtnMdane" Text="عليه" FontSize="Medium" TextColor="Red" CornerRadius="25"  Grid.Row="2" Grid.Column="3"/>
+                <Button Clicked="BtnDeleat" x:Name="btnDeleat" Text="حذف"  IsVisible="false" BackgroundColor="GreenYellow" TextColor="Red" CornerRadius="25"  Grid.Row="2" Grid.Column="0"/>
 
+            </Grid>
+            <StackLayout >
+                <ListView x:Name="_listView" ItemsSource="{Binding Users}"
+                     HasUnevenRows="true" IsPullToRefreshEnabled="True"
+                          ItemSelected="OnListViewItemSelected" >
+                    
 
 
                     <ListView.ItemTemplate>
@@ -59,11 +59,11 @@
                                     <Label  x:Name="txtdane"
                                                     Grid.Column="3"
                                            Text="{Binding Dane}"
-                          
+                                             FontSize="12"
                                             TextColor="Red"        
                                               HorizontalOptions="Center"/>  
                                     <Label  x:Name="Not"
-                                                        FontSize="Small"
+                                                        FontSize="12"
                                                 Grid.Column="1"
                                        Text="{Binding Nots}"
                           
@@ -74,13 +74,13 @@
                                     <Label  x:Name="txtmdan"
                                                Grid.Column="2"
                                                Text="{Binding Mdan}"
-                         
+                                                FontSize="12"
                                                  TextColor="green"         
                                                 HorizontalOptions="Center"/>
                                     <Label  x:Name="txtID"
                                                Grid.Column="0"
-                                               Text="{Binding CreateAt,StringFormat='{0:dd-MM-yyyy}'}"
-                                               FontSize="Small"
+                                               Text="{Binding CreateAt,StringFormat='{0:dd-MM-yyy}'}"
+                                               FontSize="12"
                            
                                                  TextColor="#204502"         
                                                 HorizontalOptions="StartAndExpand"/>    
@@ -94,7 +94,7 @@
                 </ListView>
             </StackLayout>
             <StackLayout>
-                <Button Clicked="Button_Clicked" Text="pdf" TextColor="Red" FontSize="Default" HorizontalOptions="Start" VerticalOptions="Start" CornerRadius="50" BackgroundColor="#258215"   Grid.Row="2" Grid.Column="3"/>
+                <Button Clicked="Button_Clicked" Text="pdf" TextColor="Red" FontSize="Default" HorizontalOptions="Start" VerticalOptions="Start" CornerRadius="50" BackgroundColor="#2215"   Grid.Row="2" Grid.Column="3"/>
 
             </StackLayout>
             <StackLayout Padding="15" Margin="15">
@@ -105,15 +105,15 @@
                         <!--<RowDefinition Height="*" />-->
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="4*" />
+                        <ColumnDefinition Width="4*" />
 
                     </Grid.ColumnDefinitions>
 
-                    <Label Text ="اجمالي الديون" TextColor="Red"  Grid.Column="2"  Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
-                    <Label Text ="الباقي" TextColor="Purple" Grid.Column="0" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
-                    <Label Text ="اجمالى المدفوع" TextColor="Green" Grid.Column="1" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+                    <Label Text ="ديون العميل " TextColor="Red"  Grid.Column="2" FontSize="12" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+                    <Label Text ="الباقي" TextColor="Purple" Grid.Column="0" Grid.Row="0" FontSize="12" HorizontalOptions="CenterAndExpand"/>
+                    <Label Text =" ما دفعه العميل" TextColor="Green" Grid.Column="1" Grid.Row="0" FontSize="12" HorizontalOptions="CenterAndExpand"/>
                         <Label x:Name="EgmalyDaenText" Grid.Column="2" TextColor="Red"        
                               HorizontalOptions="CenterAndExpand" Grid.Row="1" />
                         
@@ -134,6 +134,5 @@
             </StackLayout>
            
         </StackLayout>
-        
     </ContentPage.Content>
 </ContentPage>

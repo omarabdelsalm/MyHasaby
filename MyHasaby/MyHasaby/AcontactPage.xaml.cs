@@ -1,4 +1,5 @@
-﻿using Plugin.Messaging;
+﻿using Firebase.Database;
+using Plugin.Messaging;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,70 +15,61 @@ namespace MyHasaby
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AcontactPage : ContentPage
     {
+        FirebaseHelper firebaseHelper = new FirebaseHelper();
 
+        FirebaseClient firebase = new FirebaseClient("https://myhasaby-default-rtdb.firebaseio.com/");
         Acontact acontact = new Acontact();
+       
         public AcontactPage()
         {
             InitializeComponent();
-            
-            
-            
         }
 
       private  async void Button_Clicked(object sender, EventArgs e)
         {
-
-
-
-            if (EntAcount.Text=="omar75moh77ali84bkr87") {
-                if (!string.IsNullOrEmpty(EntAcount.Text))
+            string MyImei = DependencyService.Get<IGetDeviceInfo>().GetDeviceID();
+            var pers = await firebaseHelper.GetPerson(MyImei);
+            if (pers.evect == "omar")
+            {
+                if (EntAcount.Text == "omar75moh77ali84bkr87")
                 {
-
-
-                    Acontact acontact = new Acontact()
+                    if (!string.IsNullOrEmpty(EntAcount.Text))
                     {
 
-                        Regest = EntAcount.Text
-                    };
-                    await App.acountUes.SaveAcontactAsync(acontact);
-                    //EntAcount.Text = string.Empty;
-                    await DisplayAlert("تم", "تم اضافة الرمز", "Ok");
-                    App.Current.MainPage = new ShellPage();
-                } }
+
+                        Acontact acontact = new Acontact()
+                        {
+
+                            Regest = EntAcount.Text
+                        };
+                        await App.acountUes.SaveAcontactAsync(acontact);
+                        await DisplayAlert("تم", "تم اضافة الرمز", "Ok");
+                        App.Current.MainPage = new ShellPage();
+
+                    }
+                    else
+                    {
+                        await DisplayAlert("خطا", "قم باعادة الادخال", "Ok");
+                        return;
+                    }
+                }
+
+
+            }
             else
             {
-                await DisplayAlert("خطا", "قم باعادة الادخال", "Ok");
-                return;
+                await DisplayAlert("خطا", "عليك الاتصال بالشركة", "Ok");
             }
-               
-  
-                
-
         }
-
-        //protected override async void OnAppearing()
-        //{
-        //    var myValue = Preferences.Get("EntAcount","omar" );
-        //    if (myValue == acontact.Regest)
-        //    {
-        //        App.Current.MainPage = new ShellPage();
-
-        //    }
-
-        //}
-
-
-
-
-
-            private void Smsbtn(object sender, EventArgs e)
+      //SmsMessenger
+        private void Smsbtn(object sender, EventArgs e)
         {
             // Send Sms
             var smsMessenger = CrossMessaging.Current.SmsMessenger;
             if (smsMessenger.CanSendSms)
                 smsMessenger.SendSms("01069160569");
         }
-
+        // Email Messeage
         private void Emlbtn(object sender, EventArgs e)
         {
             
@@ -93,22 +85,23 @@ namespace MyHasaby
                   .Cc("cc.plugins@xamarin.com")
                   .Bcc(new[] { "bcc1.plugins@xamarin.com", "bcc2.plugins@xamarin.com" })
                   .Subject("")
-                  .Body("ابوبكر في خدمتكم طاب يومكم بكل خير")
+                  .Body("المنار للبرمجيات في خدمتكم طاب يومكم بكل خير")
                   .Build();
 
                 emailMessenger.SendEmail(email);
             }
         }
-
+        // call code
         private void Callbtn(object sender, EventArgs e)
         {
             
             // Make Phone Call
             var phoneDialer = CrossMessaging.Current.PhoneDialer;
             if (phoneDialer.CanMakePhoneCall)
-                phoneDialer.MakePhoneCall("01069160569", "bkr alshobky");
+                phoneDialer.MakePhoneCall("01200018116", "bkr alshobky");
 
         }
+        //whatsapp Masseage
         private async void Send(object sender, EventArgs e)
         {
             try
@@ -120,5 +113,7 @@ namespace MyHasaby
                 await DisplayAlert("Erro", ex.Message, "OK");
             }
         }
+
+        
     }
 }

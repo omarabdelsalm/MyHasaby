@@ -16,17 +16,39 @@ namespace MyHasaby
         {
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<Acontact>();
+            _database.CreateTableAsync<TestClass>();
+        }
+        public Task<List<TestClass>> GetAcontactAsync1()
+        {
+            return _database.Table<TestClass>().ToListAsync();
+        }
+        
+        public Task<TestClass> GetItemAsync1(int personId1)
+        {
+
+            return _database.Table<TestClass>().Where(i => i.ID == personId1).FirstOrDefaultAsync();
+        }
+
+
+        public Task<int> SaveAcontactAsync1(TestClass person)
+        {
+
+            return _database.InsertAsync(person);
+
         }
 
         public Task<List<Acontact>> GetAcontactAsync()
         {
             return _database.Table<Acontact>().ToListAsync();
         }
+        
         public Task<Acontact> GetItemAsync(int personId1)
         {
 
             return _database.Table<Acontact>().Where(i => i.ID == personId1).FirstOrDefaultAsync();
         }
+        
+        
         public Task<int> SaveAcontactAsync(Acontact person)
         {
             
@@ -34,25 +56,6 @@ namespace MyHasaby
            
         }
         
-
-        //readonly SQLiteAsyncConnection database;
-        //SQLiteAsyncConnection db;
-        //public AcountUes(string dbPath)
-        //{
-
-        //        db = new SQLiteAsyncConnection(dbPath);
-        //        db.CreateTableAsync<Acontact>().Wait();
-
-
-        //}
-
-        //public Task<int> SaveAcontactAsync(Acontact acontact)
-        //{
-
-
-        //        return db.InsertAsync(acontact);
-
-        //}
 
     }
 }
