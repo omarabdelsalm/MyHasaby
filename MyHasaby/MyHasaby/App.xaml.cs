@@ -4,8 +4,13 @@ using System.IO;
 using Xamarin.Forms;
 using System.Linq;
 using Microsoft.AppCenter;
+<<<<<<< HEAD
 using MyHasaby.Categories.Data;
 
+=======
+using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Analytics;
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
 namespace MyHasaby
 {
     public partial class App : Application
@@ -72,6 +77,7 @@ namespace MyHasaby
 
             var db = new SQLiteConnection(_dbpath);
 
+<<<<<<< HEAD
                     //if (Settings.FirstRun)
                     //{
                     //    Person person = new Person();
@@ -97,11 +103,24 @@ namespace MyHasaby
                 {
                     Settings.FirstRun = true;
                     MainPage = new ShellPage();
+=======
+            if (Settings.FirstRun)
+            {
+                Person person = new Person();
+                if (person.ID == 0) { Settings.FirstRun = true; }
+                App.Current.MainPage = new ShellPage();
+                Settings.FirstRun = false;
+            }
+            Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
+
+            {
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
 
                 }
             }
                         //    Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
 
+<<<<<<< HEAD
                         //{
                         //    Person person = new Person();
                         //    if (person != null)
@@ -129,15 +148,41 @@ namespace MyHasaby
                         //        }
 
                         //    }
+=======
+                var result1 = db.Table<Person>().ToList();
 
+                var anass2 = App.User.GetPeopleAsync();
+                var all2 = anass2.Result.Count();
+                var all = (from emp in result1.AsEnumerable() select emp.ID).Count();
+                var ally = App.acountUes.GetAcontactAsync().Result;
+                var alhmed = ally.Count();
+
+                if (all2 <= 3)
+                { MainPage = new ShellPage(); }
+                else if (alhmed != 0)
+                {
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
+
+                    App.Current.MainPage = new ShellPage();
 
                        //});
 
+<<<<<<< HEAD
             else
                     {
 
                             MainPage = new CreativePage();
                      }
+=======
+
+                }
+                else
+                {
+
+                    MainPage = new AcontactPage();
+                }
+            });
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
         }
 
 

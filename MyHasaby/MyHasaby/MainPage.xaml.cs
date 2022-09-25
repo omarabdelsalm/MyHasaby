@@ -231,11 +231,15 @@ namespace MyHasaby
             _ListView.EndRefresh();
         }
 
+<<<<<<< HEAD
         private void Button_Clicked_2(object sender, EventArgs e)
         {
 
         }
 
         
+=======
+       
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
     }
 }

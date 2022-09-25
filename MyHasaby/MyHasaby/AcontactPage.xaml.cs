@@ -23,6 +23,10 @@ namespace MyHasaby
         public AcontactPage()
         {
             InitializeComponent();
+<<<<<<< HEAD
+=======
+            
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
         }
 
       private  async void Button_Clicked(object sender, EventArgs e)
@@ -55,7 +59,17 @@ namespace MyHasaby
                 }
 
 
+<<<<<<< HEAD
             }
+=======
+                        Regest = EntAcount.Text
+                    };
+                    await App.acountUes.SaveAcontactAsync(acontact);
+                    
+                    await DisplayAlert("تم", "تم اضافة الرمز", "Ok");
+                    App.Current.MainPage = new ShellPage();
+                } }
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
             else
             {
                 await DisplayAlert("خطا", "عليك الاتصال بالشركة", "Ok");
@@ -106,7 +120,7 @@ namespace MyHasaby
         {
             try
             {
-                Chat.Open("+2001207459516", "اود شراء التفعيل ");
+                Chat.Open("+2001200018116", "اود شراء التفعيل ");
             }
             catch (Exception ex)
             {

@@ -5,6 +5,11 @@
              
              x:Class="MyHasaby.DetialPage">
     <ContentPage.Content >
+<<<<<<< HEAD
+=======
+        
+               
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
                 <StackLayout BackgroundColor="#e0e0d1" >
            
                 <Grid  >
@@ -24,11 +29,19 @@
             
             <Label x:Name="txtname" FontSize="Default" TextColor="Brown" Grid.Row="0" Grid.Column="1"/>
                 <Label x:Name="txtid" Grid.Row="0" Grid.Column="1" IsVisible="false"/>
+<<<<<<< HEAD
                 <Entry x:Name="TexDane" Placeholder="ضع المبلغ" PlaceholderColor="Red" Keyboard="Numeric" Grid.Row="0" Grid.Column="3"/>
                 <Entry x:Name="Molhazt" Placeholder="تفاصيل" PlaceholderColor="Red" Grid.Row="2" Grid.Column="1"/>
                 <Button x:Name="BtnDane" Text="له" FontSize="Medium" TextColor="Green" CornerRadius="25"  Grid.Row="2" Grid.Column="2"/>
                 <Button x:Name="BtnMdane" Text="عليه" FontSize="Medium" TextColor="Red" CornerRadius="25"  Grid.Row="2" Grid.Column="3"/>
                 <Button Clicked="BtnDeleat" x:Name="btnDeleat" Text="حذف"  IsVisible="false" BackgroundColor="GreenYellow" TextColor="Red" CornerRadius="25"  Grid.Row="2" Grid.Column="0"/>
+=======
+                <Entry x:Name="TexDane" Placeholder="ضع المبلغ" Keyboard="Numeric" Grid.Row="0" Grid.Column="3"/>
+                <Entry x:Name="Molhazt" Placeholder="تفاصيل" Grid.Row="2" Grid.Column="1"/>
+                <Button x:Name="BtnDane" Text="له"  TextColor="Green" CornerRadius="25" FontSize="Default" Grid.Row="2" Grid.Column="2"/>
+                <Button x:Name="BtnMdane" Text="عليه" TextColor="Red" FontSize="Default" CornerRadius="25"  Grid.Row="2" Grid.Column="3"/>
+                <Button Clicked="BtnDeleat" x:Name="btnDeleat" Text="حذف"  IsVisible="false" BackgroundColor="GreenYellow" TextColor="Red" CornerRadius="25" FontSize="Default" Grid.Row="2" Grid.Column="0"/>
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
 
             </Grid>
             <StackLayout >
@@ -111,9 +124,15 @@
 
                     </Grid.ColumnDefinitions>
 
+<<<<<<< HEAD
                     <Label Text ="ديون العميل " TextColor="Red"  Grid.Column="2" FontSize="12" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
                     <Label Text ="الباقي" TextColor="Purple" Grid.Column="0" Grid.Row="0" FontSize="12" HorizontalOptions="CenterAndExpand"/>
                     <Label Text =" ما دفعه العميل" TextColor="Green" Grid.Column="1" Grid.Row="0" FontSize="12" HorizontalOptions="CenterAndExpand"/>
+=======
+                    <Label Text ="ديون العميل " TextColor="Red"  Grid.Column="2" FontSize="Small" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+                    <Label Text ="الباقي" TextColor="Purple" Grid.Column="0" Grid.Row="0" FontSize="Small" HorizontalOptions="CenterAndExpand"/>
+                    <Label Text =" ما دفعه العميل" TextColor="Green" Grid.Column="1" Grid.Row="0" FontSize="Small" HorizontalOptions="CenterAndExpand"/>
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
                         <Label x:Name="EgmalyDaenText" Grid.Column="2" TextColor="Red"        
                               HorizontalOptions="CenterAndExpand" Grid.Row="1" />
                         
@@ -134,5 +153,10 @@
             </StackLayout>
            
         </StackLayout>
+<<<<<<< HEAD
+=======
+           
+       
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
     </ContentPage.Content>
 </ContentPage>
