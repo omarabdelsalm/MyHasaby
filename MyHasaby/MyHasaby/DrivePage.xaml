@@ -9,8 +9,7 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="رجوع للصفحة الرئيسة" Clicked="Button_Clicked" Margin="5" Padding="5" BackgroundColor="Salmon" CornerRadius="50"
-                    WidthRequest="01" HeightRequest="50"/>
+            
             <Button Text="جوجل درايف" Command="{Binding OnGoogleDrive}"  CornerRadius="50"
                     WidthRequest="50" HeightRequest="50" BackgroundColor="Goldenrod"/>
             

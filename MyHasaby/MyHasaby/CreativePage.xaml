@@ -7,12 +7,22 @@
     <ContentPage.Content>
         <StackLayout Padding="20">
             <Frame Padding="10" BorderColor="GreenYellow " CornerRadius="50">
+<<<<<<< HEAD
+                <Entry x:Name="TxtMyName" Placeholder="ادخل الاسم" PlaceholderColor="Red" FontSize="Medium" TextColor="Green"/>
+            </Frame>
+            <Frame Padding="10" BorderColor="Aqua" CornerRadius="50">
+                <Entry x:Name="TxtMyPhon" Placeholder="ادخل رقم الهاتف" PlaceholderColor="Red" FontSize="Medium" TextColor="Green"/>
+            </Frame>
+            <Entry x:Name="TxtMyImei"  IsVisible="False" />
+            <Entry x:Name="TxtMyevct"  IsVisible="False" />
+=======
                 <Entry x:Name="TxtMyName" Placeholder="ادخل الاسم" FontSize="Medium"/>
             </Frame>
             <Frame Padding="10" BorderColor="Aqua" CornerRadius="50">
                 <Entry x:Name="TxtMyPhon" Placeholder="ادخل رقم الهاتف" FontSize="Medium"/>
             </Frame>
             <Entry x:Name="TxtMyImei"  IsVisible="False" />
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
             <Frame Padding="10" BackgroundColor="Chocolate">
                 <Button x:Name="MyBtn" Clicked="MyBtn_Clicked" Text="تسجيل" Padding="10" FontSize="Medium" BackgroundColor="LightGray" CornerRadius="50"/>
 

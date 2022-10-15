@@ -37,8 +37,12 @@ namespace MyHasaby
         private async void Button_Clicked(object sender, EventArgs e)
         {
             var db = new SQLiteConnection(_dbpath);
-            db.Table<Person>().Delete(X => X.ID == omar.ID);
-            db.Table<Users>().Delete(X => X.PersonId == omar.ID);
+            bool result = await DisplayAlert("انتباه","هل تريد الحذف","Yes","No");
+            if (result==true) {
+                db.Table<Person>().Delete(X => X.ID == omar.ID);
+                db.Table<Users>().Delete(X => X.PersonId == omar.ID);
+            } else { return; }
+            
             _ListView.ItemsSource = await App.User.GetPeopleAsync();
             return;
             await Navigation.PushAsync(new ShellPage());

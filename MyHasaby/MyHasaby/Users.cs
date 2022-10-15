@@ -9,11 +9,7 @@ namespace MyHasaby
     public class Users: ViewModelBase
     {
         public Users(){
-            //string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
-            //var db = new SQLiteConnection(_dbpath);
-            //var ent = db.ExecuteScalar<int>("SELECT SUM(Dane) FROM Users WHERE PersonId=? ",1);
-            //var ent1 = db.ExecuteScalar<int>("SELECT SUM(Mdan) FROM Users WHERE PersonId=?",1);
-
+            
             CreateAt = DateTime.UtcNow;
             
         }

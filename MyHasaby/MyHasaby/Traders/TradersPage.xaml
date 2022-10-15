@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="عرض الموردين"
+             BackgroundImageSource="fe.png"
+             x:Class="MyHasaby.Traders.TradersPage">
+   
+        <ContentPage.ToolbarItems>
+            <ToolbarItem  Clicked="ToolbarItem_Clicked" Text="اضافة مورد"  IconImageSource="add.jpg"/>
+        </ContentPage.ToolbarItems>
+    <StackLayout BackgroundColor="Black"  Margin="0" Padding="0" Opacity=".6">
+        <ScrollView>
+            <ListView x:Name="_ListView" 
+                  SeparatorColor="White"
+                  HasUnevenRows="True"
+                  ItemSelected="_ListView_ItemSelected"  
+                  >    
+                <ListView.ItemTemplate >
+                    <DataTemplate>
+                        <ViewCell>
+                                <StackLayout Orientation="Horizontal" Padding="0"  Spacing="8">
+                                   <StackLayout  >
+                                          <Label 
+                                                 Text="{Binding Name}"
+                                                  FontSize="14" 
+                                                  HorizontalOptions="StartAndExpand" 
+                                                  TextColor="White" 
+                                                  Margin="10,0,20,0"  />
+                                          <Label 
+                                                  HorizontalOptions="StartAndExpand"       
+                                                  Text="{Binding Cuntry}"
+                                                               FontSize="14"
+                                                                TextColor="White" 
+                                                                  Margin="10,0,20,0"     
+                                                                  />
+                                    </StackLayout>
+                                <StackLayout >
+                                    <Label 
+                                                     HorizontalOptions="End"    
+                                                     Text="{Binding Phone}"
+                                                     FontSize="14"
+                                                     TextColor="BlanchedAlmond"         
+                                                    />
+                                    <Label 
+                                                 FontSize="14"     
+                                                 Text="{Binding CreateAt}"
+                                                 HorizontalOptions="End" 
+                                                 TextColor="BlanchedAlmond"         
+                                                />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand" HorizontalOptions="EndAndExpand">
+                                    <ImageButton Source="rubbish.png" HeightRequest="30" WidthRequest="30" Clicked="ImageButton_Clicked" />
+                                    <ImageButton Source="iconsedit.png" Clicked="ImageButton_Clicked_1" HeightRequest="40" WidthRequest="30">
+                                    </ImageButton>
+                            </StackLayout>
+                                </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+        </StackLayout>
+</ContentPage>

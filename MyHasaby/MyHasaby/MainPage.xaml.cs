@@ -1,4 +1,6 @@
 ﻿
+
+
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using SQLite;
@@ -95,43 +97,13 @@ namespace MyHasaby
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            //collectionView.ItemsSource = await App.Database.GetPeopleAsync();
             _ListView.ItemsSource = await App.User.GetPeopleAsync();
         }
 
         private async void ToolbarItem_Clicked(object sender, EventArgs e)
         {
             omar2.IsVisible = true;
-            // كود نسخة احتياطية
-        //    try
-        //    {
-        //        var statusWrite = await Permissions.RequestAsync<Permissions.StorageWrite>();
-        //        var statusRead = await Permissions.RequestAsync<Permissions.StorageRead>();
-        //        var db = new SQLiteConnection(_dbpath);
-        //        string docFolder = Path.Combine(System.Environment.GetFolderPath
-        //             (System.Environment.SpecialFolder.MyDocuments), "logs");
-        //        string szRestorePath = "/storage/emulated/0/Android/datacom.alshobky.myhasaby/files/logs/temp.db3";
-        //        string libFolder = Path.Combine(docFolder, szRestorePath);
-        //        if (!Directory.Exists(libFolder))
-        //        {
-        //            Directory.CreateDirectory(libFolder);
-        //        }
-
-
-        //        string destinationDatabasePath = Path.Combine(libFolder, $"temp{DateTime.Now.ToString("dd-yy-mm")}.db3");
-
-        //        db.Backup(destinationDatabasePath, "main");
-
-
-        //        DisplayAlert("OK", "تم بحمد الله", "OK");
-
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        DisplayAlert("محاولة مرةاخرى", "no", "om");
-
-        //    }
+            
        }
         private async Task Restor()
         {
@@ -259,6 +231,15 @@ namespace MyHasaby
             _ListView.EndRefresh();
         }
 
+<<<<<<< HEAD
+        private void Button_Clicked_2(object sender, EventArgs e)
+        {
+
+        }
+
+        
+=======
        
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
     }
 }

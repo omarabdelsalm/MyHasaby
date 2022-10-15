@@ -11,6 +11,19 @@
     </ContentPage.ToolbarItems>
     <ScrollView>
     <StackLayout  BackgroundColor="#e0e0d1">
+<<<<<<< HEAD
+            
+            <StackLayout Margin="20,35,20,20" x:Name="omar2" IsVisible="false">
+
+                <Button Text="جهات الاتصال" x:Name="btncon" FontSize="Medium"  BackgroundColor="Purple" Margin="5" CornerRadius="75"/>
+            <Frame CornerRadius="25">
+                <Entry x:Name="nameEntry"
+               Placeholder="الاسم" PlaceholderColor="Red" BackgroundColor="#DEDBDB" TextColor="Green" />
+            </Frame>
+            <Frame CornerRadius="25">
+                <Entry x:Name="ageEntry"
+               Placeholder="الهاتف" PlaceholderColor="Red"
+=======
         
         <StackLayout Margin="20,35,20,20" x:Name="omar2" IsVisible="false">
                 <Button Text="جهات الاتصال" x:Name="btncon"  BackgroundColor="Purple" Margin="5" CornerRadius="75"/>
@@ -21,6 +34,7 @@
             <Frame CornerRadius="25">
                 <Entry x:Name="ageEntry"
                Placeholder="الهاتف" 
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
                Keyboard="Numeric" BackgroundColor="#DEDBDB" TextColor="Green"/>
             </Frame>
             <Frame CornerRadius="25">
@@ -28,8 +42,13 @@
                 Clicked="OnButtonClicked" />
            </Frame>
 
+<<<<<<< HEAD
+               
+               
+=======
                 <Label  x:Name="test11" />
 
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
             </StackLayout>
         
         <StackLayout>

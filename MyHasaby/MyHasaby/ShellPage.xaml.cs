@@ -29,13 +29,39 @@ namespace MyHasaby
         
 
 
+<<<<<<< HEAD
+
+        // code for backup database
+
+        // code for backup database
+=======
       
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
         private ICommand backCommand = new Command(async () =>
         {
 
             try
             {
                 string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
+<<<<<<< HEAD
+                var statusWrite = await Permissions.RequestAsync<Permissions.StorageWrite>();
+                var statusRead = await Permissions.RequestAsync<Permissions.StorageRead>();
+                //var folder = Xamarin.Forms.DependencyService.Get<IAccessFileService>().copy();
+
+
+              string filename = $"temp{DateTime.Now.ToString("dd-MM-yyyy")}.db3";
+                
+                Xamarin.Forms.DependencyService.Get<IAccessFileService>().CreateFile(filename);
+                await Application.Current.MainPage.DisplayAlert("نجاح", "تم عمل نسخة احتياطية", "Ok");
+                return;
+  }
+            catch (Exception ex)
+            {
+                
+
+                string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
+
+=======
 
                 var folder = Xamarin.Forms.DependencyService.Get<IAccessFileService>().copy();
 
@@ -53,6 +79,7 @@ namespace MyHasaby
 
                 string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
 
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
                 var statusWrite = await Permissions.RequestAsync<Permissions.StorageWrite>();
                 var statusRead = await Permissions.RequestAsync<Permissions.StorageRead>();
                 var db = new SQLiteConnection(_dbpath);
@@ -77,7 +104,15 @@ namespace MyHasaby
         private ICommand reCommand = new Command(async () =>
           {
               ShellPage shell = new ShellPage();
-              await shell.Restor();
+              Version version = DeviceInfo.Version;
+              if (version.Major < 10)
+              {
+                  await shell.Restor1();
+              }
+              else
+              {
+                  await shell.Restor();
+              }
           });
 
 
@@ -86,10 +121,87 @@ namespace MyHasaby
 
         private async Task Restor()
         {
+<<<<<<< HEAD
+            
+            
+
+            string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
+                SQLiteAsyncConnection toMerge;
+
+                 var szRestorePath = Xamarin.Forms.DependencyService.Get<IAccessFileService>().CreateFile1();
+                //string folder= Path.Combine(System.Environment.GetFolderPath(Environment.SpecialFolder.System)+"/Download/" + "/" + "Myhasaby");
+                
+                string filename = $"temp{DateTime.Now.ToString("dd-MM-yyyy")}.db3";
+                //string szRestorePath = Path.Combine(folder.ToString(), filename);
+                //string szRestorePath = Path.Combine(destinationDatabasePath, filename);
+                var connection = new SQLiteConnection(_dbpath);
+                
+
+                var statusWrite = await Permissions.RequestAsync<Permissions.StorageWrite>();
+                var statusRead = await Permissions.RequestAsync<Permissions.StorageRead>();
+                if (statusWrite == Xamarin.Essentials.PermissionStatus.Granted && statusRead == Xamarin.Essentials.PermissionStatus.Granted)
+                {
+                   try
+                    {
+                    
+
+                        // Get our connection to the new database.
+                        toMerge = new SQLiteAsyncConnection(szRestorePath);
+
+                        // Save a location to the live database path.
+                        string szLiveDBPath = connection.DatabasePath;
+
+                        // Make an insanity check backup.
+                        connection.Backup(connection.DatabasePath.Insert(connection.DatabasePath.Length, "OLD"));
+                        // Close the existing DB.
+                        connection.Close();
+
+                        // Check to make sure we have the backup DB before deleting the active DB
+                        if (File.Exists($"{szLiveDBPath}OLD"))
+                        {
+                            // Delete the active database.
+                            File.Delete(szLiveDBPath);
+
+                            // Close the handle to the new DB just to make sure it's not going to gripe about that.
+                            await toMerge.CloseAsync().ConfigureAwait(true);
+
+                            // Copy the new one to the location for the "Live" database.
+                            File.Copy(toMerge.DatabasePath, szLiveDBPath);
+
+                            // Attempt a connection using the new database file and see if this all worked.
+                            connection = new SQLiteConnection(_dbpath);
+
+                            // Enable write ahead (this will also make sure the DB is really connected and so on)
+                            connection.EnableWriteAheadLogging();
+
+                            // File delete the temporary backup  file now.
+                           // File.Delete($"{szLiveDBPath}OLD");
+                            await Application.Current.MainPage.DisplayAlert("OK", "تم استعادة النسخة الاحتياطية", "OK");
+                           
+                            //Quit the application.
+                            System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Error", ex.Message, "Oops");
+                    }
+
+                }
+
+            }
+
+        private async Task Restor1()
+        {
+
+            try
+            {
+=======
             //try
             //{
                 //await Application.Current.MainPage.DisplayAlert("Error", exception.Message, "Oops");
                 // Crashes.TrackError(exception);
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
                 string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
                 SQLiteAsyncConnection toMerge;
 
@@ -156,7 +268,16 @@ namespace MyHasaby
 
             }
 
+<<<<<<< HEAD
+        }
+
+
+
+    }
+    }
+=======
 
              }
         }
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
     

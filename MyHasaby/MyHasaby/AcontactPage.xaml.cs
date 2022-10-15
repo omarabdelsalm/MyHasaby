@@ -1,4 +1,5 @@
-﻿using Plugin.Messaging;
+﻿using Firebase.Database;
+using Plugin.Messaging;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,27 +15,53 @@ namespace MyHasaby
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AcontactPage : ContentPage
     {
+        FirebaseHelper firebaseHelper = new FirebaseHelper();
 
+        FirebaseClient firebase = new FirebaseClient("https://myhasaby-default-rtdb.firebaseio.com/");
         Acontact acontact = new Acontact();
+       
         public AcontactPage()
         {
             InitializeComponent();
+<<<<<<< HEAD
+=======
             
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
         }
 
       private  async void Button_Clicked(object sender, EventArgs e)
         {
-
-
-
-            if (EntAcount.Text=="omar75moh77ali84bkr87") {
-                if (!string.IsNullOrEmpty(EntAcount.Text))
+            string MyImei = DependencyService.Get<IGetDeviceInfo>().GetDeviceID();
+            var pers = await firebaseHelper.GetPerson(MyImei);
+            if (pers.evect == "omar")
+            {
+                if (EntAcount.Text == "omar75moh77ali84bkr87")
                 {
-
-
-                    Acontact acontact = new Acontact()
+                    if (!string.IsNullOrEmpty(EntAcount.Text))
                     {
 
+
+                        Acontact acontact = new Acontact()
+                        {
+
+                            Regest = EntAcount.Text
+                        };
+                        await App.acountUes.SaveAcontactAsync(acontact);
+                        await DisplayAlert("تم", "تم اضافة الرمز", "Ok");
+                        App.Current.MainPage = new ShellPage();
+
+                    }
+                    else
+                    {
+                        await DisplayAlert("خطا", "قم باعادة الادخال", "Ok");
+                        return;
+                    }
+                }
+
+
+<<<<<<< HEAD
+            }
+=======
                         Regest = EntAcount.Text
                     };
                     await App.acountUes.SaveAcontactAsync(acontact);
@@ -42,40 +69,21 @@ namespace MyHasaby
                     await DisplayAlert("تم", "تم اضافة الرمز", "Ok");
                     App.Current.MainPage = new ShellPage();
                 } }
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
             else
             {
-                await DisplayAlert("خطا", "قم باعادة الادخال", "Ok");
-                return;
+                await DisplayAlert("خطا", "عليك الاتصال بالشركة", "Ok");
             }
-               
-  
-                
-
         }
-
-        //protected override async void OnAppearing()
-        //{
-        //    var myValue = Preferences.Get("EntAcount","omar" );
-        //    if (myValue == acontact.Regest)
-        //    {
-        //        App.Current.MainPage = new ShellPage();
-
-        //    }
-
-        //}
-
-
-
-
-
-            private void Smsbtn(object sender, EventArgs e)
+      //SmsMessenger
+        private void Smsbtn(object sender, EventArgs e)
         {
             // Send Sms
             var smsMessenger = CrossMessaging.Current.SmsMessenger;
             if (smsMessenger.CanSendSms)
                 smsMessenger.SendSms("01069160569");
         }
-
+        // Email Messeage
         private void Emlbtn(object sender, EventArgs e)
         {
             
@@ -97,7 +105,7 @@ namespace MyHasaby
                 emailMessenger.SendEmail(email);
             }
         }
-
+        // call code
         private void Callbtn(object sender, EventArgs e)
         {
             
@@ -119,5 +127,7 @@ namespace MyHasaby
                 await DisplayAlert("Erro", ex.Message, "OK");
             }
         }
+
+        
     }
 }

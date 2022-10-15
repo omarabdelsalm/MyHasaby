@@ -29,7 +29,8 @@
                 VerticalOptions="CenterAndExpand" FontSize="Subtitle" TextColor="Black"
                 HorizontalOptions="CenterAndExpand" />
                     <Entry x:Name="EntAcount" Placeholder="ادخل هنا الرمز" Margin="8"/>
-                    <Button Text="اضغط للتفعيل" TextColor="White" Margin="10" FontSize="Medium" Clicked="Button_Clicked" CornerRadius="50" BackgroundColor="#445666"/>
+                
+                <Button x:Name="btfeil" Text="اضغط للتفعيل"  TextColor="White" Margin="10" FontSize="Medium" Clicked="Button_Clicked" CornerRadius="50" BackgroundColor="#445666"/>
                 </StackLayout>
          
             

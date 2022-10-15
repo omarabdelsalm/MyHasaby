@@ -11,6 +11,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
+=======
     <None Remove="Fonts\NotoNaskhArabic-Regular.ttf" />
   </ItemGroup>
 
@@ -19,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
     <PackageReference Include="FirebaseDatabase.net" Version="4.0.5" />
     <PackageReference Include="Google.Apis.Drive.v3" Version="1.53.0.2383" />
     <PackageReference Include="itext7" Version="7.2.0" />
@@ -49,6 +52,21 @@
     <EmbeddedResource Update="AddData.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+<<<<<<< HEAD
+    <EmbeddedResource Update="AddCategory.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="AllDBSnf.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DAllMePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DipAllCategories.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="DisblyCategory.xaml">
+=======
     <EmbeddedResource Update="Categories\AddCategory.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -56,6 +74,7 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Categories\MainCategory.xaml">
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="CreativePage.xaml">
@@ -70,7 +89,19 @@
     <EmbeddedResource Update="DrivePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="EditAllTeCategory.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="ShellPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Traders\AddTradersPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Traders\DisTraders.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Traders\TradersPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\DisblayAllPage.xaml">

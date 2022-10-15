@@ -11,7 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
@@ -23,22 +23,21 @@ namespace MyHasaby
     public partial class DrivePage : ContentPage
     {
 
-
+        List<ValueType> mylist;
         public Command OnGoogleDrive { get; private set; }
 
-        
+
         public DrivePage()
         {
             InitializeComponent();
-            BindingContext =new MainViewModel();
+            BindingContext = new MainViewModel();
 
-        }
-
-        private async void Button_Clicked(object sender, EventArgs e)
-        {
-            App.Current.MainPage = new ShellPage();
         }
 
         
+<<<<<<< HEAD
+        
+=======
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
     }
 }

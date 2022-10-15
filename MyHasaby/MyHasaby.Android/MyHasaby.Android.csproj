@@ -82,6 +82,8 @@
     <PackageReference Include="Google.Apis.Drive.v3">
       <Version>1.53.0.2383</Version>
     </PackageReference>
+<<<<<<< HEAD
+=======
     <PackageReference Include="itext7">
       <Version>7.2.0</Version>
     </PackageReference>
@@ -91,6 +93,7 @@
     <PackageReference Include="Microsoft.AppCenter.Crashes">
       <Version>4.0.0</Version>
     </PackageReference>
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
     <PackageReference Include="Plugin.CurrentActivity">
       <Version>2.1.0.4</Version>
     </PackageReference>
@@ -103,8 +106,13 @@
     <PackageReference Include="Xam.Plugins.Messaging">
       <Version>5.2.0</Version>
     </PackageReference>
+<<<<<<< HEAD
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
+=======
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
     <PackageReference Include="Xamarin.GooglePlayServices.Base">
       <Version>60.1142.1</Version>
     </PackageReference>
@@ -235,6 +243,33 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\product.jpg" />
   </ItemGroup>
+<<<<<<< HEAD
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\iconscategory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\iconsedit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\supplier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\fds.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\sdf.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\istockp.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\fgf.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\fe.png" />
+  </ItemGroup>
+=======
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>

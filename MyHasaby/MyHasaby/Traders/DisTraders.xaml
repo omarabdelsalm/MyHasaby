@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundImageSource="fds.jpg" 
+             x:Class="MyHasaby.Traders.DisTraders">
+    <StackLayout>
+        <StackLayout Padding="0" Margin="0" BackgroundColor="Beige">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <!--<RowDefinition Height="*" />-->
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="4*" />
+                    <ColumnDefinition Width="4*" />
+
+                </Grid.ColumnDefinitions>
+
+                <Label Text ="على المورد " TextColor="Red"  Grid.Column="2" FontSize="15" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+                <Label Text ="الباقي" TextColor="Purple" Grid.Column="0" Grid.Row="0" FontSize="15" HorizontalOptions="CenterAndExpand"/>
+                <Label Text =" ما للمورد" TextColor="Green" Grid.Column="1" Grid.Row="0" FontSize="15" HorizontalOptions="CenterAndExpand"/>
+                <Label x:Name="EgmalyDaenText" Grid.Column="2" TextColor="Red"        
+                              HorizontalOptions="CenterAndExpand" Grid.Row="1" />
+
+
+                <Label x:Name="EgmalyModanText" Grid.Column="1"  
+                             TextColor="green"         
+                            HorizontalOptions="CenterAndExpand" Grid.Row="1"/>
+
+
+
+                <Label x:Name="EgmalyEModanText"  
+                             TextColor="Purple"  Grid.Column="0" Grid.Row="1"       
+                            HorizontalOptions="CenterAndExpand" />
+
+
+
+            </Grid>
+        </StackLayout>
+
+        <ScrollView>
+        
+
+            <StackLayout Padding="10" Opacity="1.5">
+                    <Frame CornerRadius="20" Margin="5" Padding="10" >
+                        <StackLayout Margin="5">
+                            <Entry x:Name="EId"  IsVisible="false"/>
+                        <Entry x:Name="idever"  IsVisible="false"/>
+                        
+                            <Entry x:Name="EDafee" Placeholder="له"
+                                   
+                                   PlaceholderColor="Green"
+                                   
+                                   Keyboard="Numeric" 
+                                   BackgroundColor="Honeydew"
+                                   TextColor="Red"/>
+                            
+                       
+                            <Entry x:Name="EAlih"
+                                  
+                                   PlaceholderColor="Red"
+                                   
+                                   Placeholder="عليه" Keyboard="Numeric" BackgroundColor="Honeydew" TextColor="Green"/>
+                           
+
+                       
+                        </StackLayout>
+                    </Frame>
+                    <Button BackgroundColor="Green" Clicked="Button_Clicked" FontSize="Medium"  CornerRadius="60"  Text="تسجيل عملية جديدة"/>
+                    <StackLayout>
+                        <ListView x:Name="_listview" 
+                                  
+                                  HasUnevenRows="False"
+                                  SeparatorColor="Black"
+                                  ItemSelected="_listview_ItemSelected"
+                                  >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout BackgroundColor="Beige" Orientation="Horizontal" Spacing="10" Margin="5" Padding="5">
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                                                <Label Text="{Binding Dafee}" TextColor="Green" FontSize="Small" />
+                                                <Label Text="{Binding Alih}" TextColor="Red" FontSize="Small"/>
+                                                <Label Text="{Binding EgDafee}" TextColor="Green" FontSize="Small"/>
+                                                <Label Text="{Binding EgAlih}" TextColor="red" FontSize="Small"/>
+
+                                            <Label Text="{Binding CreateAt}" FontSize="12"/>
+                                            </StackLayout>
+                                            <StackLayout HorizontalOptions="EndAndExpand">
+                                                <ImageButton HeightRequest="20" WidthRequest="20" Source="rubbish.png" Clicked="ImageButton_Clicked">
+                                                </ImageButton>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+
+
+        </StackLayout>
+
+       
+    </ScrollView>
+    </StackLayout>
+</ContentPage>  

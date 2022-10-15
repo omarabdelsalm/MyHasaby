@@ -82,10 +82,17 @@ namespace MyHasaby
 
                 });
                 TexDane.Text = string.Empty;
+<<<<<<< HEAD
+                
+                Molhazt.Text = string.Empty;
+                return;
+               // await Navigation.PopAsync();
+=======
                 txtid.Text = string.Empty;
                 Molhazt.Text = string.Empty;
 
                 await Navigation.PopAsync();
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
                 
             }
         }
@@ -93,7 +100,7 @@ namespace MyHasaby
         private async void BtnDane_Clicked(object sender, EventArgs e)
         {
             
-            if (!string.IsNullOrWhiteSpace(TexDane.Text) && !string.IsNullOrWhiteSpace(Molhazt.Text))
+            if (!string.IsNullOrWhiteSpace(TexDane.Text) )
             {
                 await App.User1.SavePersonAsync(new Users
                 {
@@ -121,9 +128,16 @@ namespace MyHasaby
                     EgMdan = db.Table<Users>().Where(i => i.PersonId == PersonId1).Select(x => x.Mdan).Sum()
                 });
                 TexDane.Text =string.Empty ;
+<<<<<<< HEAD
+               
+                Molhazt.Text = string.Empty;
+                return;
+                //await Navigation.PopAsync();
+=======
                 txtid.Text = string.Empty;
                 Molhazt.Text = string.Empty;
                 await Navigation.PopAsync();
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
                
             }
         }
@@ -225,8 +239,18 @@ namespace MyHasaby
             
             var db = new SQLiteConnection(_dbpath);
             try {
+<<<<<<< HEAD
+                bool result = await DisplayAlert("انتباه", "هل تريد الحذف", "Yes", "No");
+                if (result == true)
+                {
+                    await App.User1.DeleteItemAsync(omar);
+                   await DisplayAlert("حذف", "تم حذف العملية بنجاح", "ok");
+                }
+                else { return; }
+=======
                 await App.User1.DeleteItemAsync(omar);
                 DisplayAlert("حذف","تم حذف العملية بنجاح","'تم");
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
 
                 
                 var PersonId1 = int.Parse(txtid.Text);
