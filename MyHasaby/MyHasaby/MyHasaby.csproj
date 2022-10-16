@@ -27,7 +27,7 @@
     <PackageReference Include="itext7" Version="7.2.0" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.0.0" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.0.0" />
-    <PackageReference Include="NuGet.Protocol" Version="5.10.0" />
+    <PackageReference Include="NuGet.Protocol" Version="5.11.3" />
     <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
     <PackageReference Include="RestSharp" Version="106.12.0" />
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
