@@ -13,6 +13,7 @@ using Microsoft.AppCenter.Analytics;
 >>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
 namespace MyHasaby
 {
+    //new testy
     public partial class App : Application
     {
        
