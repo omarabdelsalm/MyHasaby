@@ -1,5 +1,4 @@
 ﻿   using Android.Content;
-<<<<<<< HEAD
 
 using System;
 using System.Collections.Generic;
@@ -8,12 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
-=======
+
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
+ 
 using Xamarin.Forms.PlatformConfiguration;
 
 namespace MyHasaby
@@ -27,17 +26,13 @@ namespace MyHasaby
         }
 
         // نسخة احتياطية تلقائيا
-<<<<<<< HEAD
 
-       
-=======
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
         public override Android.App.StartCommandResult OnStartCommand(Intent intent, Android.App.StartCommandFlags flags, int startId)
         {
             // start a task here
             new Task(() =>
             {
-<<<<<<< HEAD
+
                 System.Threading.Thread.Sleep(4*60000);
 
                 // long running code
@@ -101,7 +96,7 @@ namespace MyHasaby
                         }
 
                     }
-=======
+
                 System.Threading.Thread.Sleep(1*60 *60*10000);
                 // long running code
                 while (true)
@@ -134,7 +129,7 @@ namespace MyHasaby
                     }
 
 
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
+
 
                 }
             }).Start();
