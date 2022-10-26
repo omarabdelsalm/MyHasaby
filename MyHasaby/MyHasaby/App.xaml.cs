@@ -4,13 +4,13 @@ using System.IO;
 using Xamarin.Forms;
 using System.Linq;
 using Microsoft.AppCenter;
-<<<<<<< HEAD
+
 using MyHasaby.Categories.Data;
 
-=======
+
 using Microsoft.AppCenter.Crashes;
 using Microsoft.AppCenter.Analytics;
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
+
 namespace MyHasaby
 {
     //new testy
@@ -78,7 +78,7 @@ namespace MyHasaby
 
             var db = new SQLiteConnection(_dbpath);
 
-<<<<<<< HEAD
+
                     //if (Settings.FirstRun)
                     //{
                     //    Person person = new Person();
@@ -104,7 +104,7 @@ namespace MyHasaby
                 {
                     Settings.FirstRun = true;
                     MainPage = new ShellPage();
-=======
+
             if (Settings.FirstRun)
             {
                 Person person = new Person();
@@ -115,13 +115,13 @@ namespace MyHasaby
             Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
 
             {
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
+
 
                 }
             }
                         //    Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
 
-<<<<<<< HEAD
+
                         //{
                         //    Person person = new Person();
                         //    if (person != null)
@@ -149,7 +149,7 @@ namespace MyHasaby
                         //        }
 
                         //    }
-=======
+
                 var result1 = db.Table<Person>().ToList();
 
                 var anass2 = App.User.GetPeopleAsync();
@@ -162,19 +162,18 @@ namespace MyHasaby
                 { MainPage = new ShellPage(); }
                 else if (alhmed != 0)
                 {
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
+
 
                     App.Current.MainPage = new ShellPage();
 
                        //});
 
-<<<<<<< HEAD
             else
                     {
 
                             MainPage = new CreativePage();
                      }
-=======
+
 
                 }
                 else
@@ -183,7 +182,6 @@ namespace MyHasaby
                     MainPage = new AcontactPage();
                 }
             });
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
         }
 
 
