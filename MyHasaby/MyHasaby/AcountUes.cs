@@ -16,7 +16,7 @@ namespace MyHasaby
         {
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<Acontact>();
-<<<<<<< HEAD
+
             _database.CreateTableAsync<TestClass>();
         }
         public Task<List<TestClass>> GetAcontactAsync1()
@@ -36,9 +36,7 @@ namespace MyHasaby
 
             return _database.InsertAsync(person);
 
-=======
-           
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
+
         }
 
         public Task<List<Acontact>> GetAcontactAsync()
