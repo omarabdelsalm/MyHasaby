@@ -29,21 +29,21 @@ namespace MyHasaby
         
 
 
-<<<<<<< HEAD
+
 
         // code for backup database
 
         // code for backup database
-=======
+
       
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
+
         private ICommand backCommand = new Command(async () =>
         {
 
             try
             {
                 string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
-<<<<<<< HEAD
+
                 var statusWrite = await Permissions.RequestAsync<Permissions.StorageWrite>();
                 var statusRead = await Permissions.RequestAsync<Permissions.StorageRead>();
                 //var folder = Xamarin.Forms.DependencyService.Get<IAccessFileService>().copy();
@@ -61,7 +61,7 @@ namespace MyHasaby
 
                 string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
 
-=======
+
 
                 var folder = Xamarin.Forms.DependencyService.Get<IAccessFileService>().copy();
 
@@ -79,7 +79,7 @@ namespace MyHasaby
 
                 string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
 
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
+
                 var statusWrite = await Permissions.RequestAsync<Permissions.StorageWrite>();
                 var statusRead = await Permissions.RequestAsync<Permissions.StorageRead>();
                 var db = new SQLiteConnection(_dbpath);
@@ -121,7 +121,7 @@ namespace MyHasaby
 
         private async Task Restor()
         {
-<<<<<<< HEAD
+
             
             
 
@@ -196,12 +196,7 @@ namespace MyHasaby
 
             try
             {
-=======
-            //try
-            //{
-                //await Application.Current.MainPage.DisplayAlert("Error", exception.Message, "Oops");
-                // Crashes.TrackError(exception);
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
+
                 string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
                 SQLiteAsyncConnection toMerge;
 
@@ -268,16 +263,16 @@ namespace MyHasaby
 
             }
 
-<<<<<<< HEAD
+
         }
 
 
 
     }
     }
-=======
+
 
              }
         }
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
+
     
