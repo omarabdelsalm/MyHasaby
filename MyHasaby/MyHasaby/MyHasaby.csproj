@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -11,12 +11,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+
+    <None Remove="Fonts\NotoNaskhArabic-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\NotoNaskhArabic-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+
     <PackageReference Include="FirebaseDatabase.net" Version="4.0.5" />
     <PackageReference Include="Google.Apis.Drive.v3" Version="1.53.0.2383" />
     <PackageReference Include="itext7" Version="7.2.0" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.0.0" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.0.0" />
-    <PackageReference Include="NuGet.Protocol" Version="5.10.0" />
+    <PackageReference Include="NuGet.Protocol" Version="5.11.5" />
     <PackageReference Include="Plugin.Permissions" Version="6.0.1" />
     <PackageReference Include="RestSharp" Version="106.12.0" />
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
@@ -41,6 +51,7 @@
     <EmbeddedResource Update="AddData.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+
     <EmbeddedResource Update="AddCategory.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -54,6 +65,15 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="DisblyCategory.xaml">
+
+    <EmbeddedResource Update="Categories\AddCategory.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Categories\DisblyCategory.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Categories\MainCategory.xaml">
+
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="CreativePage.xaml">

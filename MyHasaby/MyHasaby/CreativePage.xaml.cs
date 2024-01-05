@@ -20,6 +20,7 @@ namespace MyHasaby
         public CreativePage()
         {
             InitializeComponent();
+<<<<<<< HEAD
            
             string MyImei = DependencyService.Get<IGetDeviceInfo>().GetDeviceID();
             
@@ -57,22 +58,42 @@ namespace MyHasaby
            
             string MyImei = DependencyService.Get<IGetDeviceInfo>().GetDeviceID();
             
+=======
+            var allPersons =  firebaseHelper.GetAllPersons();
+           
+
+        }
+        private async void MyBtn_Clicked(object sender, EventArgs e)
+        {
+           
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
             var current = Connectivity.NetworkAccess;
             if (current == NetworkAccess.Internet)
             {
                 if (TxtMyName.Text != null && TxtMyPhon.Text != null)
                 {
+<<<<<<< HEAD
                     TxtMyImei.Text = MyImei;
                     TxtMyevct.Text  = "ah";
                    await firebaseHelper.AddPerson(TxtMyImei.Text, TxtMyName.Text, TxtMyPhon.Text,TxtMyevct.Text);
+=======
+                    string MyImei = DependencyService.Get<IGetDeviceInfo>().GetDeviceID();
+                    TxtMyImei.Text = MyImei;
+                   await firebaseHelper.AddPerson(TxtMyImei.Text, TxtMyName.Text, TxtMyPhon.Text, false);
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
 
                     TxtMyName.Text = string.Empty;
                     TxtMyPhon.Text = string.Empty;
 
                     await DisplayAlert("Success", "تم اضافة البيانات", "OK");
 
+<<<<<<< HEAD
                  
                  App.Current.MainPage = new AcontactPage();
+=======
+                 await Navigation.PushAsync(new ContentPage());
+                  //App.Current.MainPage = new NavigationPage(new ShellPage());
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
                 }
 
             }
@@ -80,9 +101,16 @@ namespace MyHasaby
             {
               await  DisplayAlert("انتباه", "الرجاء الاتصال بالانترنت", "ok");
             }
+<<<<<<< HEAD
                   
 
         }
        
+=======
+            
+           // App.Current.MainPage = new NavigationPage(new ShellPage());
+
+        }
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
     }
 }

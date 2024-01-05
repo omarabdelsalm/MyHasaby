@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Categories="clr-namespace:MyHasaby.Categories"
+             
+             x:Class="MyHasaby.Categories.MainCategory">
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid BackgroundColor="Black"
+                  HeightRequest="150" Margin="10" Padding="2  ">
+                <Image Aspect="AspectFill"
+                       Source="logo_size.jpg"
+                       Opacity="0.7" 
+                      />
+                <Label Text="مدير التطبيق"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       FontSize="25"
+                       HorizontalTextAlignment="Center"
+                       
+                       VerticalTextAlignment="Start" />
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+    <FlyoutItem Title="عرض الاصناف"
+                Icon="product.jpg" >
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate  Categories:DisblyCategory}" />
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="اضافة صنف"
+                Icon="add.jpg">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate Categories:AddCategory}" />
+        </Tab>
+    </FlyoutItem>
+
+    
+    
+    <!--<MenuItem Text="حفظ نسخة احتياطية" IconImageSource="backup.png" Command="{Binding BackCommand}"/>
+    <MenuItem Text="استعادة النسخة الاحتياطية" IconImageSource="reload.png" Command="{Binding ReCommand}"/>
+   -->
+</Shell>

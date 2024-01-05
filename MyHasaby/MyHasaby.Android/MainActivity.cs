@@ -10,7 +10,9 @@ using System.IO;
 using Xamarin.Forms;
 using Plugin.CurrentActivity;
 
+
 using MyHasaby.Droid;
+
 
 namespace MyHasaby.Droid
 {
@@ -26,19 +28,24 @@ namespace MyHasaby.Droid
             string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string fullpath = Path.Combine(folderPath, dbName);
             
-            
+
+            //LoadApplication(new App());
+            this.StartService(new Android.Content.Intent(this, typeof(DemoIntentService)));
 
             base.OnCreate(savedInstanceState);
             
             Forms.Init(this, savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+
             this.StartService(new Android.Content.Intent(this, typeof(DemoIntentService)));
 
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
             global::Xamarin.Auth.Presenters.XamarinAndroid.AuthenticationConfiguration.Init(this, savedInstanceState);
             global::Xamarin.Auth.CustomTabsConfiguration.CustomTabsClosingMessage = null;
+
             //LoadApplication(new App());
+
             
             LoadApplication(new App(fullpath));
         }

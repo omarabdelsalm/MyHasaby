@@ -2,7 +2,11 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:MyHasaby.Views"
+<<<<<<< HEAD
              xmlns:Traders="clr-namespace:MyHasaby.Traders"
+=======
+             xmlns:Categories="clr-namespace:MyHasaby.Categories"
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
              xmlns:local="clr-namespace:MyHasaby"
              Padding="20"
             
@@ -56,11 +60,28 @@
             <ShellContent ContentTemplate="{DataTemplate views:MainsPage}" />
         </Tab>
     </FlyoutItem>
+<<<<<<< HEAD
     <!-- <FlyoutItem Title="مشاركة نسخة احتياطية"
                 Icon="drive.png"
                 >
+=======
+    <FlyoutItem Title="اضافة صنف"
+                Icon="iconProduct.jpg">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate Categories:MainCategory}" />
+        </Tab>
+    </FlyoutItem>
+    <!--<FlyoutItem Title="جوجل درايف"
+                Icon="drive.png">
+>>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate local:DrivePage}" />
+        </Tab>
+    </FlyoutItem>-->
+    <FlyoutItem Title="تسجيل للتطبيق"
+                Icon="login.png" >
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:CreativePage}" />
         </Tab>
     </FlyoutItem>
      <FlyoutItem Title="ادارة عمر" Icon="restore.jpg">
