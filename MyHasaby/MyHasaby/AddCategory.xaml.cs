@@ -28,11 +28,11 @@ namespace MyHasaby
             string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
 
             var db = new SQLiteConnection(_dbpath);
-            App.User22.SaveCategorAsync(new Categor
+           await App.User22.SaveCategorAsync(new Categor
             {
                 Name = CatName.Text
             });
-           await App.Current.MainPage.DisplayAlert("تم", "تم اضافة صنف جديد", "ok");
+           await App.Current.MainPage.DisplayAlert("ADD", "A new category has been added", "ok");
             CatName.Text = string.Empty;
             
             try {

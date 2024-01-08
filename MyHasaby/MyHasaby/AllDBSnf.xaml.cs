@@ -72,7 +72,7 @@ namespace MyHasaby
             // App.User22.DeleteItemCatAsync(lastselected1);
             db.Table<Categor>().Delete(X => X.ID == lastselect.ID);
             db.Table<TafselCategory>().Delete(X => X.IDCategory == lastselect.ID);
-            await DisplayAlert("حذف", "تم حذف العملية بنجاح", "ok");
+            await DisplayAlert("Delete", "Delete Successfully", "ok");
             _ListView.ItemsSource = await App.User22.GetPeopleAsync();
             return;
         }
@@ -106,6 +106,53 @@ namespace MyHasaby
                 App.Current.MainPage = new DipAllCategories(myId);
             }
            
+        }
+
+        private async void MenuItem_Clicked(object sender, EventArgs e)
+        {
+            var mey=sender as MenuItem; 
+            var m=mey.CommandParameter as Categor;
+            var db = new SQLiteConnection(_dbpath);
+
+            // App.User22.DeleteItemCatAsync(lastselected1);
+            db.Table<Categor>().Delete(X => X.ID == m.ID);
+            db.Table<TafselCategory>().Delete(X => X.IDCategory == m.ID);
+            await DisplayAlert("Delete", "Delete Successfully", "ok");
+            _ListView.ItemsSource = await App.User22.GetPeopleAsync();
+            return;
+
+        }
+
+        private async void MenuItem_Clicked_1(object sender, EventArgs e)
+        {
+            var mey = sender as MenuItem;
+            var m = mey.CommandParameter as Categor;
+            int myId2 = m.ID;
+            try
+            {
+                await Navigation.PushAsync(new DisblyCategory(myId2));
+
+            }
+            catch
+            {
+                App.Current.MainPage = new DisblyCategory(myId2);
+            }
+        }
+
+        private async void MenuItem_Clicked_2(object sender, EventArgs e)
+        {
+            var mey = sender as MenuItem;
+            var m = mey.CommandParameter as Categor;
+            int myId = m.ID;
+            try
+            {
+                await Navigation.PushAsync(new DipAllCategories(myId));
+            }
+            catch
+            {
+                App.Current.MainPage = new DipAllCategories(myId);
+            }
+
         }
     }
 }

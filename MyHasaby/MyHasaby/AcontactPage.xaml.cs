@@ -23,9 +23,6 @@ namespace MyHasaby
         public AcontactPage()
         {
             InitializeComponent();
-
-            
- 
         }
 
       private  async void Button_Clicked(object sender, EventArgs e)
@@ -46,30 +43,22 @@ namespace MyHasaby
                             Regest = EntAcount.Text
                         };
                         await App.acountUes.SaveAcontactAsync(acontact);
-                        await DisplayAlert("تم", "تم اضافة الرمز", "Ok");
+                        await DisplayAlert("Add", "The code has been added", "Ok");
                         App.Current.MainPage = new ShellPage();
 
                     }
                     else
                     {
-                        await DisplayAlert("خطا", "قم باعادة الادخال", "Ok");
+                        await DisplayAlert("Error", "Re-enter the code", "Ok");
                         return;
                     }
                 }
 
 
             }
-
-                        Regest = EntAcount.Text
-                    };
-                    await App.acountUes.SaveAcontactAsync(acontact);
-                    
-                    await DisplayAlert("تم", "تم اضافة الرمز", "Ok");
-                    App.Current.MainPage = new ShellPage();
-                } }
             else
             {
-                await DisplayAlert("خطا", "عليك الاتصال بالشركة", "Ok");
+                await DisplayAlert("Error", "You must contact the company", "Ok");
             }
         }
       //SmsMessenger
@@ -112,16 +101,18 @@ namespace MyHasaby
                 phoneDialer.MakePhoneCall("01200018116", "bkr alshobky");
 
         }
-        //whatsapp Masseage
+
+        //whats app Masseage
+        [Obsolete]
         private async void Send(object sender, EventArgs e)
         {
             try
             {
-                Chat.Open("+2001200018116", "اود شراء التفعيل ");
+                Chat.Open("+2001207459516", "اود شراء التفعيل ");
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Erro", ex.Message, "OK");
+                await DisplayAlert("Error", ex.Message, "OK");
             }
         }
 

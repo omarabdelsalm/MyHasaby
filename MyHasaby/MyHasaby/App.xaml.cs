@@ -3,17 +3,14 @@ using SQLite;
 using System.IO;
 using Xamarin.Forms;
 using System.Linq;
-using Microsoft.AppCenter;
 
 using MyHasaby.Categories.Data;
-
-
-using Microsoft.AppCenter.Crashes;
-using Microsoft.AppCenter.Analytics;
+using System.Threading.Tasks;
+using MyHasaby.Views;
 
 namespace MyHasaby
 {
-    //new testy
+    //new test to solove it
     public partial class App : Application
     {
        
@@ -78,110 +75,81 @@ namespace MyHasaby
 
             var db = new SQLiteConnection(_dbpath);
 
-
-                    //if (Settings.FirstRun)
-                    //{
-                    //    Person person = new Person();
-                    //    if (person.ID == 0  ) { 
-                    //        Settings.FirstRun = true;
-
-                    //    MainPage = new ShellPage();
-                    //    }
-
-                    //    Settings.FirstRun = false;
-                    //}
-            if (Settings.FirstRun)
+            try
             {
-                TestClass person1 = new TestClass();
-                person1.ID = 1;
-                person1.dateTime = DateTime.Now.AddDays(20);
-                App.acountUes.SaveAcontactAsync1(person1);
-                DateTime mr = DateTime.Now;
 
-                var wr = App.acountUes.GetItemAsync1(1).Result;
-                DateTime or1 = wr.dateTime;
-                if (mr <= or1)
+                if (Settings.FirstRun)
                 {
-                    Settings.FirstRun = true;
-                    MainPage = new ShellPage();
-
-            if (Settings.FirstRun)
-            {
-                Person person = new Person();
-                if (person.ID == 0) { Settings.FirstRun = true; }
-                App.Current.MainPage = new ShellPage();
-                Settings.FirstRun = false;
-            }
-            Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
-
-            {
-
-
-                }
-            }
-                        //    Xamarin.Forms.Device.BeginInvokeOnMainThread(() =>
-
-
-                        //{
-                        //    Person person = new Person();
-                        //    if (person != null)
-                        //    {
-                        //        var result1 = db.Table<Person>().ToList();
-
-                        //        var anass2 = App.User.GetPeopleAsync();
-                        //        var all2 = anass2.Result.Count();
-                        //        var all = (from emp in result1.AsEnumerable() select emp.ID).Count();
-                        //        var ally = App.acountUes.GetAcontactAsync().Result;
-                        //        var alhmed = ally.Count();
-
-                        //        if (all2 <= 3)
-                        //        { MainPage = new ShellPage(); }
-                        //        else if (alhmed != 0)
-                        //        {
-
-                        //            App.Current.MainPage = new ShellPage();
-
-                        //        }
-                        //        else
-                        //        {
-
-                        //            MainPage = new CreativePage();
-                        //        }
-
-                        //    }
-
-                var result1 = db.Table<Person>().ToList();
-
-                var anass2 = App.User.GetPeopleAsync();
-                var all2 = anass2.Result.Count();
-                var all = (from emp in result1.AsEnumerable() select emp.ID).Count();
-                var ally = App.acountUes.GetAcontactAsync().Result;
-                var alhmed = ally.Count();
-
-                if (all2 <= 3)
-                { MainPage = new ShellPage(); }
-                else if (alhmed != 0)
-                {
-
-
+                    TestClass person1 = new TestClass();
+                    person1.ID = 1;
+                    person1.dateTime = DateTime.Now.AddMonths(5);
+                    App.acountUes.SaveAcontactAsync1(person1);
+                    
                     App.Current.MainPage = new ShellPage();
-
-                       //});
-
-            else
-                    {
-
-                            MainPage = new CreativePage();
-                     }
-
-
+                    
                 }
+           
                 else
                 {
+                    DateTime mr = DateTime.Now;
 
-                    MainPage = new AcontactPage();
+                   
+                    var wr = db.Table<TestClass>().OrderBy(c => c.dateTime).FirstOrDefault();
+                    DateTime or1 = wr.dateTime;
+                    var ally = App.acountUes.GetAcontactAsync().Result;
+                    var alhmed = ally.Count();
+                    if (mr <= or1)
+                    {
+
+                        App.Current.MainPage = new ShellPage();
+
+                    }
+                    else if (alhmed != 0)
+                    {
+
+                        App.Current.MainPage = new ShellPage();
+
+                    }
+                    else
+                    {
+                        App.Current.MainPage = new CreativePage();
+
+                    }
+
                 }
-            });
+                
+               
+
+            }
+            catch (Exception ) {
+
+                App.Current.MainPage = new ShellPage();
+            }
+                
+
+         
+
+
+
+
+
+
+            //try {
+            //    if (Settings.FirstRun)
+            //    {
+            //        TestClass person1 = new TestClass();
+            //        person1.ID = 1;
+            //        person1.dateTime = DateTime.Now.AddMinutes(5);
+            //        App.acountUes.SaveAcontactAsync1(person1);
+            //        App.Current.MainPage = new ShellPage();
+            //    }
+            //    else
+            //    {
+            //        App.Current.MainPage = new ShellPage();
+            //    }
+            //}catch (Exception) { return; }
+
+
         }
 
 

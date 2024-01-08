@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Title="الاصناف"
-             BackgroundImageSource="sdf.jpg"
-             Opacity=".6"
+              xmlns:translator="clr-namespace:MyHasaby.Extensions"
+             Title="{translator:Translate pro}"
+             BackgroundColor="#8999"
+           
              x:Class="MyHasaby.AllDBSnf">
     
          
@@ -12,26 +13,32 @@
         <StackLayout>
             <StackLayout Padding="5">
                 <Button Clicked="Button_Clicked" 
-                        Text="اضافة صنف" BackgroundColor="Coral" 
-                        TextColor="Black" FontSize="Large"
+                        Text="{translator:Translate pro1}" BackgroundColor="Purple" 
+                        TextColor="White" FontSize="24"
                         CornerRadius="90"/>
 
             </StackLayout>
-            <SearchBar TextChanged="Handle_TextChanged"></SearchBar>
-            <ListView x:Name="_ListView"  HasUnevenRows="false" SeparatorColor="Black"
-           ItemSelected="OnListViewItemSelected"
+            <SearchBar TextChanged="Handle_TextChanged" BackgroundColor="#0cf049" FontSize="Large"></SearchBar>
+            <ListView x:Name="_ListView"  HasUnevenRows="false" SeparatorColor="Black" 
+           ItemSelected="OnListViewItemSelected" 
                       >
                 <ListView.ItemTemplate>
 
                     <DataTemplate>
 
-                        <ViewCell >
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="{translator:Translate pro2}" CommandParameter="{Binding .}" Clicked="MenuItem_Clicked" IconImageSource="rubbish.png"/>
+                                <MenuItem Text="{translator:Translate pro3}" CommandParameter="{Binding .}" Clicked="MenuItem_Clicked_2" IconImageSource="product.jpg"/>
+                                <MenuItem Text="{translator:Translate pro4}" CommandParameter="{Binding .}" Clicked="MenuItem_Clicked_1" IconImageSource="iconsedit.png"/>
+
+                            </ViewCell.ContextActions>
 
 
 
                             <StackLayout Orientation="Horizontal" Spacing="5"  BackgroundColor="Azure" Opacity="0.9">
                                 
-                                <StackLayout Orientation="Horizontal" Margin="5" HorizontalOptions="StartAndExpand">
+                               <!-- <StackLayout Orientation="Horizontal" Margin="5" HorizontalOptions="StartAndExpand">
                                     <ImageButton Source="iconsedit.png" Clicked="ImageButton_Clicked_1">
                                        
                                     </ImageButton>
@@ -42,7 +49,7 @@
 
                                     </ImageButton>
 
-                                </StackLayout>
+                                </StackLayout>-->
                                 <StackLayout HorizontalOptions="StartAndExpand">
                                     <Label  Text="{Binding Name}" 
                                             FontAttributes="Bold"

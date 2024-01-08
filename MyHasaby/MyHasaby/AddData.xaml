@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Title="تسجيل بيانات العميل"
+              xmlns:translator="clr-namespace:MyHasaby.Extensions"
+             Title="{translator:Translate san2}"
              x:Class="MyHasaby.AddData">
     <ContentPage.Content>
         <StackLayout BackgroundColor="#e0e0d1">
@@ -20,15 +21,10 @@
 
                 <Label x:Name="txtname" FontSize="Default" TextColor="Brown" Grid.Row="0" Grid.Column="0"/>
                 <Label x:Name="txtid" Grid.Row="0" Grid.Column="1"/>
-<<<<<<< HEAD
-                <Entry x:Name="TexDane" Keyboard="Numeric" Placeholder="ضع المبلغ" PlaceholderColor="SeaGreen" Grid.Row="0" Grid.Column="3"/>
-                <Entry x:Name="Molhazt" Placeholder="ملاحظات" PlaceholderColor="SeaGreen" Grid.Row="1"/>
-=======
-                <Entry x:Name="TexDane" Keyboard="Numeric" Placeholder="ضع المبلغ" Grid.Row="0" Grid.Column="3"/>
-                <Entry x:Name="Molhazt" Placeholder="ملاحظات" Grid.Row="1"/>
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
-                <Button x:Name="BtnDane" Text="له"  TextColor="Green" CornerRadius="25" FontSize="Default" Grid.Row="1" Grid.Column="2"/>
-                <Button x:Name="BtnMdane" Text="عليه" TextColor="Red" FontSize="Default" CornerRadius="25"  Grid.Row="1" Grid.Column="3"/>
+                <Entry x:Name="TexDane" Keyboard="Numeric" Placeholder="{translator:Translate san3}" TextColor="Blue" PlaceholderColor="SeaGreen" Grid.Row="0" Grid.Column="3"/>
+                <Entry x:Name="Molhazt" Placeholder="{translator:Translate san4}" PlaceholderColor="SeaGreen" Grid.Row="1"/>
+                <Button x:Name="BtnDane" Text="{translator:Translate tons7}"  TextColor="Green" CornerRadius="25" FontSize="Default" Grid.Row="1" Grid.Column="2"/>
+                <Button x:Name="BtnMdane" Text="{translator:Translate tons8}" TextColor="Red" FontSize="Default" CornerRadius="25"  Grid.Row="1" Grid.Column="3"/>
 
             </Grid>
         </StackLayout>
