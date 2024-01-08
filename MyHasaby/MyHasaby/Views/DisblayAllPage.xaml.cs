@@ -64,8 +64,7 @@ namespace MyHasaby.Views
                 EgmalyEModanText.Text = egmaiy.ToString();
 
 
-
-
+               
 
 
 

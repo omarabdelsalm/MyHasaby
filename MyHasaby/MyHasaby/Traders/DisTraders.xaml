@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              BackgroundImageSource="fds.jpg" 
+             xmlns:translator="clr-namespace:MyHasaby.Extensions"
              x:Class="MyHasaby.Traders.DisTraders">
     <StackLayout>
         <StackLayout Padding="0" Margin="0" BackgroundColor="Beige">
@@ -18,9 +19,9 @@
 
                 </Grid.ColumnDefinitions>
 
-                <Label Text ="على المورد " TextColor="Red"  Grid.Column="2" FontSize="15" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
-                <Label Text ="الباقي" TextColor="Purple" Grid.Column="0" Grid.Row="0" FontSize="15" HorizontalOptions="CenterAndExpand"/>
-                <Label Text =" ما للمورد" TextColor="Green" Grid.Column="1" Grid.Row="0" FontSize="15" HorizontalOptions="CenterAndExpand"/>
+                <Label Text ="{translator:Translate moerd}" TextColor="Red"  Grid.Column="2" FontSize="15" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+                <Label Text ="{translator:Translate moerd1}" TextColor="Purple" Grid.Column="0" Grid.Row="0" FontSize="15" HorizontalOptions="CenterAndExpand"/>
+                <Label Text ="{translator:Translate moerd2}" TextColor="Green" Grid.Column="1" Grid.Row="0" FontSize="15" HorizontalOptions="CenterAndExpand"/>
                 <Label x:Name="EgmalyDaenText" Grid.Column="2" TextColor="Red"        
                               HorizontalOptions="CenterAndExpand" Grid.Row="1" />
 
@@ -48,8 +49,8 @@
                         <StackLayout Margin="5">
                             <Entry x:Name="EId"  IsVisible="false"/>
                         <Entry x:Name="idever"  IsVisible="false"/>
-                        
-                            <Entry x:Name="EDafee" Placeholder="له"
+
+                        <Entry x:Name="EDafee" Placeholder="{translator:Translate moerd2}"
                                    
                                    PlaceholderColor="Green"
                                    
@@ -62,13 +63,13 @@
                                   
                                    PlaceholderColor="Red"
                                    
-                                   Placeholder="عليه" Keyboard="Numeric" BackgroundColor="Honeydew" TextColor="Green"/>
+                                   Placeholder="{translator:Translate moerd}" Keyboard="Numeric" BackgroundColor="Honeydew" TextColor="Green"/>
                            
 
                        
                         </StackLayout>
                     </Frame>
-                    <Button BackgroundColor="Green" Clicked="Button_Clicked" FontSize="Medium"  CornerRadius="60"  Text="تسجيل عملية جديدة"/>
+                <Button BackgroundColor="Green" Clicked="Button_Clicked" FontSize="Medium"  CornerRadius="60"  Text="{translator:Translate btntasgil}"/>
                     <StackLayout>
                         <ListView x:Name="_listview" 
                                   
@@ -79,6 +80,9 @@
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
+                                    <ViewCell.ContextActions>
+                                        <MenuItem Text="مسح" Clicked="MenuItem_Clicked" CommandParameter="{Binding .}"/>
+                                    </ViewCell.ContextActions>
                                         <StackLayout BackgroundColor="Beige" Orientation="Horizontal" Spacing="10" Margin="5" Padding="5">
                                             <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
                                                 <Label Text="{Binding Dafee}" TextColor="Green" FontSize="Small" />
@@ -88,10 +92,10 @@
 
                                             <Label Text="{Binding CreateAt}" FontSize="12"/>
                                             </StackLayout>
-                                            <StackLayout HorizontalOptions="EndAndExpand">
+                                            <!--<StackLayout HorizontalOptions="EndAndExpand">
                                                 <ImageButton HeightRequest="20" WidthRequest="20" Source="rubbish.png" Clicked="ImageButton_Clicked">
                                                 </ImageButton>
-                                            </StackLayout>
+                                            </StackLayout>-->
                                         </StackLayout>
                                     </ViewCell>
                                 </DataTemplate>

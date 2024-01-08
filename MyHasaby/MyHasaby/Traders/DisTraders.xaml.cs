@@ -16,14 +16,14 @@ namespace MyHasaby.Traders
     {
         string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
        
-        public DisTraders(TradersClass omar)
+        public DisTraders(int id)
         {
             InitializeComponent();
-            EId.Text = omar.ID.ToString();
+            EId.Text = id.ToString();
             var db = new SQLiteConnection(_dbpath);
            
-            var EgDafee = db.Table<SubTraderClass>().Where(i => i.TraderID == omar.ID).Select(x => x.Dafee).Sum();
-            var EgAlih = db.Table<SubTraderClass>().Where(i => i.TraderID == omar.ID).Select(x => x.Alih).Sum();
+            var EgDafee = db.Table<SubTraderClass>().Where(i => i.TraderID == id).Select(x => x.Dafee).Sum();
+            var EgAlih = db.Table<SubTraderClass>().Where(i => i.TraderID == id).Select(x => x.Alih).Sum();
             
             AddeGmaly();
         }
@@ -107,6 +107,26 @@ namespace MyHasaby.Traders
             EgmalyModanText.Text =  EgDafee.ToString();
             EgmalyDaenText.Text =  EgAlih.ToString();
             EgmalyEModanText.Text = (EgDafee - EgAlih).ToString();
+        }
+
+        private async void MenuItem_Clicked(object sender, EventArgs e)
+        {
+            var mey = sender as MenuItem;
+            var m = mey.CommandParameter as SubTraderClass;
+            var db = new SQLiteConnection(_dbpath);
+            bool result = await DisplayAlert("انتباه", "هل تريد الحذف", "Yes", "No");
+            if (result == true)
+            {
+                db.Table<SubTraderClass>().Delete(X => X.ID == m.ID);
+                await DisplayAlert("حذف", "تم حذف العملية بنجاح", "ok");
+
+
+            }
+            else { return; }
+            int nom = Convert.ToInt32(EId.Text);
+            var nomar = db.Table<SubTraderClass>().Where(i => i.TraderID == nom);
+            _listview.ItemsSource = nomar;
+
         }
     }
 }

@@ -2,22 +2,22 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyHasaby.Views.DisblayAllPage"
-             
-             Title="تقرير المعاملات"
+             xmlns:translator="clr-namespace:MyHasaby.Extensions"
+             Title="{translator:Translate trans}"
              >
     <ContentPage.Content>
         <StackLayout>
         <StackLayout >
 
 
-                <ListView x:Name="_listView" FlowDirection="RightToLeft">
+                <ListView x:Name="_listView" FlowDirection="RightToLeft"  BackgroundColor="#8999" >
 
 
 
 
             </ListView>
         </StackLayout>
-        <StackLayout Padding="15" Margin="15">
+            <StackLayout Padding="5" Margin="5" >
                
                 <Grid >
                 <Grid.RowDefinitions>
@@ -32,9 +32,9 @@
 
                 </Grid.ColumnDefinitions>
 
-                <Label Text ="اجمالي الديون" TextColor="red"  Grid.Column="1"  Grid.Row="0" FontSize="Small"  HorizontalOptions="CenterAndExpand"/>
-                <Label Text ="الباقي" TextColor="Purple" Grid.Column="0" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
-                    <Label Text ="اجمالى المدفوع" TextColor="Green" Grid.Column="2" Grid.Row="0" FontSize="Small"  HorizontalOptions="CenterAndExpand"/>
+                    <Label Text ="{translator:Translate translab1}" TextColor="red"  Grid.Column="1"  Grid.Row="0" FontSize="Small"  HorizontalOptions="CenterAndExpand"/>
+                    <Label Text ="{translator:Translate translab2}" TextColor="Purple" Grid.Column="0" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+                    <Label Text ="{translator:Translate translab3}" TextColor="Green" Grid.Column="2" Grid.Row="0" FontSize="Small"  HorizontalOptions="CenterAndExpand"/>
 
                 <Label x:Name="EgmalyDaenText" Grid.Column="1" TextColor="Red"        
                               HorizontalOptions="CenterAndExpand" Grid.Row="1" />

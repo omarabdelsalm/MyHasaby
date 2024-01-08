@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Title="اضافة مورد جديد"
+             xmlns:translator="clr-namespace:MyHasaby.Extensions"
+             Title="{translator:Translate title1}"
              BackgroundImageSource="fgf.jpg"
              x:Class="MyHasaby.Traders.AddTradersPage">
     
@@ -10,28 +11,28 @@
             <StackLayout >
                 <Frame CornerRadius="20" Margin="5">
                     <StackLayout BackgroundColor="Beige">
-                        
-                            <Entry x:Name="EName" Placeholder="الاسم"
+
+                        <Entry x:Name="EName" Placeholder="{translator:Translate EName}"
                                    PlaceholderColor="Blue"
                                    BackgroundColor="Honeydew" TextColor="red" />
                            
                            <Entry x:Name="EId" Placeholder="id" IsVisible="false"/>
-                       
-                            <Entry x:Name="ECuntry" Placeholder="المدينة " 
+
+                        <Entry x:Name="ECuntry" Placeholder="{translator:Translate ECuntry}"
                                    PlaceholderColor="Green"
                                    BackgroundColor="Honeydew" 
                                    TextColor="red"/>
                            
                             <Entry x:Name="EPhone" 
                                    PlaceholderColor="red"
-                                   Placeholder="الهاتف" 
+                                   Placeholder="{translator:Translate EPhone}" 
                                    BackgroundColor="Honeydew" TextColor="red" Keyboard="Telephone"/>
                             
                     </StackLayout>
                 </Frame>
                 <Button x:Name="btntasgil" Clicked="BtnEdite_Clicked" CornerRadius="30"
                         TextColor="Black" FontSize="Large" Margin="10" Padding="5"
-                        BackgroundColor="Green" Text="تسجيل"/>
+                        BackgroundColor="Green" Text="{translator:Translate btntasgil}"/>
         </StackLayout>
         </ScrollView>
         </StackLayout>
