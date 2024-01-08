@@ -29,7 +29,7 @@ namespace MyHasaby
         public int egmaijdaen;
         public int egmaijdaen1;
         public int egmaijdaen2;
-        internal object listView;
+       // internal object listView;
         public string name2;
         public int id2;
         public int item1;
@@ -56,6 +56,7 @@ namespace MyHasaby
 
         private async void BtnMdane_Clicked(object sender, EventArgs e)
         {
+            
             if (!string.IsNullOrWhiteSpace(TexDane.Text) && !string.IsNullOrWhiteSpace(txtid.Text))
             {
                 await App.User1.SavePersonAsync(new Users
@@ -65,7 +66,7 @@ namespace MyHasaby
                     Nots = Molhazt.Text
 
                 });
-               await DisplayAlert("نجاح", "تم اضافة المبلغ بنجاح", "ok");
+               await DisplayAlert("successe", "The amount has been added successfully", "ok");
 
                 var db = new SQLiteConnection(_dbpath);
 
@@ -82,17 +83,10 @@ namespace MyHasaby
 
                 });
                 TexDane.Text = string.Empty;
-<<<<<<< HEAD
                 
                 Molhazt.Text = string.Empty;
                 return;
                // await Navigation.PopAsync();
-=======
-                txtid.Text = string.Empty;
-                Molhazt.Text = string.Empty;
-
-                await Navigation.PopAsync();
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
                 
             }
         }
@@ -109,7 +103,7 @@ namespace MyHasaby
                     Nots = Molhazt.Text
 
                 });
-                await DisplayAlert("نجاح", "تم اضافة المبلغ بنجاح", "ok");
+                await DisplayAlert("successe", "The amount has been added successfully", "ok");
                 var db = new SQLiteConnection(_dbpath);
                 var PersonId1 = int.Parse(txtid.Text);
                 _listView.ItemsSource = db.Table<Users>().Where(i => i.PersonId == PersonId1);
@@ -128,22 +122,16 @@ namespace MyHasaby
                     EgMdan = db.Table<Users>().Where(i => i.PersonId == PersonId1).Select(x => x.Mdan).Sum()
                 });
                 TexDane.Text =string.Empty ;
-<<<<<<< HEAD
                
                 Molhazt.Text = string.Empty;
                 return;
                 //await Navigation.PopAsync();
-=======
-                txtid.Text = string.Empty;
-                Molhazt.Text = string.Empty;
-                await Navigation.PopAsync();
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
                
             }
         }
 
-       
-        protected override async void OnAppearing()
+
+        protected override void OnAppearing()
         {
             base.OnAppearing();
             var db = new SQLiteConnection(_dbpath);
@@ -153,7 +141,7 @@ namespace MyHasaby
 
         }
         //دالة جمع الحقول
-        private async void AddEgmalyHasabAsync()
+        private void AddEgmalyHasabAsync()
         {
             string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
 
@@ -214,7 +202,7 @@ namespace MyHasaby
             stream.Position = 0;
             //Save the stream as a file in the device and invoke it for viewing
             Xamarin.Forms.DependencyService.Get<ISave>().SaveAndView("Output.pdf", "application/pdf", stream);
-            DisplayAlert("تم ", "طبع ملف بي دى اف", "ok");
+            DisplayAlert("completed ", "Print the PDF file", "ok");
         }
 
         private void Button_Clicked(object sender, EventArgs e)
@@ -239,18 +227,13 @@ namespace MyHasaby
             
             var db = new SQLiteConnection(_dbpath);
             try {
-<<<<<<< HEAD
-                bool result = await DisplayAlert("انتباه", "هل تريد الحذف", "Yes", "No");
+                bool result = await DisplayAlert("Attention", "Do you want to delete?", "Yes", "No");
                 if (result == true)
                 {
                     await App.User1.DeleteItemAsync(omar);
-                   await DisplayAlert("حذف", "تم حذف العملية بنجاح", "ok");
+                   await DisplayAlert("Delete", "Deleted Successfully", "OK");
                 }
                 else { return; }
-=======
-                await App.User1.DeleteItemAsync(omar);
-                DisplayAlert("حذف","تم حذف العملية بنجاح","'تم");
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
 
                 
                 var PersonId1 = int.Parse(txtid.Text);

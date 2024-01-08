@@ -1,35 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Title="عرض الاصناف الفرعية"
-             BackgroundImageSource="sdf.jpg"
+             xmlns:translator="clr-namespace:MyHasaby.Extensions"
+             Title="{translator:Translate fre1}"
+             
              x:Class="MyHasaby.DipAllCategories">
     <ContentPage.Content >
         <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
             <StackLayout BackgroundColor="#eeeee4">
           
                     <StackLayout Orientation="Horizontal" Spacing="17">
-                    <Label Text="النوع" Margin="0" TextColor="Black" FontSize="Small"/>
-                    <Label Text="الكمية" TextColor="Coral" Margin="0 ,0 ,0 ,1" FontSize="Small" HorizontalOptions="StartAndExpand"/>
-                    <Label Text="المباع" TextColor="Red"  FontSize="Small" HorizontalOptions="StartAndExpand"/>
-                    <Label Text="المتبقي" TextColor="Blue" Margin="0, 0, 0 ,0 " FontSize="Small" HorizontalOptions="StartAndExpand"/>
-                    <Label Text="شراء" TextColor="Aqua"  Margin="8 ,0, 0 ,0" FontSize="Small" HorizontalOptions="StartAndExpand"/>
-                    <Label Text="بيع" TextColor="#154c79" Margin="5, 0, 0 ,0" FontSize="Small" HorizontalOptions="StartAndExpand"/>
-                    <Label Text="ربح" TextColor="Green" Margin="10,0 ,0 ,5" FontSize="Small" HorizontalOptions="StartAndExpand"/>
+                    <Label Text="{translator:Translate fre2}" Margin="0" TextColor="Red" FontSize="Small"/>
+                    <Label Text="{translator:Translate fre3}" TextColor="Red" Margin="0 ,0 ,0 ,1" FontSize="Small" HorizontalOptions="StartAndExpand"/>
+                    <Label Text="{translator:Translate fre4}" TextColor="Red"  FontSize="Small" HorizontalOptions="StartAndExpand"/>
+                    <Label Text="{translator:Translate fre5}" TextColor="Red" Margin="0, 0, 0 ,0 " FontSize="Small" HorizontalOptions="StartAndExpand"/>
+                    <Label Text="{translator:Translate fre6}" TextColor="Red"  Margin="8 ,0, 0 ,0" FontSize="Small" HorizontalOptions="StartAndExpand"/>
+                    <Label Text="{translator:Translate fre7}" TextColor="#154c79" Margin="5, 0, 0 ,0" FontSize="Small" HorizontalOptions="StartAndExpand"/>
+                    <Label Text="{translator:Translate fre8}" TextColor="Green" Margin="10,0 ,0 ,5" FontSize="Small" HorizontalOptions="StartAndExpand"/>
                     </StackLayout>
             <ListView x:Name="listview"  HasUnevenRows="False"
-                 ItemSelected="OnListViewItemSelected" >
+                 ItemSelected="OnListViewItemSelected" 
+                      >
                 <ListView.ItemTemplate>
                             <DataTemplate>
                         <ViewCell>
-                                <StackLayout Orientation="Horizontal" Spacing="17" Margin="10,0" >
-                                    <Label Text="{Binding Name}" TextColor="Black"  FontSize="11" HorizontalOptions="StartAndExpand"/>
-                                    <Label Text="{Binding Quantity}" TextColor="Coral"  FontSize="11" HorizontalOptions="StartAndExpand"/>
-                                    <Label Text="{Binding Soldout}" TextColor="Red"  FontSize="11" HorizontalOptions="StartAndExpand"/>
-                                    <Label Text="{Binding Residual}" TextColor="Blue" Margin="7,0" FontSize="11" HorizontalOptions="StartAndExpand"/>
-                                    <Label Text="{Binding Purchasprice}" TextColor="Aqua" Margin="7,0" FontSize="11" HorizontalOptions="StartAndExpand"/>
-                                    <Label Text="{Binding Sellprice}" TextColor="#154c79" Margin="0,0" FontSize="11" HorizontalOptions="StartAndExpand"/>
-                                    <Label Text="{Binding Netprofit}" TextColor="Green" Margin="0,0" FontSize="11" HorizontalOptions="StartAndExpand"/>
+                                <StackLayout Orientation="Horizontal" Spacing="17" Margin="10,0" BackgroundColor="DarkGray">
+                                    <Label Text="{Binding Name}" TextColor="Black"  FontSize="11" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="{Binding Quantity}" TextColor="Black"  FontSize="15" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="{Binding Soldout}" TextColor="Red"  FontSize="15" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="{Binding Residual}" TextColor="Black" Margin="7,0" FontAttributes="Bold" FontSize="15" HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="{Binding Purchasprice}" TextColor="Black" Margin="7,0" FontAttributes="Bold" FontSize="15" HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="{Binding Sellprice}" TextColor="#154c79" Margin="0,0" FontAttributes="Bold" FontSize="15" HorizontalOptions="StartAndExpand"/>
+                                    <Label Text="{Binding Netprofit}" TextColor="Green" Margin="0,0" FontAttributes="Bold" FontSize="15" HorizontalOptions="StartAndExpand"/>
                                     
                                    </StackLayout>
                                 
@@ -41,3 +43,4 @@
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
+<!-- BackgroundImageSource="sdf.jpg" -->

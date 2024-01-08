@@ -1,15 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Title="سجل بيانات العميل"
+             xmlns:translator="clr-namespace:MyHasaby.Extensions"
+             Title="{translator:Translate emi1}"
              
              x:Class="MyHasaby.DetialPage">
     <ContentPage.Content >
-<<<<<<< HEAD
-=======
-        
-               
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
                 <StackLayout BackgroundColor="#e0e0d1" >
            
                 <Grid  >
@@ -29,25 +25,19 @@
             
             <Label x:Name="txtname" FontSize="Default" TextColor="Brown" Grid.Row="0" Grid.Column="1"/>
                 <Label x:Name="txtid" Grid.Row="0" Grid.Column="1" IsVisible="false"/>
-<<<<<<< HEAD
-                <Entry x:Name="TexDane" Placeholder="ضع المبلغ" PlaceholderColor="Red" Keyboard="Numeric" Grid.Row="0" Grid.Column="3"/>
-                <Entry x:Name="Molhazt" Placeholder="تفاصيل" PlaceholderColor="Red" Grid.Row="2" Grid.Column="1"/>
-                <Button x:Name="BtnDane" Text="له" FontSize="Medium" TextColor="Green" CornerRadius="25"  Grid.Row="2" Grid.Column="2"/>
-                <Button x:Name="BtnMdane" Text="عليه" FontSize="Medium" TextColor="Red" CornerRadius="25"  Grid.Row="2" Grid.Column="3"/>
-                <Button Clicked="BtnDeleat" x:Name="btnDeleat" Text="حذف"  IsVisible="false" BackgroundColor="GreenYellow" TextColor="Red" CornerRadius="25"  Grid.Row="2" Grid.Column="0"/>
-=======
-                <Entry x:Name="TexDane" Placeholder="ضع المبلغ" Keyboard="Numeric" Grid.Row="0" Grid.Column="3"/>
-                <Entry x:Name="Molhazt" Placeholder="تفاصيل" Grid.Row="2" Grid.Column="1"/>
-                <Button x:Name="BtnDane" Text="له"  TextColor="Green" CornerRadius="25" FontSize="Default" Grid.Row="2" Grid.Column="2"/>
-                <Button x:Name="BtnMdane" Text="عليه" TextColor="Red" FontSize="Default" CornerRadius="25"  Grid.Row="2" Grid.Column="3"/>
-                <Button Clicked="BtnDeleat" x:Name="btnDeleat" Text="حذف"  IsVisible="false" BackgroundColor="GreenYellow" TextColor="Red" CornerRadius="25" FontSize="Default" Grid.Row="2" Grid.Column="0"/>
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
+                <Entry x:Name="TexDane" Placeholder="{translator:Translate san3}" TextColor="Blue" FontSize="14" PlaceholderColor="Red" Keyboard="Numeric" Grid.Row="0" Grid.Column="3"/>
+                <Entry x:Name="Molhazt" Placeholder="{translator:Translate emi2}" TextColor="Blue" PlaceholderColor="Red" Grid.Row="2" Grid.Column="1"/>
+                <Button x:Name="BtnDane" Text="{translator:Translate tons7}" TextColor="Green" CornerRadius="25"  Grid.Row="2" Grid.Column="2"/>
+                <Button x:Name="BtnMdane" Text="{translator:Translate tons8}"  TextColor="Red" CornerRadius="25"  Grid.Row="2" Grid.Column="3"/>
+                <Button Clicked="BtnDeleat" x:Name="btnDeleat" Text="{translator:Translate pro2}"  IsVisible="false" BackgroundColor="GreenYellow" TextColor="Red" CornerRadius="25"  Grid.Row="2" Grid.Column="0"/>
 
             </Grid>
             <StackLayout >
                 <ListView x:Name="_listView" ItemsSource="{Binding Users}"
                      HasUnevenRows="true" IsPullToRefreshEnabled="True"
-                          ItemSelected="OnListViewItemSelected" >
+                          ItemSelected="OnListViewItemSelected" 
+                          SeparatorColor="Black"
+                          >
                     
 
 
@@ -110,7 +100,7 @@
                 <Button Clicked="Button_Clicked" Text="pdf" TextColor="Red" FontSize="Default" HorizontalOptions="Start" VerticalOptions="Start" CornerRadius="50" BackgroundColor="#2215"   Grid.Row="2" Grid.Column="3"/>
 
             </StackLayout>
-            <StackLayout Padding="15" Margin="15">
+            <StackLayout>
                 <Grid >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
@@ -124,15 +114,9 @@
 
                     </Grid.ColumnDefinitions>
 
-<<<<<<< HEAD
-                    <Label Text ="ديون العميل " TextColor="Red"  Grid.Column="2" FontSize="12" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
-                    <Label Text ="الباقي" TextColor="Purple" Grid.Column="0" Grid.Row="0" FontSize="12" HorizontalOptions="CenterAndExpand"/>
-                    <Label Text =" ما دفعه العميل" TextColor="Green" Grid.Column="1" Grid.Row="0" FontSize="12" HorizontalOptions="CenterAndExpand"/>
-=======
-                    <Label Text ="ديون العميل " TextColor="Red"  Grid.Column="2" FontSize="Small" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
-                    <Label Text ="الباقي" TextColor="Purple" Grid.Column="0" Grid.Row="0" FontSize="Small" HorizontalOptions="CenterAndExpand"/>
-                    <Label Text =" ما دفعه العميل" TextColor="Green" Grid.Column="1" Grid.Row="0" FontSize="Small" HorizontalOptions="CenterAndExpand"/>
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
+                    <Label Text ="{translator:Translate tons8} " TextColor="Red"  Grid.Column="2" FontSize="14" Grid.Row="0"  HorizontalOptions="CenterAndExpand"/>
+                    <Label Text ="{translator:Translate translab2}" TextColor="Purple" Grid.Column="0" Grid.Row="0" FontSize="14" HorizontalOptions="CenterAndExpand"/>
+                    <Label Text ="{translator:Translate tons7}" TextColor="Green" Grid.Column="1" Grid.Row="0" FontSize="14" HorizontalOptions="CenterAndExpand"/>
                         <Label x:Name="EgmalyDaenText" Grid.Column="2" TextColor="Red"        
                               HorizontalOptions="CenterAndExpand" Grid.Row="1" />
                         
@@ -153,10 +137,5 @@
             </StackLayout>
            
         </StackLayout>
-<<<<<<< HEAD
-=======
-           
-       
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
     </ContentPage.Content>
 </ContentPage>

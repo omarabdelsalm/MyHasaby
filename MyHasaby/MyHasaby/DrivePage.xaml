@@ -1,18 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage  xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-            
+              xmlns:translator="clr-namespace:MyHasaby.Extensions"
              x:Class="MyHasaby.DrivePage">
-    
     <ContentPage.Content>
-        <StackLayout>
-            
-            <Button Text="جوجل درايف" Command="{Binding OnGoogleDrive}"  CornerRadius="50"
-                    WidthRequest="50" HeightRequest="50" BackgroundColor="Goldenrod"/>
-            
+        <StackLayout Margin="20">
+            <Label Text="{translator:Translate shar}" 
+                HorizontalOptions="CenterAndExpand" FontSize="Large" TextColor="Black"/>
+            <Button Margin="5" FontSize="Large" Text="{translator:Translate shar1}" BackgroundColor="LightGreen" Clicked="Button_Clicked" TextColor="Black" CornerRadius="50"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

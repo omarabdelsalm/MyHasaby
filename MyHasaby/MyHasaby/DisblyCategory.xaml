@@ -1,29 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Title="تسجيل فروع الاصناف"
-             BackgroundImageSource="fds.jpg"
+              xmlns:translator="clr-namespace:MyHasaby.Extensions"
+             Title="{translator:Translate bra1}"
+             BackgroundColor="#D3D3D3"
              x:Class="MyHasaby.DisblyCategory">
     <ContentPage.Content>
           <StackLayout Padding="10" BackgroundColor="#20122222">
             <Frame BorderColor="Red" Padding="10" Margin="5" BackgroundColor="Beige">
                 <StackLayout Padding="8" Spacing="5" BackgroundColor="Beige">
-                   
-                        <Entry x:Name="EName" PlaceholderColor="Red" Placeholder="الاسم" />
+
+                    <Entry x:Name="EName" PlaceholderColor="Red" TextColor="Red" Placeholder="{translator:Translate EName}" />
                     
-                        <Entry x:Name="Equantity" PlaceholderColor="Red" Placeholder="كمية الصنف" Keyboard="Numeric"/>
-                    
-                        <Entry x:Name="Esoldout" Placeholder="ما تم بيعه" Keyboard="Numeric" PlaceholderColor="Red"/>
-                    
-                        <Entry x:Name="Epurchasprice" Placeholder="سعر الشراء" PlaceholderColor="Red" Keyboard="Numeric"/>
-                    
-                        <Entry x:Name="Esellprice" Placeholder="سعر البيع" Keyboard="Numeric" PlaceholderColor="Red"/>
+                        <Entry x:Name="Equantity" PlaceholderColor="Red" TextColor="Red" Placeholder="{translator:Translate bra2} " Keyboard="Numeric"/>
+
+                    <Entry x:Name="Esoldout" Placeholder="{translator:Translate bra3}" TextColor="Red" Keyboard="Numeric" PlaceholderColor="Red"/>
+
+                    <Entry x:Name="Epurchasprice" Placeholder= "{translator:Translate bra4}" TextColor="Red" PlaceholderColor="Red" Keyboard="Numeric"/>
+
+                    <Entry x:Name="Esellprice" Placeholder="{translator:Translate bra5}" TextColor="Red" Keyboard="Numeric" PlaceholderColor="Red"/>
                 </StackLayout>
                   
             </Frame>
             <StackLayout Padding="8" Spacing="5">
-                <Button Text="تسجيل" FontSize="18" TextColor="White" Clicked="Button_Clicked" Margin="80,0,80,0" CornerRadius="40" BackgroundColor="DarkGreen"/>
+                <Button Text="{translator:Translate btntasgil}" FontSize="18" TextColor="White" Clicked="Button_Clicked" Margin="80,0,80,0" CornerRadius="40" BackgroundColor="DarkGreen"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
+
+<!-- BackgroundImageSource="fds.jpg"-->

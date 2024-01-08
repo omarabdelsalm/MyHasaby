@@ -44,7 +44,7 @@ namespace MyHasaby
             }
             else
             {
-                await DisplayAlert("Attention", "الرجاء الاتصال بالانترنت", "ok");
+                await DisplayAlert("attention", "Please connect to the Internet", "OK");
                 return;
             }
         }

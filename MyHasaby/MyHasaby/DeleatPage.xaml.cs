@@ -31,21 +31,32 @@ namespace MyHasaby
         {
             omar = e.SelectedItem as Person;
 
-
+            btnyes.IsVisible = true;
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            var db = new SQLiteConnection(_dbpath);
-            bool result = await DisplayAlert("انتباه","هل تريد الحذف","Yes","No");
-            if (result==true) {
-                db.Table<Person>().Delete(X => X.ID == omar.ID);
-                db.Table<Users>().Delete(X => X.PersonId == omar.ID);
-            } else { return; }
             
-            _ListView.ItemsSource = await App.User.GetPeopleAsync();
-            return;
-            await Navigation.PushAsync(new ShellPage());
+                var db = new SQLiteConnection(_dbpath);
+            bool result = await DisplayAlert("Attention", "Do you want to delete?", "Yes", "No");
+            if (result == true)
+                {
+                    db.Table<Person>().Delete(X => X.ID == omar.ID);
+                    db.Table<Users>().Delete(X => X.PersonId == omar.ID);
+                await DisplayAlert("Delete", "Delete Successfully", "ok");
+                _ListView.ItemsSource = await App.User.GetPeopleAsync();
+                    return;
+                }
+                else { 
+                return; 
+            }
+
+            }
+            
+            
+            
+           
+          
+            //await Navigation.PushAsync(new ShellPage());
         }
     }
-}

@@ -4,11 +4,13 @@ using Google.Apis.Auth.OAuth2.Responses;
 using Google.Apis.Drive.v3;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
@@ -18,26 +20,38 @@ using Xamarin.Forms.Xaml;
 
 namespace MyHasaby
 {
-    [DesignTimeVisible(false)]
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DrivePage : ContentPage
     {
-
-        List<ValueType> mylist;
-        public Command OnGoogleDrive { get; private set; }
-
-
+        [Obsolete]
         public DrivePage()
         {
             InitializeComponent();
-            BindingContext = new MainViewModel();
-
         }
 
-        
-<<<<<<< HEAD
-        
-=======
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                string _dbpath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "people.db3");
+                string filename = $"temp{DateTime.Now.ToString("dd-MM-yyyy")}.db3";
+                var db = new SQLiteConnection(_dbpath);
+
+                var szRestorePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), filename);
+                db.Backup(szRestorePath, "main");
+                var path = Path.Combine(FileSystem.AppDataDirectory, szRestorePath);
+
+                await Share.RequestAsync(new ShareFileRequest
+                {
+                    Title = "مدير الحسابات",
+                    File = new ShareFile(path)
+                });
+
+            }
+            catch (Exception)
+            {
+                App.Current.MainPage = new ShellPage();
+            }
+        }
     }
 }

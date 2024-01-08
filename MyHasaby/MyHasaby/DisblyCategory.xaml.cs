@@ -50,7 +50,7 @@ namespace MyHasaby
                     Netprofit = Convert.ToInt32(Esellprice.Text)  - Convert.ToInt32(Epurchasprice.Text) 
 
                 });
-                await DisplayAlert("نجاح", "تم اضافة العملية بنجاح", "ok");
+                await DisplayAlert("Successe", "Add Successfully", "OK");
                 await Navigation.PopAsync();
             }
         }
