@@ -2,14 +2,12 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:MyHasaby.Views"
-<<<<<<< HEAD
              xmlns:Traders="clr-namespace:MyHasaby.Traders"
-=======
-             xmlns:Categories="clr-namespace:MyHasaby.Categories"
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
              xmlns:local="clr-namespace:MyHasaby"
-             Padding="20"
-            
+             xmlns:translator="clr-namespace:MyHasaby.Extensions"
+             FlyoutWidth="300"
+             FlyoutBackgroundColor="AliceBlue"
+             
             x:Class="MyHasaby.ShellPage">
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
@@ -17,8 +15,8 @@
                   HeightRequest="200">
                 <Image Aspect="AspectFill"
                        Source="logo_size.jpg"
-                       Opacity="0.6" />
-                <Label Text="مدير التطبيق"
+                       Opacity="0.4" />
+                <Label Text="{translator:Translate home}"
                        TextColor="White"
                        FontAttributes="Bold"
                        FontSize="25"
@@ -27,72 +25,80 @@
             </Grid>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
-    
-    <FlyoutItem Title="تقرير العملاء"
+
+    <FlyoutItem Title="{translator:Translate home1}"
                 Icon="home.png">
         <Tab >
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="تقرير المعاملات"
-                Icon="omrlog.png">
+    <FlyoutItem Title="{translator:Translate home2}"
+                Icon="iconstran.png">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate views:DisblayAllPage}" />
         </Tab>
     </FlyoutItem>
-    
-   
 
-    <FlyoutItem Title="ادارة الاصناف" Icon="iconProduct.jpg">
+
+
+    <FlyoutItem Title="{translator:Translate home3}" Icon="iconProduct.jpg">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate local:AllDBSnf}" />
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="ادارة الموردين" Icon="supplier.jpg">
+    <FlyoutItem Title="{translator:Translate home4}" Icon="team.png">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate Traders:TradersPage}" />
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="مساعدة"
-                Icon="setting.png"
+
+    <FlyoutItem Title="{translator:Translate home5}"
+                Icon="problemsolving.png"
+                
                 >
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate views:MainsPage}" />
         </Tab>
     </FlyoutItem>
-<<<<<<< HEAD
-    <!-- <FlyoutItem Title="مشاركة نسخة احتياطية"
-                Icon="drive.png"
-                >
-=======
-    <FlyoutItem Title="اضافة صنف"
-                Icon="iconProduct.jpg">
-        <Tab>
-            <ShellContent ContentTemplate="{DataTemplate Categories:MainCategory}" />
-        </Tab>
-    </FlyoutItem>
-    <!--<FlyoutItem Title="جوجل درايف"
-                Icon="drive.png">
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
-        <Tab>
-            <ShellContent ContentTemplate="{DataTemplate local:DrivePage}" />
-        </Tab>
-    </FlyoutItem>-->
-    <FlyoutItem Title="تسجيل للتطبيق"
-                Icon="login.png" >
-        <Tab>
-            <ShellContent ContentTemplate="{DataTemplate local:CreativePage}" />
-        </Tab>
-    </FlyoutItem>
-     <FlyoutItem Title="ادارة عمر" Icon="restore.jpg">
+    
+    <!-- <FlyoutItem Title="ادارة عمر" Icon="restore.jpg">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate local:DAllMePage}" />
         </Tab>
     </FlyoutItem>-->
 
-    <MenuItem Text="حفظ نسخة احتياطية" IconImageSource="backup.png" Command="{Binding BackCommand}"/>
-    <MenuItem Text="استعادة النسخة الاحتياطية" IconImageSource="reload.png" Command="{Binding ReCommand}"/>
+    <MenuItem Text="{translator:Translate home6}" IconImageSource="backup.png" Command="{Binding BackCommand}"/>
 
+    <MenuItem Text="{translator:Translate home7}" IconImageSource="reload.png" Command="{Binding ReCommand}"/>
+    <FlyoutItem Title="{translator:Translate home8}"
+               Icon="drive.png">
+
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:DrivePage}" />
+        </Tab>
+    </FlyoutItem>
+
+    <Shell.FlyoutFooterTemplate>
+        <DataTemplate>
+            <StackLayout Margin="5">
+                <Label Text="Omar Elshobky"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       FontSize="19"
+                       HorizontalOptions="Center" />
+                <Label Text="Elmanar"
+                       TextColor="Black"
+                       FontSize="16"
+                       HorizontalOptions="Center" />
+                <Label Text="omar.ealshobky@gmail.com"
+                       FontSize="12"
+                       TextColor="Black"
+                       
+                       HorizontalOptions="Center" />
+                
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutFooterTemplate>
 
 
 </Shell>

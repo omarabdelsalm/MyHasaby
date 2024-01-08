@@ -1,54 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Title="العملاء"
-             FlowDirection="RightToLeft"
+              xmlns:translator="clr-namespace:MyHasaby.Extensions"
+             Title="{translator:Translate cos}"
+            
              x:Class="MyHasaby.MainPage">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem  Clicked="ToolbarItem_Clicked" IconImageSource="add.jpg"/>
-        <ToolbarItem   Clicked="ToolbarItem_Clicked_1"  IconImageSource="rubbish.png"/>
-
+    <ContentPage.ToolbarItems >
+        <ToolbarItem  Clicked="ToolbarItem_Clicked" IconImageSource="add.jpg" />
+        <ToolbarItem   Clicked="ToolbarItem_Clicked_1"  IconImageSource="rubbish.png" />
     </ContentPage.ToolbarItems>
     <ScrollView>
     <StackLayout  BackgroundColor="#e0e0d1">
-<<<<<<< HEAD
             
             <StackLayout Margin="20,35,20,20" x:Name="omar2" IsVisible="false">
 
-                <Button Text="جهات الاتصال" x:Name="btncon" FontSize="Medium"  BackgroundColor="Purple" Margin="5" CornerRadius="75"/>
+                <Button Text="{translator:Translate Contacts}" x:Name="btncon" FontSize="Large"  BackgroundColor="#b160f7" Margin="5" CornerRadius="75"/>
             <Frame CornerRadius="25">
                 <Entry x:Name="nameEntry"
-               Placeholder="الاسم" PlaceholderColor="Red" BackgroundColor="#DEDBDB" TextColor="Green" />
+               Placeholder="{translator:Translate nam2}" PlaceholderColor="Red" TextColor="Green" />
             </Frame>
             <Frame CornerRadius="25">
                 <Entry x:Name="ageEntry"
-               Placeholder="الهاتف" PlaceholderColor="Red"
-=======
-        
-        <StackLayout Margin="20,35,20,20" x:Name="omar2" IsVisible="false">
-                <Button Text="جهات الاتصال" x:Name="btncon"  BackgroundColor="Purple" Margin="5" CornerRadius="75"/>
-            <Frame CornerRadius="25">
-                <Entry x:Name="nameEntry"
-               Placeholder="الاسم" BackgroundColor="#DEDBDB" TextColor="Green" />
+               Placeholder="{translator:Translate nam3}" PlaceholderColor="Red"
+               Keyboard="Numeric"  TextColor="Green"/>
             </Frame>
-            <Frame CornerRadius="25">
-                <Entry x:Name="ageEntry"
-               Placeholder="الهاتف" 
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
-               Keyboard="Numeric" BackgroundColor="#DEDBDB" TextColor="Green"/>
-            </Frame>
-            <Frame CornerRadius="25">
-                <Button Text="اضافة الى السجل"
-                Clicked="OnButtonClicked" />
-           </Frame>
+           
+              <Button Text="{translator:Translate btntasgil}"
+                Clicked="OnButtonClicked" Margin="7" TextColor="Purple"
+                            CornerRadius="25"/>
+         
 
-<<<<<<< HEAD
                
                
-=======
-                <Label  x:Name="test11" />
-
->>>>>>> e3d0996f4d657ca68edcb3f470a0af6bccc04d0b
             </StackLayout>
         
         <StackLayout>

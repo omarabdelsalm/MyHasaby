@@ -17,7 +17,7 @@ namespace MyHasaby
         public int EgMdan { get; set; }
         public override string ToString()
         {
-            return  this.Name + " " + " سداد " +  this.EgMdan +" " + "ديون"  + this.EgDane;
+            return  this.Name + " " + "     |    "+ this.EgMdan +" " + "    |    " + this.EgDane;
         }
     }
 }

@@ -1,36 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Title="تعديل الصنف"
-             BackgroundImageSource="mn.jpg"
+             xmlns:translator="clr-namespace:MyHasaby.Extensions"
+             Title="{translator:Translate tea}"
+             BackgroundColor="#0063"
              x:Class="MyHasaby.EditAllTeCategory">
     <ContentPage.Content>
         <StackLayout Padding="10">
-            <Frame>
-                <StackLayout Padding="8" Spacing="10">
+            <Frame >
+                <StackLayout Padding="8" Spacing="10" >
                     <Label x:Name="InD" IsVisible="false"/>
                     <Label x:Name="InD1" IsVisible="false"/>
                     <Entry x:Name="EName" Placeholder="الاسم"/>
                    
-                        <Entry x:Name="Equantity" Placeholder="الكمية"
+                        <Entry x:Name="Equantity" Placeholder="{translator:Translate fre3}"
                                PlaceholderColor="Red"
                                HorizontalOptions="StartAndExpand" TextColor="green" Keyboard="Numeric"/>
 
-                    <Entry x:Name="Esoldout" Placeholder="الذي تم بيعه" PlaceholderColor="Red"
+                    <Entry x:Name="Esoldout" Placeholder="{translator:Translate fre4}" PlaceholderColor="Red"
                                HorizontalOptions="StartAndExpand"
                                TextColor="Blue" Keyboard="Numeric"/>
 
-                    <Entry x:Name="EMort" Placeholder="مرتجع" PlaceholderColor="Red"
+                    <Entry x:Name="EMort" Placeholder="{translator:Translate bra6}" PlaceholderColor="Red"
                                HorizontalOptions="StartAndExpand"
-                               TextColor="DarkKhaki" Keyboard="Numeric"/>
+                               TextColor="Red" Keyboard="Numeric"/>
                         
-                        <Entry x:Name="Epurchasprice" Placeholder="سعر الجملة"
+                      <Entry x:Name="Epurchasprice" Placeholder="{translator:Translate bra4}"
                                HorizontalOptions="StartAndExpand" PlaceholderColor="Red"
                                TextColor="LawnGreen" Keyboard="Numeric"/>
                         
-                        <Entry x:Name="Esellprice" Placeholder="سعر البيع" PlaceholderColor="Red"
+                        <Entry x:Name="Esellprice" Placeholder="{translator:Translate bra5}" PlaceholderColor="Red"
                                HorizontalOptions="StartAndExpand"
-                               Keyboard="Numeric" TextColor="Bisque" />
+                               Keyboard="Numeric" TextColor="Red" />
                         
                     
 
@@ -39,9 +40,10 @@
 
             </Frame>
             <StackLayout Padding="8" Spacing="10" Orientation="Horizontal">
-                <Button Text="تحديث" Clicked="Button_Clicked" HorizontalOptions="StartAndExpand" CornerRadius="50" FontSize="Medium" BackgroundColor="Green"/>
-                <Button Text="حذف" Clicked="Button_Clicked1" HorizontalOptions="StartAndExpand" CornerRadius="50" FontSize="Medium" BackgroundColor="Red"/>
+                <Button Text="{translator:Translate bra7}" Clicked="Button_Clicked" HorizontalOptions="StartAndExpand" CornerRadius="50" FontSize="Medium" BackgroundColor="Green"/>
+                <Button Text="{translator:Translate pro2}" Clicked="Button_Clicked1" HorizontalOptions="StartAndExpand" CornerRadius="50" FontSize="Medium" BackgroundColor="Red"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
+<!-- BackgroundImageSource="mn.jpg"-->

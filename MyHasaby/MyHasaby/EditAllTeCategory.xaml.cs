@@ -39,7 +39,8 @@ namespace MyHasaby
         {
             if (!string.IsNullOrWhiteSpace(EName.Text) && 
                 !string.IsNullOrWhiteSpace(Equantity.Text) &&
-                !string.IsNullOrWhiteSpace(Esoldout.Text) &&
+                !string.IsNullOrWhiteSpace(Esoldout.Text) 
+                &&
                 !string.IsNullOrWhiteSpace(Epurchasprice.Text) &&
                 !string.IsNullOrWhiteSpace(Esellprice.Text))
             {
@@ -49,13 +50,13 @@ namespace MyHasaby
                     IDCategory = Convert.ToInt32(InD.Text),
                     Name = EName.Text,
                     Quantity = Convert.ToInt32(Equantity.Text),
-                    Purchasprice = Convert.ToInt32(Epurchasprice.Text),
-                    Sellprice = Convert.ToInt32(Esellprice.Text),
+                   Purchasprice = Convert.ToInt32(Epurchasprice.Text),
+                   Sellprice = Convert.ToInt32(Esellprice.Text),
                     Residual = Convert.ToInt32(Equantity.Text) - Convert.ToInt32(Esoldout.Text) + Convert.ToInt32(EMort.Text),
                     Soldout = Convert.ToInt32(Esoldout.Text) - Convert.ToInt32(EMort.Text),
                     Netprofit = Convert.ToInt32(Esellprice.Text) - Convert.ToInt32(Epurchasprice.Text)
             });
-                 await  App.Current.MainPage.DisplayAlert("نجاح", "تم التحيث بنجاح", "ok");
+                 await  App.Current.MainPage.DisplayAlert("Success", "Updated successfully", "OK");
                  await Navigation.PopAsync();
                
             }
@@ -63,7 +64,7 @@ namespace MyHasaby
         private async void Button_Clicked1(object sender, EventArgs e)
         {
             await App.User22.DeleteItemtafAsync(LastCateogry);
-            await App.Current.MainPage.DisplayAlert("حذف", "تم حذف العملية بنجاح", "ok");
+            await App.Current.MainPage.DisplayAlert("Delete", "Delete successfully", "OK");
             await Navigation.PopAsync();
         }
         }
