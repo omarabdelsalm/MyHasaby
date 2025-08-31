@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:MyHasaby"
-             xmlns:views="clr-namespace:MyHasaby.Views"
+             xmlns:Categories="clr-namespace:MyHasaby.Categories"
+             
              x:Class="MyHasaby.Categories.MainCategory">
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
@@ -23,15 +23,15 @@
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
     <FlyoutItem Title="عرض الاصناف"
-                Icon="home.png" >
+                Icon="product.jpg" >
         <Tab>
-            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+            <ShellContent ContentTemplate="{DataTemplate  Categories:DisblyCategory}" />
         </Tab>
     </FlyoutItem>
     <FlyoutItem Title="اضافة صنف"
-                Icon="omrlog.png">
+                Icon="add.jpg">
         <Tab>
-            <ShellContent ContentTemplate="{DataTemplate views:DisblayAllPage}" />
+            <ShellContent ContentTemplate="{DataTemplate Categories:AddCategory}" />
         </Tab>
     </FlyoutItem>
 

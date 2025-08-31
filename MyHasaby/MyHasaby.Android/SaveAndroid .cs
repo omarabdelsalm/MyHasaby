@@ -39,7 +39,7 @@ namespace MyHasaby.Droid
 
             Java.IO.File file = new Java.IO.File(myDir, fileName);
 
-            if (file.Exists()) file.Delete();
+            //if (file.Exists()) file.Delete();
 
             try
             {

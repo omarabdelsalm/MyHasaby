@@ -15,6 +15,7 @@ using static Android.Provider.Settings;
 
 namespace MyHasaby.Droid
 {
+    // know id phone "imie"----------------------------------
     public class GetInfoImplement : IGetDeviceInfo
     {
         string IGetDeviceInfo.GetDeviceID()

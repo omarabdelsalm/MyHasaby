@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundImageSource="logoApp.png" 
+             Title="تسجيل الحساب"
+             x:Class="MyHasaby.CreativePage">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Frame Padding="10" BorderColor="GreenYellow " CornerRadius="50">
+                <Entry x:Name="TxtMyName" Placeholder="ادخل الاسم" FontSize="Medium"/>
+            </Frame>
+            <Frame Padding="10" BorderColor="Aqua" CornerRadius="50">
+                <Entry x:Name="TxtMyPhon" Placeholder="ادخل رقم الهاتف" FontSize="Medium"/>
+            </Frame>
+            <Entry x:Name="TxtMyImei"  IsVisible="False" />
+            <Frame Padding="10" BackgroundColor="Chocolate">
+                <Button x:Name="MyBtn" Clicked="MyBtn_Clicked" Text="تسجيل" Padding="10" FontSize="Medium" BackgroundColor="LightGray" CornerRadius="50"/>
+
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

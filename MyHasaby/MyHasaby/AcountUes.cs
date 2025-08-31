@@ -16,17 +16,21 @@ namespace MyHasaby
         {
             _database = new SQLiteAsyncConnection(dbPath);
             _database.CreateTableAsync<Acontact>();
+           
         }
 
         public Task<List<Acontact>> GetAcontactAsync()
         {
             return _database.Table<Acontact>().ToListAsync();
         }
+        
         public Task<Acontact> GetItemAsync(int personId1)
         {
 
             return _database.Table<Acontact>().Where(i => i.ID == personId1).FirstOrDefaultAsync();
         }
+        
+        
         public Task<int> SaveAcontactAsync(Acontact person)
         {
             

@@ -65,14 +65,14 @@ namespace MyHasaby
                     var driveService = new DriveService(new BaseClientService.Initializer()
                     {
                         HttpClientInitializer = userCredential,
-                        ApplicationName = "my Hasaby",
+                        ApplicationName = " my Hasaby",
                     });
 
 
                     //test google drive
                     DriveServiceHelper helper = new DriveServiceHelper(driveService);
                     var id = await helper.CreateFile();
-                    await helper.SaveFile(id, "temp.db3", "temp.db3");
+                    await helper.SaveFile(id, "people/db3", "people/db3");
                     var content = await helper.ReadFile(id);
                 }
             };
@@ -88,6 +88,9 @@ namespace MyHasaby
                     var presenter = new OAuthLoginPresenter();
                     if (presenter != null)
                         presenter.Login(auth);
+
+                    
+                   
                 }
                 catch (Exception ex)
                 {

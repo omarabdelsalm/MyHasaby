@@ -217,10 +217,7 @@ namespace MyHasaby
         {
             omar = e.SelectedItem as Users;
             btnDeleat.IsVisible = true;
-            //txtid.Text = omar.PersonId.ToString();
-            //if (omar.Mdan==0) { TexDane.Text = omar.Dane.ToString(); } else { TexDane.Text = omar.Mdan.ToString(); }
-
-            //Molhazt.Text = omar.Nots;
+            
         }
         // دالة الحذف
         private async void BtnDeleat(object sender, EventArgs e)
