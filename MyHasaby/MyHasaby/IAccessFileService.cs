@@ -9,6 +9,8 @@ namespace MyHasaby
     {
         void CreateFile(string FileName);
         string CreateFile1();
+        string CreatFile2(string filename);
          string copy();
+      
     }
 }

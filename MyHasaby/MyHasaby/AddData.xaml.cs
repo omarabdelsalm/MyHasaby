@@ -64,15 +64,16 @@ namespace MyHasaby
 
                 });
                 
-                await Navigation.PopAsync();
-                TexDane.Text = txtid.Text = string.Empty;
+               // await Navigation.PopAsync();
+                TexDane.Text  = string.Empty;
+                return;
             }
         }
 
         private async void BtnDane_Clicked(object sender, EventArgs e)
         {
 
-            if (!string.IsNullOrWhiteSpace(TexDane.Text) && !string.IsNullOrWhiteSpace(Molhazt.Text))
+            if (!string.IsNullOrWhiteSpace(TexDane.Text) )
             {
                 await App.User1.SavePersonAsync(new Users
                 {
@@ -97,9 +98,10 @@ namespace MyHasaby
                     EgMdan = db.Table<Users>().Where(i => i.PersonId == PersonId1).Select(x => x.Mdan).Sum()
 
                 });
-                await Navigation.PopAsync();
+                //await Navigation.PopAsync();
 
-                TexDane.Text = txtid.Text = string.Empty;
+                TexDane.Text =  string.Empty;
+                return;
             }
         }
     }

@@ -22,28 +22,24 @@ namespace MyHasaby
                   Name = item.Object.Name,
                   Imei = item.Object.Imei,
                   MyPhon = item.Object.MyPhon,
+                  evect= item.Object.evect,
 
-                  
               }).ToList();
         }
-        public async Task AddPerson(string Imeiy, string name, string MyPhon,bool evect)
-        {
-
-            await firebase
+        public async Task AddPerson(string Imeiy, string name, string MyPhon, string evct) => await firebase
               .Child("Persons")
-              .PostAsync(new Person1() { Imei = Imeiy, Name = name, MyPhon = MyPhon ,evect=false});
-        }
+              .PostAsync(new Person1() { Imei = Imeiy, Name = name, MyPhon = MyPhon, evect = evct });
 
         public async Task<Person1> GetPerson(string Imeiy)
         {
             var allPersons = await GetAllPersons();
             await firebase
               .Child("Persons")
-              .OnceAsync<Person>();
+              .OnceAsync<Person1>();
             return allPersons.Where(a => a.Imei == Imeiy).FirstOrDefault();
         }
 
-        public async Task UpdatePerson(string name, string Imeiy, string MyPhon)
+        public async Task UpdatePerson(string Imeiy, string name, string MyPhon, string evct)
         {
             var toUpdatePerson = (await firebase
               .Child("Persons")
@@ -52,7 +48,7 @@ namespace MyHasaby
             await firebase
               .Child("Persons")
               .Child(toUpdatePerson.Key)
-              .PutAsync(new Person1() { Imei = Imeiy, Name = name, MyPhon = MyPhon });
+              .PutAsync(new Person1() { Imei = Imeiy, Name = name, MyPhon = MyPhon ,evect= evct });
         }
         public async Task DeletePerson(string Imei)
         {

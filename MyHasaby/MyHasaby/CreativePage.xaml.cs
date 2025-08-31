@@ -20,29 +20,59 @@ namespace MyHasaby
         public CreativePage()
         {
             InitializeComponent();
-            var allPersons =  firebaseHelper.GetAllPersons();
            
+            string MyImei = DependencyService.Get<IGetDeviceInfo>().GetDeviceID();
+            
+            TxtMyName.Completed += async (object sender, EventArgs e) =>
+            {
+                var pers1 = await firebaseHelper.GetPerson(MyImei);
+
+                if (MyImei == pers1.Imei)
+                {
+
+                    App.Current.MainPage = new AcontactPage();
+                }
+                else
+                {
+                    TxtMyPhon.Focus();
+                }
+
+            };
+            TxtMyPhon.Completed += async (object sender, EventArgs e) =>
+            {
+                var pers1 = await firebaseHelper.GetPerson(MyImei);
+
+                if (MyImei == pers1.Imei)
+                {
+
+                    App.Current.MainPage = new AcontactPage();
+                }
+
+            };
 
         }
+
         private async void MyBtn_Clicked(object sender, EventArgs e)
         {
            
+            string MyImei = DependencyService.Get<IGetDeviceInfo>().GetDeviceID();
+            
             var current = Connectivity.NetworkAccess;
             if (current == NetworkAccess.Internet)
             {
                 if (TxtMyName.Text != null && TxtMyPhon.Text != null)
                 {
-                    string MyImei = DependencyService.Get<IGetDeviceInfo>().GetDeviceID();
                     TxtMyImei.Text = MyImei;
-                   await firebaseHelper.AddPerson(TxtMyImei.Text, TxtMyName.Text, TxtMyPhon.Text, false);
+                    TxtMyevct.Text  = "ah";
+                   await firebaseHelper.AddPerson(TxtMyImei.Text, TxtMyName.Text, TxtMyPhon.Text,TxtMyevct.Text);
 
                     TxtMyName.Text = string.Empty;
                     TxtMyPhon.Text = string.Empty;
 
                     await DisplayAlert("Success", "تم اضافة البيانات", "OK");
 
-                 await Navigation.PushAsync(new ContentPage());
-                  //App.Current.MainPage = new NavigationPage(new ShellPage());
+                 
+                 App.Current.MainPage = new AcontactPage();
                 }
 
             }
@@ -50,9 +80,9 @@ namespace MyHasaby
             {
               await  DisplayAlert("انتباه", "الرجاء الاتصال بالانترنت", "ok");
             }
-            
-           // App.Current.MainPage = new NavigationPage(new ShellPage());
+                  
 
         }
+       
     }
 }

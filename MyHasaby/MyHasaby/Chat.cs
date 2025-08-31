@@ -7,6 +7,7 @@ namespace MyHasaby
 {
     public class Chat
     {
+        [Obsolete]
         public static void Open(string phoneNumber, string message = null)
         {
             try

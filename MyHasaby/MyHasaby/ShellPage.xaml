@@ -2,18 +2,19 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:MyHasaby.Views"
-             xmlns:Categories="clr-namespace:MyHasaby.Categories"
+             xmlns:Traders="clr-namespace:MyHasaby.Traders"
              xmlns:local="clr-namespace:MyHasaby"
-             Padding="20" 
-       
-             x:Class="MyHasaby.ShellPage">
+             FlyoutWidth="300"
+             FlyoutBackgroundColor="AliceBlue"
+             
+            x:Class="MyHasaby.ShellPage">
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
             <Grid BackgroundColor="Black"
                   HeightRequest="200">
                 <Image Aspect="AspectFill"
                        Source="logo_size.jpg"
-                       Opacity="0.6" />
+                       Opacity="0.4" />
                 <Label Text="مدير التطبيق"
                        TextColor="White"
                        FontAttributes="Bold"
@@ -25,45 +26,78 @@
     </Shell.FlyoutHeaderTemplate>
     
     <FlyoutItem Title="تقرير العملاء"
-                Icon="home.png" >
-        <Tab>
+                Icon="home.png">
+        <Tab >
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
         </Tab>
     </FlyoutItem>
     <FlyoutItem Title="تقرير المعاملات"
-                Icon="omrlog.png">
+                Icon="iconstran.png">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate views:DisblayAllPage}" />
         </Tab>
     </FlyoutItem>
     
+   
+
+    <FlyoutItem Title="ادارة الاصناف" Icon="iconProduct.jpg">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate local:AllDBSnf}" />
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="ادارة الموردين" Icon="team.png">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate Traders:TradersPage}" />
+        </Tab>
+    </FlyoutItem>
+ 
     <FlyoutItem Title="مساعدة"
-                Icon="setting.png">
+                Icon="problemsolving.png"
+                
+                >
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate views:MainsPage}" />
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="اضافة صنف"
-                Icon="iconProduct.jpg">
+    
+    <FlyoutItem Title="ادارة عمر" Icon="restore.jpg">
         <Tab>
-            <ShellContent ContentTemplate="{DataTemplate Categories:MainCategory}" />
+            <ShellContent ContentTemplate="{DataTemplate local:DAllMePage}" />
         </Tab>
-    </FlyoutItem>
-    <!--<FlyoutItem Title="جوجل درايف"
-                Icon="drive.png">
+        </FlyoutItem>
+
+        <MenuItem Text="حفظ نسخة احتياطية" IconImageSource="backup.png" Command="{Binding BackCommand}"/>
+
+    <MenuItem Text="استعادة النسخة الاحتياطية" IconImageSource="reload.png" Command="{Binding ReCommand}"/>
+    <FlyoutItem Title="مشاركة قواعد البيانات"
+               Icon="drive.png">
+
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate local:DrivePage}" />
         </Tab>
-    </FlyoutItem>-->
-    <FlyoutItem Title="تسجيل للتطبيق"
-                Icon="login.png" >
-        <Tab>
-            <ShellContent ContentTemplate="{DataTemplate local:CreativePage}" />
-        </Tab>
     </FlyoutItem>
-    <MenuItem Text="حفظ نسخة احتياطية" IconImageSource="backup.png" Command="{Binding BackCommand}"/>
-    <MenuItem Text="استعادة النسخة الاحتياطية" IconImageSource="reload.png" Command="{Binding ReCommand}"/>
 
+    <Shell.FlyoutFooterTemplate>
+        <DataTemplate>
+            <StackLayout Margin="5">
+                <Label Text="Omar Elshobky"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       FontSize="19"
+                       HorizontalOptions="Center" />
+                <Label Text="Elmanar"
+                       TextColor="Black"
+                       FontSize="16"
+                       HorizontalOptions="Center" />
+                <Label Text="omar.ealshobky@gmail.com"
+                       FontSize="12"
+                       TextColor="Black"
+                       
+                       HorizontalOptions="Center" />
+                
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutFooterTemplate>
 
 
 </Shell>

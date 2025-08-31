@@ -29,7 +29,7 @@ namespace MyHasaby
         public int egmaijdaen;
         public int egmaijdaen1;
         public int egmaijdaen2;
-        internal object listView;
+       // internal object listView;
         public string name2;
         public int id2;
         public int item1;
@@ -56,6 +56,7 @@ namespace MyHasaby
 
         private async void BtnMdane_Clicked(object sender, EventArgs e)
         {
+            
             if (!string.IsNullOrWhiteSpace(TexDane.Text) && !string.IsNullOrWhiteSpace(txtid.Text))
             {
                 await App.User1.SavePersonAsync(new Users
@@ -82,10 +83,10 @@ namespace MyHasaby
 
                 });
                 TexDane.Text = string.Empty;
-                txtid.Text = string.Empty;
+                
                 Molhazt.Text = string.Empty;
-
-                await Navigation.PopAsync();
+                return;
+               // await Navigation.PopAsync();
                 
             }
         }
@@ -93,7 +94,7 @@ namespace MyHasaby
         private async void BtnDane_Clicked(object sender, EventArgs e)
         {
             
-            if (!string.IsNullOrWhiteSpace(TexDane.Text) && !string.IsNullOrWhiteSpace(Molhazt.Text))
+            if (!string.IsNullOrWhiteSpace(TexDane.Text) )
             {
                 await App.User1.SavePersonAsync(new Users
                 {
@@ -121,15 +122,16 @@ namespace MyHasaby
                     EgMdan = db.Table<Users>().Where(i => i.PersonId == PersonId1).Select(x => x.Mdan).Sum()
                 });
                 TexDane.Text =string.Empty ;
-                txtid.Text = string.Empty;
+               
                 Molhazt.Text = string.Empty;
-                await Navigation.PopAsync();
+                return;
+                //await Navigation.PopAsync();
                
             }
         }
 
-       
-        protected override async void OnAppearing()
+
+        protected override void OnAppearing()
         {
             base.OnAppearing();
             var db = new SQLiteConnection(_dbpath);
@@ -139,7 +141,7 @@ namespace MyHasaby
 
         }
         //دالة جمع الحقول
-        private async void AddEgmalyHasabAsync()
+        private void AddEgmalyHasabAsync()
         {
             string _dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "people.db3");
 
@@ -225,8 +227,13 @@ namespace MyHasaby
             
             var db = new SQLiteConnection(_dbpath);
             try {
-                await App.User1.DeleteItemAsync(omar);
-                DisplayAlert("حذف","تم حذف العملية بنجاح","'تم");
+                bool result = await DisplayAlert("انتباه", "هل تريد الحذف", "Yes", "No");
+                if (result == true)
+                {
+                    await App.User1.DeleteItemAsync(omar);
+                   await DisplayAlert("حذف", "تم حذف العملية بنجاح", "ok");
+                }
+                else { return; }
 
                 
                 var PersonId1 = int.Parse(txtid.Text);

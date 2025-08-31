@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="عرض الموردين"
+             
+             x:Class="MyHasaby.Traders.TradersPage">
+   
+        <ContentPage.ToolbarItems>
+            <ToolbarItem  Clicked="ToolbarItem_Clicked" Text="اضافة مورد"  IconImageSource="add.jpg"/>
+        </ContentPage.ToolbarItems>
+    <StackLayout BackgroundColor="Black"  Margin="0" Padding="5" Opacity=".9">
+        <ScrollView>
+            <ListView x:Name="_ListView" 
+                  SeparatorColor="White"
+                  HasUnevenRows="False" >
+                     
+                     
+                 
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="مسح" Clicked="MenuItem_Clicked" CommandParameter="{Binding .}" IconImageSource="rubbish.png"/>
+                                <MenuItem Text="اضافة" Clicked="MenuItem_Clicked_1" CommandParameter="{Binding .}" IconImageSource="iconsedit.png"/>
+                            </ViewCell.ContextActions>
+                                <StackLayout Orientation="Horizontal" Padding="0"  Spacing="30" Margin="0" BackgroundColor="Black">
+                                   <StackLayout  >
+                                          <Label 
+                                                 Text="{Binding Name}"
+                                                  FontSize="16" 
+                                                  HorizontalOptions="StartAndExpand" 
+                                                  TextColor="WhiteSmoke" 
+                                                  />
+                                          <Label 
+                                                  HorizontalOptions="StartAndExpand"       
+                                                  Text="{Binding Cuntry}"
+                                                               FontSize="14"
+                                                                TextColor="BlanchedAlmond" 
+                                                                      
+                                                                  />
+                                    </StackLayout>
+                                <StackLayout>
+                                    <Label 
+                                                     HorizontalOptions="End"    
+                                                     Text="{Binding Phone}"
+                                                     FontSize="14"
+                                                     TextColor="GhostWhite"         
+                                                    />
+                                    <Label 
+                                                 FontSize="14"     
+                                                 Text="{Binding CreateAt}"
+                                                 HorizontalOptions="End" 
+                                                 TextColor="GhostWhite"         
+                                                />
+                                </StackLayout>
+                               
+                                </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+        </StackLayout>
+</ContentPage>

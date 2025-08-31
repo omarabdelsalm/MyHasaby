@@ -4,23 +4,23 @@
              Title="العملاء"
              FlowDirection="RightToLeft"
              x:Class="MyHasaby.MainPage">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem  Clicked="ToolbarItem_Clicked" IconImageSource="add.jpg"/>
-        <ToolbarItem   Clicked="ToolbarItem_Clicked_1"  IconImageSource="rubbish.png"/>
-
+    <ContentPage.ToolbarItems >
+        <ToolbarItem  Clicked="ToolbarItem_Clicked" IconImageSource="add.jpg" />
+        <ToolbarItem   Clicked="ToolbarItem_Clicked_1"  IconImageSource="rubbish.png" />
     </ContentPage.ToolbarItems>
     <ScrollView>
     <StackLayout  BackgroundColor="#e0e0d1">
-        
-        <StackLayout Margin="20,35,20,20" x:Name="omar2" IsVisible="false">
-                <Button Text="جهات الاتصال" x:Name="btncon"  BackgroundColor="Purple" Margin="5" CornerRadius="75"/>
+            
+            <StackLayout Margin="20,35,20,20" x:Name="omar2" IsVisible="false">
+
+                <Button Text="جهات الاتصال" x:Name="btncon" FontSize="Medium"  BackgroundColor="Purple" Margin="5" CornerRadius="75"/>
             <Frame CornerRadius="25">
                 <Entry x:Name="nameEntry"
-               Placeholder="الاسم" BackgroundColor="#DEDBDB" TextColor="Green" />
+               Placeholder="الاسم" PlaceholderColor="Red" BackgroundColor="#DEDBDB" TextColor="Green" />
             </Frame>
             <Frame CornerRadius="25">
                 <Entry x:Name="ageEntry"
-               Placeholder="الهاتف" 
+               Placeholder="الهاتف" PlaceholderColor="Red"
                Keyboard="Numeric" BackgroundColor="#DEDBDB" TextColor="Green"/>
             </Frame>
             <Frame CornerRadius="25">
@@ -28,8 +28,8 @@
                 Clicked="OnButtonClicked" />
            </Frame>
 
-                <Label  x:Name="test11" />
-
+               
+               
             </StackLayout>
         
         <StackLayout>

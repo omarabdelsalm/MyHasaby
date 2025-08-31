@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyHasaby.DAllMePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+             <Entry x:Name="EName"/>
+            <Entry x:Name="EPhone"/>
+            <Entry x:Name="Eimei"/>
+            <Entry x:Name="Eevect"/>
+            <Button Text="update" Clicked="Button_Clicked"/>
+        </StackLayout>
+        <StackLayout>
+                <ListView x:Name="listview" HasUnevenRows="true"
+          ItemSelected="listview_ItemSelected" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Spacing="5">
+                                    <Label Text="{Binding Name}" Margin="2"/>
+                                    <Label Text="{Binding Imei}" Margin="2"/>
+                                    <Label Text="{Binding MyPhon}" Margin="2"/>
+                                    <Label Text="{Binding evect}" Margin="2"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+        </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -9,6 +9,6 @@ namespace MyHasaby
         public string Imei { get; set; }
         public string Name { get; set; }
         public string MyPhon { get; set; }
-        public Boolean evect { get; set; }
+        public string evect { get; set; }
     }
 }

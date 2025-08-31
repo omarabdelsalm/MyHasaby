@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            Title="اضافة صنف جديد"
+             x:Class="MyHasaby.AddCategory">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <StackLayout Orientation="Horizontal">
+                <Entry Placeholder="اضافة صنف جديد" x:Name="CatName"
+                       HorizontalOptions="StartAndExpand"
+                       TextColor="DarkGreen" WidthRequest="250" PlaceholderColor="Red" BackgroundColor="Beige" FontSize="Large"/>
+                <Label Text="اضافة صنف جديد" TextColor="red" HorizontalOptions="EndAndExpand"/>
+
+            </StackLayout>
+             <Button  Text="تسجيل" Clicked="Button_Clicked" FontSize="Large" CornerRadius="90" BackgroundColor="green"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
